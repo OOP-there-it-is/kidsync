@@ -37,7 +37,7 @@ public class UsersController {
     @GetMapping("/teacher")
     public String showTeacherRegister(Model model){
         model.addAttribute("user", new User());
-        return "users/register";
+        return "users/teacher";
     }
 
     @PostMapping("/teacher")
