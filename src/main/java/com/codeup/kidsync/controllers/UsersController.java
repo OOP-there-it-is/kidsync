@@ -20,6 +20,12 @@ public class UsersController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @GetMapping("/home")
+    public String yourPage(Model vModel){
+        vModel.addAttribute("user", users.findAll());
+        return "users/homePage";
+    }
+
     @GetMapping("/register")
     public String showParentRegister(Model model){
         model.addAttribute("user", new User());

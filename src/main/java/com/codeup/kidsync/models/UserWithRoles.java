@@ -16,6 +16,8 @@ public class UserWithRoles extends User implements UserDetails {
         this.userRoles = userRoles;
     }
 
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return AuthorityUtils.commaSeparatedStringToAuthorityList("");
