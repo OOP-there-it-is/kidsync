@@ -5,4 +5,6 @@ package com.codeup.kidsync.repositories;
 
 public interface UsersRepository extends CrudRepository<User, Long> {
     User findByEmail(String email);
+
+//    String findByEmail();
 }
