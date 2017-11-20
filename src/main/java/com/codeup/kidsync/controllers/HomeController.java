@@ -11,7 +11,7 @@ public class HomeController {
     @GetMapping("/")
 //    @ResponseBody
     public String welcome(){
-        return "home";
+        return "index";
     }
 
 
