@@ -25,14 +25,23 @@ public class User {
     private String phone;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Student> students;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<Student> students;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 //    private List<Post> posts;
 
     public User() {
 
+    }
+
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        f_name = copy.f_name;
+        l_name = copy.l_name;
+        password = copy.password;
+        phone = copy.phone;
     }
 
     public User(String f_name, String l_name, String email, String password, int role, String phone) {
