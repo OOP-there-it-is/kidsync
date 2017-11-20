@@ -21,13 +21,28 @@ public class UsersController {
     }
 
     @GetMapping("/register")
-    public String showRegisterForm(Model model){
+    public String showParentRegister(Model model){
         model.addAttribute("user", new User());
         return "users/register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user){
+    public String saveParent(@ModelAttribute User user){
+        user.setRole(2);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        users.save(user);
+        return "redirect:/login";
+    }
+
+    @GetMapping("/teacher")
+    public String showTeacherRegister(Model model){
+        model.addAttribute("user", new User());
+        return "users/register";
+    }
+
+    @PostMapping("/teacher")
+    public String saveTeacher(@ModelAttribute User user){
+        user.setRole(1);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         users.save(user);
         return "redirect:/login";
