@@ -46,4 +46,10 @@ public class UsersController {
         users.save(user);
         return "redirect:/login";
     }
+
+    @GetMapping("/signUp")
+    public String showSignUp(Model model){
+        model.addAttribute("user", new User());
+        return "users/signUp";
+    }
 }

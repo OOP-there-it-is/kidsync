@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/header :: main-header('All posts')"></head>
+<!--<meta charset="UTF-8" />-->
+<!--<title>Home</title>-->
+<body>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
+
+<h1>Sign up Page</h1>
+
+<div class="col-md-6">
+    <a th:href="${'teacher'}" class="btn btn-block btn-warning">Sign up as Teacher</a>
+    <a th:href="${'register'}" class="btn btn-block btn-warning">Sign up as Parent</a>
+
+    <br />
+</div>
+
+</body>
+</html>
