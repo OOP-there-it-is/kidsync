@@ -42,7 +42,6 @@ public class UsersController {
 
     @PostMapping("/teacher")
     public String saveTeacher(@ModelAttribute User user){
-        user.setRole(1);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         users.save(user);
         return "redirect:/login";
