@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/header :: main-header('All posts')"></head>
+    <!--<meta charset="UTF-8" />-->
+    <!--<title>Home</title>-->
 <body>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
 
-<h1>This is the home page</h1>
+<h1>Welcome to Kidsync's Home Page!!</h1>
 
 </body>
 </html>
