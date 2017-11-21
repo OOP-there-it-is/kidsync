@@ -2,17 +2,23 @@ package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.twillio.SendSms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class UsersController {
     private UsersRepository users;
     private PasswordEncoder passwordEncoder;
+    private SendSms send;
+
 
     @Autowired
     public UsersController(UsersRepository users, PasswordEncoder passwordEncoder) {
@@ -58,5 +64,18 @@ public class UsersController {
     public String showSignUp(Model model){
         model.addAttribute("user", new User());
         return "users/signUp";
+    }
+
+    @GetMapping("/sms")
+    public String showForm(Model vModel){
+        vModel.addAttribute("user", users.findAll());
+        return "users/sms";
+    }
+
+    @PostMapping("/sms")
+    public String sendSms(HttpServletRequest request){
+        String phone = request.getParameter("phone");
+        System.out.println(send.sendCode(phone));
+        return "redirect:/login";
     }
 }
