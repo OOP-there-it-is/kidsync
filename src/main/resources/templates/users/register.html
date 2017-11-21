@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--<head th:replace="fragments/head :: main-header('Register')">-->
@@ -13,14 +15,16 @@
 <div class="container">
     <form th:action="@{/register}" method="POST" th:object="${user}">
         <div class="row">
-            <h2 class="kid-title">KidSYNC Registeration</h2>
-            <div class="input-group input-group-icon name-field">
-                <input id="f_name" th:field="*{f_name}" placeholder="First Name" class="f-name-input"/>
-                <div class="input-icon"><i class="fa fa-user"></i></div>
+            <h2 class="kid-title">KidSYNC Parent Registeration</h2>
+            <div>
                 <div class="input-group input-group-icon name-field">
+                    <input id="f_name" th:field="*{f_name}" placeholder="First Name" class="f-name-input"/>
+                    <div class="input-icon"><i class="fa fa-user"></i></div>
                     <input id="l_name" th:field="*{l_name}"  placeholder="Last Name" class="l-name-input"/>
                     <div class="input-icon"><i class="fa fa-user"></i></div>
                 </div>
+                <!--<div class="input-group input-group-icon name-field">-->
+                <!--</div>-->
             </div>
             <div class="input-group input-group-icon">
                 <input id="email" th:field="*{email}" placeholder="Email Adress"/>
@@ -34,6 +38,10 @@
                 <input id="phone" th:field="*{phone}" placeholder="Phone"/>
                 <div class="input-icon"><i class="fa fa-key"></i></div>
             </div>
+        </div>
+        <div>
+
+        <input value="Sign me up!" type="submit" />
         </div>
     </form>
 </div>
@@ -54,20 +62,20 @@
 
 <!--<form th:action="@{/register}" method="POST" th:object="${user}">-->
 
-    <!--<label for="f_name">First Name</label>-->
-    <!--<input id="f_name" th:field="*{f_name}" />-->
-    <!--<label for="l_name">Last Name</label>-->
-    <!--<input id="l_name" th:field="*{l_name}" />-->
+<!--<label for="f_name">First Name</label>-->
+<!--<input id="f_name" th:field="*{f_name}" />-->
+<!--<label for="l_name">Last Name</label>-->
+<!--<input id="l_name" th:field="*{l_name}" />-->
 
-    <!--<label for="email">Email</label>-->
-    <!--<input id="email" th:field="*{email}" />-->
-    <!--<label for="phone">Phone number</label>-->
-    <!--<input id="phone" th:field="*{phone}" />-->
+<!--<label for="email">Email</label>-->
+<!--<input id="email" th:field="*{email}" />-->
+<!--<label for="phone">Phone number</label>-->
+<!--<input id="phone" th:field="*{phone}" />-->
 
-    <!--<label for="password">Password</label>-->
-    <!--<input id="password" type="password" th:field="*{password}" />-->
+<!--<label for="password">Password</label>-->
+<!--<input id="password" type="password" th:field="*{password}" />-->
 
-    <!--<input value="Sign me up!" type="submit" />-->
+<!--<input value="Sign me up!" type="submit" />-->
 <!--</form>-->
 
 <!--</body>-->
