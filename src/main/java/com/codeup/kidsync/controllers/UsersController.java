@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UsersController {
     private UsersRepository users;
     private PasswordEncoder passwordEncoder;
-    private SendSms send;
+
 
 
     @Autowired
@@ -75,7 +75,8 @@ public class UsersController {
     @PostMapping("/sms")
     public String sendSms(HttpServletRequest request){
         String phone = request.getParameter("phone");
-        System.out.println(send.sendCode(phone));
+        SendSms send = new SendSms();
+        send.sendCode(phone);
         return "redirect:/login";
     }
 }

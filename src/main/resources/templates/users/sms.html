@@ -7,10 +7,9 @@
 <body>
 <p> Enter phone number with area code. No spaces or dashes</p>
 <div>
-    <form action="/sms" method="POST">
-
+    <form th:action="@{/sms}" th:method="post">
     <label for="phone">Parents Number</label>
-    <input id="phone" placeholder="Ex 5557779999"/>
+    <input id="phone" name="phone"/>
     <input value="Send Invitation Code" type="submit"/>
     </form>
 </div>
