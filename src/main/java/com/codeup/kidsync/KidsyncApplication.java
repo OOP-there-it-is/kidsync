@@ -15,4 +15,6 @@ public class KidsyncApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(KidsyncApplication.class);
 	}
+
+
 }
