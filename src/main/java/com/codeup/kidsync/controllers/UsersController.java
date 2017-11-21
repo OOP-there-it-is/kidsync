@@ -71,6 +71,12 @@ public class UsersController {
     public String showInviteForm(Model model) {
         model.addAttribute("user", new User());
         return "users/invite";
+    }
+
+    @PostMapping("/invite")
+    public String enterCode(){
+        return "users/homePage";
+    }
 
     @GetMapping("/sms")
     public String showForm(Model vModel){
@@ -80,10 +86,11 @@ public class UsersController {
 
     @PostMapping("/sms")
     public String sendSms(HttpServletRequest request){
-        String phone = request.getParameter("phone");
-        SendSms send = new SendSms();
-        send.sendCode(phone);
-        return "redirect:/login";
+            String phone = request.getParameter("phone");
+            SendSms send = new SendSms();
+            send.sendCode(phone);
+            return "redirect:/invite";
+        }
 
-    }
+
 }
