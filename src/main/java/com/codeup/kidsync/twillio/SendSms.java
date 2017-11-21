@@ -1,7 +1,5 @@
 package com.codeup.kidsync.twillio;
 
-
-import com.codeup.kidsync.Config;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -23,13 +21,5 @@ public class SendSms  {
                 new PhoneNumber("+17123555738"),
                 newMsg
         ).create();
-    }
-
-    public static void main(String[] args) {
-         SendSms send = new SendSms();
-
-         send.sendCode("4029577924");
-
-
     }
 }
