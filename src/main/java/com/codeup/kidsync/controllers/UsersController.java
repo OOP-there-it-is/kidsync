@@ -66,6 +66,12 @@ public class UsersController {
         return "users/signUp";
     }
 
+
+    @GetMapping("/invite")
+    public String showInviteForm(Model model) {
+        model.addAttribute("user", new User());
+        return "users/invite";
+
     @GetMapping("/sms")
     public String showForm(Model vModel){
         vModel.addAttribute("user", users.findAll());
@@ -78,5 +84,6 @@ public class UsersController {
         SendSms send = new SendSms();
         send.sendCode(phone);
         return "redirect:/login";
+
     }
 }
