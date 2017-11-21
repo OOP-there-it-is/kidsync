@@ -59,4 +59,10 @@ public class UsersController {
         model.addAttribute("user", new User());
         return "users/signUp";
     }
+
+    @GetMapping("/invite")
+    public String showInviteForm(Model model) {
+        model.addAttribute("user", new User());
+        return "users/invite";
+    }
 }
