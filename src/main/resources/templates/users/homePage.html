@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<head>
-    <meta charset="UTF-8"/>
-    <title>Welcome</title>
-</head>
+<head th:replace="fragments/header :: main-header('Your Home Page')"></head>
+    <!--<meta charset="UTF-8"/>-->
+    <!--<title>Welcome</title>-->
+<!--</head>-->
 <body>
-<div>
-
-</div>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
 <p>
 <h1> Welcome to YOUR Kidsync's Home Page!!</h1>
 </p>
