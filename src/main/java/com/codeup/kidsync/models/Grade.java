@@ -3,8 +3,8 @@ package com.codeup.kidsync.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "gradebook")
-public class GradeBook {
+@Table(name = "grades")
+public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -12,8 +12,9 @@ public class GradeBook {
     private int rating;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String notes;
-    @Column(nullable = false)
-    private long student_id;
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -23,5 +24,13 @@ public class GradeBook {
         this.student = student;
     }
 
+    public Grade() {
+    }
 
+    public Grade(long id, int rating, String notes, Student student) {
+        this.id = id;
+        this.rating = rating;
+        this.notes = notes;
+        this.student = student;
+    }
 }

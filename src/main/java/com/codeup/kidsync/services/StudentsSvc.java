@@ -6,8 +6,6 @@ import com.codeup.kidsync.repositories.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
     @Service //Step 1 Annotate class- Spring Boot can't create object
     public class StudentsSvc {
 

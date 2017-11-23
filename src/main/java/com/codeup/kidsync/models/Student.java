@@ -2,6 +2,7 @@ package com.codeup.kidsync.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -15,7 +16,6 @@ public class Student {
     private String l_name;
     @Column(columnDefinition = "TEXT")
     private String special_needs;
-
 
 
     @ManyToOne

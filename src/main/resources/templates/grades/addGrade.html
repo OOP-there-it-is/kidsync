@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/grades/add}" method="post" th:object="${grade}">
+    <div th:each="student : ${students}">
+        <h1 th:text="${post.title}"></h1>
+        <p th:text="${post.body}"></p>
+        <span th:text="${post.user.email}"></span>
+        <br/>
+    </div>
+
+    <label for="rating">Rating</label>
+    <select>
+        <option id="rating" th:field="*{rating}"></option>
+    </select>
+    <input type="submit"/>
+</form>
+
+
+</body>
+</html>
