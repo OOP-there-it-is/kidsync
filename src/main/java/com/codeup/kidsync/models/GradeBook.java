@@ -14,4 +14,14 @@ public class GradeBook {
     private String notes;
     @Column(nullable = false)
     private long student_id;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+
 }

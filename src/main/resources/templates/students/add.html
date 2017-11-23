@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
+
+<form th:action="@{/students/add}" method="post" th:object="${student}">
+    <label for="f_name">First Name</label>
+    <input id="f_name" th:field="*{f_name}"/>
+    <label for="l_name">Last Name</label>
+    <input id="l_name" th:field="*{l_name}"/>
+    <label for="special_needs">Special needs</label>
+    <input id="special_needs" th:field="*{special_needs}"/>
+    <input type="submit"/>
+</form>
+
 
 </body>
 </html>

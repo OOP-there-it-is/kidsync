@@ -13,10 +13,9 @@ public class Student {
     private String f_name;
     @Column(nullable = false)
     private String l_name;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String special_needs;
-    @Column(nullable = false)
-    private Date dob;
+
 
 
     @ManyToOne
@@ -28,22 +27,21 @@ public class Student {
     }
 
     public Student(){
-
     }
 
 
-    public Student(String f_name, String l_name, String special_needs, Date dob) {
+    public Student(String f_name, String l_name, String special_needs) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
-        this.dob = dob;
+
     }
 
-    public Student(Long id, String f_name, String l_name, String special_needs, Date dob, User user) {
+    public Student(Long id, String f_name, String l_name, String special_needs, User user) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
-        this.dob = dob;
+
         this.user = user;
     }
 
@@ -79,13 +77,13 @@ public class Student {
         this.special_needs = special_needs;
     }
 
-    public Date getDob() {
-        return dob;
-    }
+//    public Date getDob() {
+//        return dob;
+//    }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
+//    public void setDob(Date dob) {
+//        this.dob = dob;
+//    }
 
     public User getUser() {
         return user;
