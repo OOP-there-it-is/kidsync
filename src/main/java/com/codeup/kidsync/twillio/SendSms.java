@@ -1,7 +1,7 @@
 package com.codeup.kidsync.twillio;
 
 
-//import com.codeup.kidsync.Config;
+
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -20,7 +20,7 @@ public class SendSms  {
 
         Message message = Message.creator(
                 new PhoneNumber("+1" + phone),
-                new PhoneNumber("+17123555738"),
+                new PhoneNumber("+17123555738"), "Here is your verification code! " +
                 newMsg
         ).create();
     }

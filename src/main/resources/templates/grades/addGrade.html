@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/grades/add}" method="post" th:object="${grade}">
+    <label for="rating">Rating</label>
+    <select>
+        <option id="rating" th:field="*{rating}"></option>
+    </select>
+    <input type="submit"/>
+</form>
+
+
+</body>
+</html>
