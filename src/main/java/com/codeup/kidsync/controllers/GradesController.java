@@ -28,7 +28,7 @@ public class GradesController {
     @GetMapping("/grades/add")
     public String AddGrade(Model vModel) {
         vModel.addAttribute("grade", new Grade());
-        return "students/add";
+        return "grades/add";
     }
 
     @PostMapping("/grades/add") //
