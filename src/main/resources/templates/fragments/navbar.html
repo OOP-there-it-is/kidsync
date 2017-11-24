@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li sec:authorize="isAuthenticated()">
                     <form th:action="@{/logout}" th:method="post">
-                        <a href="/posts"> Signed in as <span th:text="${#authentication.principal.f_name}"></span></a>
+                        <a href="/posts" class="glyphicon glyphicon-user"> Signed in as <span th:text="${#authentication.principal.f_name}"></span></a>
                         <button class="btn-link btn" style="margin-bottom: 8px">Logout</button>
                     </form>
                 </li>

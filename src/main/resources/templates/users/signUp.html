@@ -8,12 +8,39 @@
 
 <h1>Sign up Page</h1>
 
-<div class="col-md-6">
-    <a th:href="${'teacher'}" class="btn btn-block btn-warning">Sign up as Teacher</a>
-    <a th:href="${'register'}" class="btn btn-block btn-warning">Sign up as Parent</a>
+<!--<div class="col-md-6">-->
 
-    <br />
+    <!--<br />-->
+<!--</div>-->
+
+
+<div class="row">
+    <div class="col-sm-6 col-md-5">
+        <div class="thumbnail">
+                <h3>TEACHERS</h3>
+            <img src="/img/teacher_parent_communication.png" alt="..."/>
+            <div class="caption">
+                <h4><p>this is where the teachers will click to sign up</p></h4>
+                <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5>Sign up as Teacher</h5></a>
+                <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-5">
+        <div class="thumbnail">
+                <h3>PARENTS</h3>
+            <img src="/img/teacher_parent_communication.png" alt="..."/>
+            <div class="caption">
+                <h4><p>This is where parents will sign up</p></h4>
+                <a th:href="${'register'}" class="btn btn-block btn-warning"><h5>Sign up as Parent</h5></a>
+                <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 
 </body>
 </html>
