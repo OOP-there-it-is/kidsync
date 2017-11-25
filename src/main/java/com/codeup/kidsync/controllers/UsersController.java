@@ -2,6 +2,7 @@ package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.twillio.CheckCode;
 import com.codeup.kidsync.twillio.SendSms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -86,11 +87,28 @@ public class UsersController {
 
     @PostMapping("/sms")
     public String sendSms(HttpServletRequest request){
-            String phone = request.getParameter("phone");
-            SendSms send = new SendSms();
-            send.sendCode(phone);
-            return "redirect:/invite";
-        }
+        String phone = request.getParameter("phone");
+        SendSms send = new SendSms();
+        send.sendCode(phone);
+        return "redirect:/invite";
+    }
 
+
+    @GetMapping("/verifyCode")
+    public String verifyCode(Model vModel){
+        vModel.addAttribute("user", users.findAll());
+        return "users/verifyCode";
+    }
+
+    @PostMapping("/verifyCode")
+    public String verifyCode(HttpServletRequest request){
+        String verify = request.getParameter("verify");
+        CheckCode checkCode = new CheckCode();
+        if(!checkCode.goodCode(verify)){
+            return "users/verifyCode";
+        } else {
+            return "users/homePage";
+        }
+    }
 
 }

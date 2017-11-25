@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/verify}" th:method="post">
+    <label for="verify">Please enter Invitation code</label>
+    <br/>
+    <input id="verify" name="verify"/>
+    <input value="Verify!" type="submit"/>
+</form>
+</body>
+</html>

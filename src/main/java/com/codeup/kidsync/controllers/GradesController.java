@@ -25,13 +25,13 @@ public class GradesController {
         this.gradesDoa = gradesDoa;
     }
 
-    @GetMapping("/grades/add")
+    @GetMapping("/grades/addGrade")
     public String AddGrade(Model vModel) {
         vModel.addAttribute("grade", new Grade());
-        return "grades/add";
+        return "grades/addGrade";
     }
 
-    @PostMapping("/grades/add") //
+    @PostMapping("/grades/addGrade") //
     public String AddGrade(@ModelAttribute Grade grade) {
         Student student = (Student) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         grade.setStudent(student);
