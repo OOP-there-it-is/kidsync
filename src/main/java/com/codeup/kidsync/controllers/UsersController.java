@@ -9,8 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -67,16 +65,21 @@ public class UsersController {
         return "users/signUp";
     }
 
-
     @GetMapping("/invite")
-    public String showInviteForm(Model model) {
-        model.addAttribute("user", new User());
+    public String showInviteForm(Model vModel){
+        vModel.addAttribute("user", users.findAll());
         return "users/invite";
     }
 
+
     @PostMapping("/invite")
-    public String enterCode(){
-        return "users/homePage";
+    public String enterCode(HttpServletRequest request) {
+        String code = request.getParameter("verify");
+        CheckCode checkCode = new CheckCode();
+        if(!checkCode.goodCode(code)){
+            return "users/invite";
+        }
+        return "users/register";
     }
 
     @GetMapping("/sms")
@@ -92,23 +95,4 @@ public class UsersController {
         send.sendCode(phone);
         return "redirect:/invite";
     }
-
-
-    @GetMapping("/verifyCode")
-    public String verifyCode(Model vModel){
-        vModel.addAttribute("user", users.findAll());
-        return "users/verifyCode";
-    }
-
-    @PostMapping("/verifyCode")
-    public String verifyCode(HttpServletRequest request){
-        String verify = request.getParameter("verify");
-        CheckCode checkCode = new CheckCode();
-        if(!checkCode.goodCode(verify)){
-            return "users/verifyCode";
-        } else {
-            return "users/homePage";
-        }
-    }
-
 }
