@@ -16,8 +16,6 @@ public class Student {
     private String l_name;
     @Column(columnDefinition = "TEXT")
     private String special_needs;
-
-
     @ManyToOne
     @JoinColumn(name = "user_Id")
     private User user;

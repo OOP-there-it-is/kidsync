@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div id="myStudents" class="col-md-6">
+    <div th:each="student : ${students}">
+        <h1 th:text="${student.f_name}"></h1>
+        <br/>
+    </div>
+</div>
+<div id="grades" class="col-md-6">
+    <span th:each="grade : ${grades}">
+        <h1 th:text="${grade.rating}"></h1>
+        <br/>
+    </span>
+</div>
+</body>
+</html>

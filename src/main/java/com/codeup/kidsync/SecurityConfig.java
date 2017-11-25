@@ -1,6 +1,5 @@
 package com.codeup.kidsync;
 
-
 import com.codeup.kidsync.services.UserDetailsLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

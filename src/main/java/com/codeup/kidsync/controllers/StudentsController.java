@@ -30,13 +30,13 @@ public class StudentsController {
     public String showAll(Model vModel) {
         vModel.addAttribute("students", studentsSvc.findAll());
         vModel.addAttribute("users", studentsDoa.findAll());
-        return "students/index";
+        return "students/view";
     }
     @GetMapping("/students/{id}")
     public String singlePost(@PathVariable int id, Model vModel) {
         Student student = new Student();
         vModel.addAttribute("student", studentsSvc.findOne(id));
-        return "students/show";
+        return "students/view";
     }
 
     @GetMapping("/students/add")
