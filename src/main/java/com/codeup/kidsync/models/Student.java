@@ -32,14 +32,12 @@ public class Student {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
-
     }
 
     public Student(Long id, String f_name, String l_name, String special_needs, User user) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
-
         this.user = user;
     }
 
