@@ -81,7 +81,7 @@ public class UsersController {
         if(!checkCode.goodCode(code)){
             return "users/invite";
         }
-        return "users/register";
+        return "redirect:/register";
     }
 
     @GetMapping("/sms")

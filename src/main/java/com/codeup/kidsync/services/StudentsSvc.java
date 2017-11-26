@@ -1,12 +1,15 @@
 package com.codeup.kidsync.services;
 
 
+
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.repositories.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-    @Service //Step 1 Annotate class- Spring Boot can't create object
+import java.util.List;
+
+@Service //Step 1 Annotate class- Spring Boot can't create object
     public class StudentsSvc {
 
         private final StudentsRepository studentsDoa;
@@ -24,6 +27,10 @@ import org.springframework.stereotype.Service;
             studentsDoa.save(student);
             return student;
         }
+
+    public List<Student> getStudentsByUserId(Long userId){
+        return studentsDoa.findAllByUserId(userId);
+    }
 
         public Student findOne(long id) {
             return studentsDoa.findOne(id);
