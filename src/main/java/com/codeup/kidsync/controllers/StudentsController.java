@@ -2,7 +2,9 @@ package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
+import com.codeup.kidsync.repositories.GradesRepository;
 import com.codeup.kidsync.repositories.StudentsRepository;
+import com.codeup.kidsync.services.GradesSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,11 +21,13 @@ public class StudentsController {
 
     private final StudentsSvc studentsSvc;
     private final StudentsRepository studentsDoa;
+    private final GradesSvc gradesSvc;
 
     @Autowired
-    public StudentsController(StudentsSvc studentsSvc, StudentsRepository studentsDoa){
+    public StudentsController(StudentsSvc studentsSvc, StudentsRepository studentsDoa, GradesSvc gradesSvc){
         this.studentsSvc = studentsSvc;
         this.studentsDoa = studentsDoa;
+        this.gradesSvc= gradesSvc;
     }
 
     @GetMapping("/students")
@@ -33,10 +37,11 @@ public class StudentsController {
         return "students/view";
     }
     @GetMapping("/students/{id}")
-    public String singlePost(@PathVariable int id, Model vModel) {
-        Student student = new Student();
+    public String singlePost(@PathVariable long id, Model vModel) {
+//        Student student = new Student();
         vModel.addAttribute("student", studentsSvc.findOne(id));
-        return "students/view";
+        vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
+        return "students/grades";
     }
 
     @GetMapping("/students/add")
