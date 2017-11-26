@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
             this.studentsDoa = studentsDoa;
         }
 
-        public Iterable<Student> findAll() {  //returns ALL students and takes place of SHOWALL in students controller
+        public Iterable<Student> findAll() {  //returns ALL students
             return studentsDoa.findAll();
         }
 

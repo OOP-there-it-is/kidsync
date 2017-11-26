@@ -1,6 +1,9 @@
 package com.codeup.kidsync.models;
 
+import org.hibernate.annotations.Check;
+
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "grades")
@@ -9,13 +12,11 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private int rating;
+    private String rating;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String notes;
-
-
-
-
+//    @Column(nullable = false)
+//    private Date date;
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
@@ -27,10 +28,16 @@ public class Grade {
     public Grade() {
     }
 
-    public Grade(long id, int rating, String notes, Student student) {
+    public Grade(long id, String rating, String notes, Date date, Student student) {
         this.id = id;
         this.rating = rating;
         this.notes = notes;
         this.student = student;
+//        this.date = date;
+    }
+
+
+    public void setDate(Date date) {
+//        this.date = date;
     }
 }

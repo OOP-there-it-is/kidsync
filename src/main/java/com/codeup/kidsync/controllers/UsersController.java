@@ -1,7 +1,9 @@
 package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.User;
+import com.codeup.kidsync.repositories.StudentsRepository;
 import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.services.StudentsSvc;
 import com.codeup.kidsync.twillio.CheckCode;
 import com.codeup.kidsync.twillio.SendSms;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ public class UsersController {
 
     @GetMapping("/home")
     public String yourPage(Model vModel){
-        vModel.addAttribute("user", users.findAll());
+        vModel.addAttribute("users", users.findAll());
         return "users/homePage";
     }
 
