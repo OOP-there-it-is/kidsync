@@ -67,6 +67,7 @@ public class UsersController {
         return "users/signUp";
     }
 
+
     @GetMapping("/invite")
     public String showInviteForm(Model vModel){
         vModel.addAttribute("user", users.findAll());
@@ -85,7 +86,6 @@ public class UsersController {
         return "redirect:/register";
     }
 
-
     @GetMapping("/sms")
     public String showForm(Model vModel){
         vModel.addAttribute("user", users.findAll());
@@ -93,12 +93,10 @@ public class UsersController {
     }
 
     @PostMapping("/sms")
-    public String sendSms(HttpServletRequest request) {
+    public String sendSms(HttpServletRequest request){
         String phone = request.getParameter("phone");
         SendSms send = new SendSms();
         send.sendCode(phone);
-
         return "redirect:/invite";
     }
-
 }
