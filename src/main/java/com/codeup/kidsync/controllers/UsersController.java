@@ -1,15 +1,16 @@
 package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.User;
+import com.codeup.kidsync.repositories.StudentsRepository;
 import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.services.StudentsSvc;
+import com.codeup.kidsync.twillio.CheckCode;
 import com.codeup.kidsync.twillio.SendSms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -28,7 +29,7 @@ public class UsersController {
 
     @GetMapping("/home")
     public String yourPage(Model vModel){
-        vModel.addAttribute("user", users.findAll());
+        vModel.addAttribute("users", users.findAll());
         return "users/homePage";
     }
 
@@ -66,12 +67,24 @@ public class UsersController {
         return "users/signUp";
     }
 
-
     @GetMapping("/invite")
-    public String showInviteForm(Model model) {
-        model.addAttribute("user", new User());
+    public String showInviteForm(Model vModel){
+        vModel.addAttribute("user", users.findAll());
         return "users/invite";
     }
+
+
+
+    @PostMapping("/invite")
+    public String enterCode(HttpServletRequest request) {
+        String code = request.getParameter("verify");
+        CheckCode checkCode = new CheckCode();
+        if(!checkCode.goodCode(code)){
+            return "users/invite";
+        }
+        return "redirect:/register";
+    }
+
 
     @GetMapping("/sms")
     public String showForm(Model vModel){
@@ -84,7 +97,8 @@ public class UsersController {
         String phone = request.getParameter("phone");
         SendSms send = new SendSms();
         send.sendCode(phone);
-        return "redirect:/login";
+
+        return "redirect:/invite";
     }
 
 }

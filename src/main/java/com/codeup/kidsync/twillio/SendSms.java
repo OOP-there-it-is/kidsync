@@ -18,7 +18,7 @@ public class SendSms  {
 
         Message message = Message.creator(
                 new PhoneNumber("+1" + phone),
-                new PhoneNumber("+17123555738"),
+                new PhoneNumber("+17123555738"), "Here is your verification code! " +
                 newMsg
         ).create();
     }

@@ -1,6 +1,5 @@
 package com.codeup.kidsync;
 
-
 import com.codeup.kidsync.services.UserDetailsLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -43,8 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/users/home")
-
+                .antMatchers("/users/home", "/students/add")
                 .authenticated()
         ;
     }

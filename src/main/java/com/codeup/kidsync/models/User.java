@@ -25,11 +25,8 @@ public class User {
     private String phone;
 
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<Student> students;
-
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<Post> posts;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Student> students;
 
     public User() {
 
@@ -42,15 +39,21 @@ public class User {
         l_name = copy.l_name;
         password = copy.password;
         phone = copy.phone;
+
     }
 
-    public User(String f_name, String l_name, String email, String password, int role, String phone) {
+    public User(String f_name, String l_name, String email, String password, int role, String phone, List<Student> students) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.email = email;
         this.password = password;
         this.role = role;
         this.phone = phone;
+        this.students = students;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 
     public long getId() {
@@ -101,6 +104,7 @@ public class User {
         this.phone = phone;
     }
 
+
     public int getRole() {
         return role;
     }
@@ -108,5 +112,4 @@ public class User {
     public void setRole(int role) {
         this.role = role;
     }
-
 }
