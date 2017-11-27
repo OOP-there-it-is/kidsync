@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <!--<head th:replace="fragments/head :: main-header('login')">-->
-    <!-- CORE CSS-->
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/login-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <!-- Custome CSS-->
-    <link href="css/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
+<head th:replace="fragments/head :: main-header('login')"/>
 <body class="cyan">
 <!-- Start Page Loading -->
 <div id="loader-wrapper">
@@ -19,16 +11,6 @@
 <!-- End Page Loading -->
 
 <!--***** USERNAME AND PASSWORD VERIFICATION *********-->
-<div>
-    <h1>Log In</h1>
-
-
-
-        <!--<label for="password">Password</label>-->
-        <!--<input id="password" name="password" type="password" />-->
-
-</div>
-
 
 <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
@@ -36,6 +18,7 @@
             <div class="row">
                 <div class="input-field col s12 center">
                     <img src="img/kidsync-01.png" width="150"/>
+                    <h4 class="teal-text">Log In</h4>
                 </div>
                 <!---ERROR MESSAGES -->
                 <div th:if="${param.error}">
