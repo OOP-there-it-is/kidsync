@@ -74,6 +74,7 @@ public class UsersController {
     }
 
 
+
     @PostMapping("/invite")
     public String enterCode(HttpServletRequest request) {
         String code = request.getParameter("verify");
@@ -84,6 +85,7 @@ public class UsersController {
         return "redirect:/register";
     }
 
+
     @GetMapping("/sms")
     public String showForm(Model vModel){
         vModel.addAttribute("user", users.findAll());
@@ -91,10 +93,12 @@ public class UsersController {
     }
 
     @PostMapping("/sms")
-    public String sendSms(HttpServletRequest request){
+    public String sendSms(HttpServletRequest request) {
         String phone = request.getParameter("phone");
         SendSms send = new SendSms();
         send.sendCode(phone);
+
         return "redirect:/invite";
     }
+
 }
