@@ -29,7 +29,7 @@ public class UsersController {
 
     @GetMapping("/home")
     public String yourPage(Model vModel){
-        vModel.addAttribute("user", users.findAll());
+        vModel.addAttribute("users", users.findAll());
         return "users/homePage";
     }
 
@@ -69,10 +69,11 @@ public class UsersController {
 
 
     @GetMapping("/invite")
-    public String showInviteForm(Model model) {
-        model.addAttribute("user", new User());
+    public String showInviteForm(Model vModel){
+        vModel.addAttribute("user", users.findAll());
         return "users/invite";
     }
+
 
 
     @PostMapping("/invite")
