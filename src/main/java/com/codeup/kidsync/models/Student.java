@@ -20,6 +20,10 @@ public class Student {
     @JoinColumn(name = "user_Id")
     private User user;
 
+//    @OneToOne
+//    @JoinColumn(name="class")
+//    private Class teacherClass;
+
     public void setUser(User user) {
         this.user = user;
     }

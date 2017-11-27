@@ -34,7 +34,6 @@ public class StudentsController {
     @GetMapping("/mystudents/{id}")
     public String showAll(@PathVariable long id, Model vModel) {
         vModel.addAttribute("students", studentsSvc.getStudentsByUserId(id));
-        vModel.addAttribute("user", usersDoa.findAll());
         return "students/view";
     }
 

@@ -19,20 +19,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class GradesController {
 
     private final GradesSvc gradesSvc;
-    private final GradesRepository gradesDoa;
     private final StudentsSvc studentsSvc;
 
     @Autowired
     public GradesController(GradesSvc gradesSvc, StudentsSvc studentsSvc, GradesRepository gradesDoa){
         this.gradesSvc = gradesSvc;
-        this.gradesDoa = gradesDoa;
         this.studentsSvc = studentsSvc;
     }
 
     @GetMapping("/grades/addGrade")
     public String AddGrade(Model vModel) {
         vModel.addAttribute("grade", new Grade());
-        vModel.addAttribute("students", studentsSvc.findAll());
+        vModel.addAttribute("students", studentsSvc.findAll());// add method for finding students by class(students repo/svc
         return "grades/addGrade";
     }
 
