@@ -39,6 +39,7 @@ public class User {
         l_name = copy.l_name;
         password = copy.password;
         phone = copy.phone;
+
     }
 
     public User(String f_name, String l_name, String email, String password, int role, String phone, List<Student> students) {
@@ -103,6 +104,7 @@ public class User {
         this.phone = phone;
     }
 
+
     public int getRole() {
         return role;
     }
@@ -110,5 +112,4 @@ public class User {
     public void setRole(int role) {
         this.role = role;
     }
-
 }
