@@ -51,7 +51,7 @@ public class StudentsController {
         return "students/add";
     }
 
-    @PostMapping("/students/add") //
+    @PostMapping("/students/add")
     public String AddChild(@ModelAttribute Student student) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         student.setUser(user);

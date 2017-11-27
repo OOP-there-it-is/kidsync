@@ -6,20 +6,16 @@
 </head>
 <body>
 
-<form th:action="@{/grades/addGrade}" method="post" th:object="${grade}">
+<form th:action="@{/attendance/add}" method="post" th:object="${attendance}">
     <select th:field="*{student.id}">
         <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>
     </select>
-    <label for="rating">Rating</label>
-    <select id="rating" name="rating">
-        <option value="1">Satisfactory</option>
-        <option value="2">Unsatisfactory</option>
-        <option value="3">Needs Improvement</option>
-        <option value="4">Did Not Participate</option>
+    <label for="status">Attendance</label>
+    <select id="status" name="status">
+        <option value="Present">Present</option>
+        <option value="Tardy">Tardy</option>
+        <option value="Absent">Absent</option>
     </select>
-    <br/>
-    <label for="notes">Notes</label>
-    <input id="notes" name="notes"/>
     <br/>
     <label for="date">Date</label>
     <input id="date" th:field="*{date}" placeholder="2017-11-27"/>

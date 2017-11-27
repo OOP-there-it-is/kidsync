@@ -95,6 +95,7 @@ public class UsersController {
         String phone = request.getParameter("phone");
         SendSms send = new SendSms();
         send.sendCode(phone);
+        //add parent to class(parent)
         return "redirect:/invite";
     }
 }
