@@ -23,7 +23,7 @@ public class AttendanceSvc {
         return attendance;
     }
 
-    public List<Attendance> getGradesByStudent(Long studentId){
+    public List<Attendance> getAttendanceByStudent(Long studentId){
         return attendanceDao.findAllByStudentId(studentId);
     }
 }

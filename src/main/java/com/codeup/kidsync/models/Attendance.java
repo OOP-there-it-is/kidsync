@@ -13,8 +13,8 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
-    @Column
-    private String status;
+    @Column(nullable = false)
+    public String status;
     @Column(nullable = false)
     private Date date;
 

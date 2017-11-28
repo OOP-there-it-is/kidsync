@@ -12,7 +12,7 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    public int rating;
+    public String rating;
     @Column(columnDefinition = "TEXT")
     private String notes;
     @Column(nullable = false)
@@ -32,7 +32,7 @@ public class Grade {
         this.id = id;
     }
 
-    public Grade(long id, int rating, String notes, Date date, Student student) {
+    public Grade(long id, String rating, String notes, Date date, Student student) {
         this.id = id;
         this.rating = rating;
         this.notes = notes;
@@ -48,11 +48,11 @@ public class Grade {
         this.id = id;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

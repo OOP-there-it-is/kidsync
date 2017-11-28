@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>Your Classes</h1>
+<br/>
+<div id="myclass" class="col-md-6">
+    <div th:each="class : ${classes}">
+        <ul>
+            <li>
+                <span>-----------------------------------------------</span>
+                <br/>
+                <h2>Class Name</h2>
+                <br/>
+            </li>
+            <li>
+                <span>-----------------------------------------------</span>
+                <h3 th:text="${class.name}"></h3>
+                <br/>
+            </li>
+            <li>
+                <span>-----------------------------------------------</span>
+                <h2>Grade Level</h2>
+                <br/>
+            </li>
+            <li>
+                <span>-----------------------------------------------</span>
+                <!--<h3 th:text="${class.grade_level}"></h3>-->
+                <br/>
+                <span>-----------------------------------------------</span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

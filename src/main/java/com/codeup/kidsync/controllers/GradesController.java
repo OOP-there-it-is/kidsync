@@ -27,11 +27,11 @@ public class GradesController {
         this.studentsSvc = studentsSvc;
     }
 
-    @GetMapping("/grades/addGrade")
+    @GetMapping("/grades/add")
     public String AddGrade(Model vModel) {
         vModel.addAttribute("grade", new Grade());
         vModel.addAttribute("students", studentsSvc.findAll());// add method for finding students by class(students repo/svc
-        return "grades/addGrade";
+        return "grades/add";
     }
 
     @PostMapping("/grades/addGrade") //
