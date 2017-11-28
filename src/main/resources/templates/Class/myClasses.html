@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>Your Classes</h1>
+<br/>
+<span><a th:href="@{'/class/create/' + ${#authentication.principal.email}}">Add Class</a>
+</span>
+<h1>Your Classes</h1>
+<div id="myclass" class="col-md-6">
+    <div th:each="classroom : ${classes}">
+        <h2 th:text="${classroom.className}"></h2>
+        <h2 th:text="${classroom.gradeLevel}"></h2>
+        <a th:href="@{'/class/view/' + ${classroom.id}}">View Class</a>
+    </div>
+</div>
+</body>
+</html>

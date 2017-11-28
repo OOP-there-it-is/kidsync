@@ -17,18 +17,18 @@ public class Student {
     @Column(columnDefinition = "TEXT")
     private String special_needs;
     @ManyToOne
-    @JoinColumn(name = "user_Id")
+    @JoinColumn(name = "user_id")
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+    private Class classroom;
 
     public void setUser(User user) {
         this.user = user;
     }
 
-
-
     public Student(){
     }
-
 
     public Student(String f_name, String l_name, String special_needs) {
         this.f_name = f_name;
@@ -36,11 +36,12 @@ public class Student {
         this.special_needs = special_needs;
     }
 
-    public Student(Long id, String f_name, String l_name, String special_needs, User user) {
+    public Student(Long id, String f_name, String l_name, String special_needs, User user, Class classId) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
         this.user = user;
+        this.classroom = classId;
     }
 
     public long getId() {
@@ -75,15 +76,17 @@ public class Student {
         this.special_needs = special_needs;
     }
 
-//    public Date getDob() {
-//        return dob;
-//    }
-
-//    public void setDob(Date dob) {
-//        this.dob = dob;
-//    }
-
     public User getUser() {
         return user;
     }
+
+    public Class getClassId() {
+        return classroom;
+    }
+
+    public void setClassId(Class classId) {
+        this.classroom = classId;
+    }
+
+
 }

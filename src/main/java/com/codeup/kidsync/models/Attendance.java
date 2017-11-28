@@ -13,15 +13,51 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
-    @Column
-    private int status;
-    @Column(name = "date")
-    private Date create_date;
+    @Column(nullable = false)
+    public String status;
+    @Column(nullable = false)
+    private Date date;
+
+    public Attendance(){
+
+    }
+
+    public Attendance(long id, Student student, String status, Date date) {
+        this.id = id;
+        this.student = student;
+        this.status = status;
+        this.date = date;
+    }
 
     public void setStudent(Student student) {
         this.student = student;
     }
 
+    public Student getStudent() {
+        return student;
+    }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
-
 @Controller
 public class UsersController {
     private UsersRepository users;
@@ -97,6 +96,7 @@ public class UsersController {
         String phone = request.getParameter("phone");
         SendSms send = new SendSms();
         send.sendCode(phone);
+        //add parent to class(parent)
         return "redirect:/invite";
     }
 }

@@ -9,32 +9,33 @@ import com.codeup.kidsync.services.GradesSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Controller
 public class GradesController {
 
     private final GradesSvc gradesSvc;
-    private final GradesRepository gradesDoa;
+    private final StudentsSvc studentsSvc;
 
     @Autowired
-    public GradesController(GradesSvc gradesSvc, GradesRepository gradesDoa){
+    public GradesController(GradesSvc gradesSvc, StudentsSvc studentsSvc){
         this.gradesSvc = gradesSvc;
-        this.gradesDoa = gradesDoa;
+        this.studentsSvc = studentsSvc;
     }
 
-    @GetMapping("/grades/addGrade")
+    @GetMapping("/grades/add")
     public String AddGrade(Model vModel) {
         vModel.addAttribute("grade", new Grade());
-        return "grades/addGrade";
+        vModel.addAttribute("students", studentsSvc.findAll());// add method for finding students by class(students repo/svc
+        return "grades/add";
     }
 
     @PostMapping("/grades/addGrade") //
     public String AddGrade(@ModelAttribute Grade grade) {
-        Student student = (Student) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        grade.setStudent(student);
         gradesSvc.save(grade);
         return "users/homePage";
     }

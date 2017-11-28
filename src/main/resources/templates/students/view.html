@@ -9,6 +9,7 @@
 <div id="myStudents" class="col-md-6">
     <div th:each="student : ${students}">
         <h1 th:text="${student.f_name}"></h1>
+        <a th:href="@{'/dash/' + ${student.id}}">Dashboard</a>
     </div>
 </div>
 </body>

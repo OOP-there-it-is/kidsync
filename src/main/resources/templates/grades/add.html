@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/grades/addGrade}" method="post" th:object="${grade}">
+    <select th:field="*{student.id}">
+        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>
+    </select>
+    <label for="rating">Rating</label>
+    <select id="rating" name="rating">
+        <option value="Satisfactory">Satisfactory</option>
+        <option value="Unsatisfactory">Unsatisfactory</option>
+        <option value="Needs Improvement">Needs Improvement</option>
+        <option value="Did Not Participate">Did Not Participate</option>
+    </select>
+    <br/>
+    <label for="notes">Notes</label>
+    <input id="notes" name="notes"/>
+    <br/>
+    <label for="date">Date</label>
+    <input id="date" th:field="*{date}" placeholder="2017-11-27"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
