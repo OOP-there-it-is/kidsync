@@ -67,11 +67,13 @@ public class UsersController {
         return "users/signUp";
     }
 
+
     @GetMapping("/invite")
     public String showInviteForm(Model vModel){
         vModel.addAttribute("user", users.findAll());
         return "users/invite";
     }
+
 
 
     @PostMapping("/invite")
