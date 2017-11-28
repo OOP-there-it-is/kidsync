@@ -8,21 +8,19 @@
 <nav class="white" id="my-nav" th:fragment="mainNavbar" role="navigation">
     <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo"><img src="img/kidsync-04.png" width="155"/></a>
-            <ul class="right hide-on-med-and-down" style="border: 1px solid orange;">
+            <ul class="right hide-on-med-and-down">
                 <li>
                     <span sec:authorize="!isAuthenticated()"><a href="">Register</a></span>
                 </li>
                 <li>
                     <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
                 </li>
-                <!--<span sec:authorize="isAuthenticated()">-->
-                    <li>
-                         <span sec:authorize="isAuthenticated()"
-                                           th:text="${#authentication.principal.f_name}">
-                                                <a href="/logout">Logout</a>
-                                    </span>
-                    </li>
-                <!--</span>-->
+                <li>
+                     <span sec:authorize="isAuthenticated()"
+                                       th:text="${#authentication.principal.f_name}">
+                                            <a href="/logout">Logout</a>
+                                </span>
+                </li>
 
             </ul>
     </div>
