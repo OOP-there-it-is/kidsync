@@ -14,8 +14,8 @@ public class Class {
     public User user;
     @Column(nullable = false, name = "grade_level")
     public String gradeLevel;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "class_name")
+    private String className;
 
 
 
@@ -25,7 +25,7 @@ public class Class {
     public Class(User user, String gradeLevel, String name) {
         this.user = user;
         this.gradeLevel = gradeLevel;
-        this.name = name;
+        this.className = name;
     }
 
     public long getId() {
@@ -52,13 +52,11 @@ public class Class {
         this.gradeLevel = gradeLevel;
     }
 
-    public String getName() {
-        return name;
+    public String getClassName() {
+        return className;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClassName(String className) {
+        this.className = className;
     }
-
-
 }

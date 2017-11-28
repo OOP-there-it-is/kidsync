@@ -64,6 +64,7 @@ public class ClassController {
         } else {
 
             vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()));
+
             return "class/myClasses";
         }
     }

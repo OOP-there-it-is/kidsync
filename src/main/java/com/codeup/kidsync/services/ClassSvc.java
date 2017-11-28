@@ -23,8 +23,8 @@ public class ClassSvc {
         return classroom;
     }
 
-    public List<Class> findClassByTeacher(Long id){
-        return classDoa.findClassByUserId(id);
+    public List<Class> findClassByTeacher(Long userId){
+        return classDoa.findAllByUserId(userId);
     }
 
 }
