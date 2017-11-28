@@ -1,19 +1,158 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/header :: main-header('All posts')"></head>
-    <!--<meta charset="UTF-8" />-->
-    <!--<title>Home</title>-->
+<head th:replace="fragments/header :: main-header('Welcome')"></head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
 
-<h1>Welcome to Kidsync's Home Page!!</h1>
 
-<div class="col-md-6">
-    <!--<a th:href="${'teacher'}" class="btn btn-block btn-warning">Teacher</a>-->
-    <a th:href="${'signUp'}" class="btn btn-block btn-warning">Sign Up</a>
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br/><br/>
+            <h1 class="header center white-text text-lighten-2">KidSYNC</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">A tool to benefit the users/administrators to provide daily solutions</h5>
+            </div>
+            <div class="row center">
+                <a th:href="${'signUp'}" id="get-started" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+            </div>
+            <br/><br/>
 
-    <!--<br />-->
+        </div>
+    </div>
+    <div class="parallax"><img src="img/class-01.jpg" alt="Unsplashed background img 1"/></div>
 </div>
 
+
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Grade Book</h5>
+
+                    <p class="light">Provides student scores for all classroom assignments</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">School Messenger System</h5>
+
+                    <p class="light">Helps keep communication open between teacher and parents.  Teacher to parents (1 to many) Teacher to parent (1 to 1)</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Student Point Tracker</h5>
+
+                    <p class="light">Studen Point reward system</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light teal-text">A great tool that benefits not only the teacher and parents, but the students</h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="img/class-02.jpg" alt="Unsplashed background img 2"/></div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+                <h4>Contact Us</h4>
+                <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light teal-text">Download now!</h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="img/class-03.jpg" alt="Unsplashed background img 3"/></div>
+</div>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Settings</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!--<div class="col-md-6">-->
+    <!--&lt;!&ndash;<a th:href="${'teacher'}" class="btn btn-block btn-warning">Teacher</a>&ndash;&gt;-->
+    <!--<a th:href="${'signUp'}" class="btn btn-block btn-warning">Sign Up</a>-->
+<!--</div>-->
+
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<!--materialize js-->
+<script type="text/javascript" src="js/materialize.js"></script>
+<!--prism-->
+<script type="text/javascript" src="js/prism.js"></script>
+<!--scrollbar-->
+<script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+<!--plugins.js - Some Specific JS codes for Plugin Settings-->
+<script type="text/javascript" src="js/plugins.js"></script>
 </body>
 </html>
