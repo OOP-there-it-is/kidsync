@@ -15,6 +15,9 @@
         View current appintments and copy to your personal calendar
     </p>
     <br />
+
+    <!--***********  CALENDAR  **************-->
+
     <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
             style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
 </div>
@@ -29,5 +32,46 @@
     <a th:href="@{'/class/myClasses/' + ${#authentication.principal.email}}">View Your Class</a>
 
 </div>
+
+<div id="upload"></div>
+
+<!--***********  PDF UPLOAD  ***************-->
+
+<input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
+<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script type="text/javascript">
+
+    var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
+    var transformURL = "https://cdn.filestack.com/watermark=file:";
+    function fileLoad(){
+
+        client.pick({
+            //Only accepting files with a mimetype 'image/*'
+            accept: 'image/*',
+            //Only accepting at most 1 file
+            maxFiles:3
+
+//        *****************************
+
+        }).then(function(result) {//Taking the result object in as 'result'
+            //Putting the result in a string, and printing it to the console
+            console.table(result);
+
+            //Sets the file handle to the handle of the first file in the result
+            var fileHandle = result.filesUploaded[0].url;
+
+            // save the url in your database -> ajax
+            //Logs the new file handle in the console
+            //console.log("fileHandle");
+            document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
+
+            function buildURL(){
+                transformURL += fileHandle;
+                transformURL += imageHandle;
+                console.log(transfromURL);
+            }
+        });
+    }
+</script>
 </body>
 </html>
