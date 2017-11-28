@@ -1,13 +1,14 @@
 package com.codeup.kidsync.controllers;
 
+import com.codeup.kidsync.models.Class;
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.UsersRepository;
 import com.codeup.kidsync.services.AttendanceSvc;
+import com.codeup.kidsync.services.ClassSvc;
 import com.codeup.kidsync.services.GradesSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +27,15 @@ public class StudentsController {
     private final UsersRepository usersDoa;
     private final GradesSvc gradesSvc;
     private final AttendanceSvc attendanceSvc;
+    private final ClassSvc classSvc;
 
     @Autowired
-    public StudentsController(StudentsSvc studentsSvc, UsersRepository usersDoa, GradesSvc gradesSvc, AttendanceSvc attendanceSvc){
+    public StudentsController(StudentsSvc studentsSvc, UsersRepository usersDoa, GradesSvc gradesSvc, AttendanceSvc attendanceSvc, ClassSvc classSvc){
         this.studentsSvc = studentsSvc;
         this.usersDoa = usersDoa;
         this.gradesSvc= gradesSvc;
         this.attendanceSvc = attendanceSvc;
+        this.classSvc = classSvc;
     }
 
     @GetMapping("/mystudents/{id}")
@@ -41,16 +44,11 @@ public class StudentsController {
         return "students/view";
     }
 
-//    @GetMapping("/studentsGrades/{id}")
-//    public String singlePost(@PathVariable long id, Model vModel) {
-//        vModel.addAttribute("student", studentsSvc.findOne(id));
-//        vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
-//        return "students/grades";
-//    }
-
     @GetMapping("/students/add")
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
+        vModel.addAttribute("classrooms",classSvc.findAll());
+        System.out.println(classSvc.findAll());
         return "students/add";
     }
 

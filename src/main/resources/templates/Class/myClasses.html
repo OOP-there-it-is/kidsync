@@ -8,10 +8,14 @@
 <body>
 <h1>Your Classes</h1>
 <br/>
+<span><a th:href="@{'/class/create/' + ${#authentication.principal.email}}">Add Class</a>
+</span>
+<h1>Your Classes</h1>
 <div id="myclass" class="col-md-6">
     <div th:each="classroom : ${classes}">
-        <h1 th:text="${classroom.gradeLevel}"></h1>
-        <a th:href="@{'/dash/' + ${classroom.className}}">Dashboard</a>
+        <h2 th:text="${classroom.className}"></h2>
+        <h2 th:text="${classroom.gradeLevel}"></h2>
+        <a th:href="@{'/class/view/' + ${classroom.id}}">View Class</a>
     </div>
 </div>
 </body>

@@ -5,6 +5,7 @@ import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.ClassRepository;
 import com.codeup.kidsync.repositories.UsersRepository;
 import com.codeup.kidsync.services.ClassSvc;
+import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,18 +23,22 @@ public class ClassController {
     private final UsersRepository usersDoa;
     private final ClassSvc classSvc;
     private final ClassRepository classRepository;
+    private final StudentsSvc studentsSvc;
+
+
 
 
 
     @Autowired
-    public ClassController(UsersRepository usersDoa, ClassSvc classSvc, ClassRepository classRepository) {
+    public ClassController(UsersRepository usersDoa, ClassSvc classSvc, ClassRepository classRepository, StudentsSvc studentsSvc) {
         this.usersDoa = usersDoa;
         this.classSvc = classSvc;
         this.classRepository = classRepository;
+        this.studentsSvc = studentsSvc;
     }
 
     @GetMapping("/class/create/{email}")
-    public String AddGrade(@PathVariable String email, Model vModel, HttpServletRequest request) {
+    public String CreateClass(@PathVariable String email, Model vModel, HttpServletRequest request) {
         User user = usersDoa.findByEmail(email);
         if(user.getRole() != 1){
             return "errors/unauthorized";
@@ -57,16 +62,31 @@ public class ClassController {
 
 
     @GetMapping("/class/myClasses/{email}")
-    public String showClasses(@PathVariable String email, Model vModel) {
+    public String showClasses(@PathVariable String email, Model vModel, HttpServletRequest request) {
         User user = usersDoa.findByEmail(email);
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
 
+            request.getSession().setAttribute("user", user);
             vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()));
-
             return "class/myClasses";
         }
     }
+
+    @GetMapping("/class/view/{id}")
+    public String viewClasses(@PathVariable long id, Model vModel, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        if(user.getRole() != 1){
+            return "errors/unauthorized";
+        } else {
+            long num = 2;
+            vModel.addAttribute("classroom", classRepository.findOne(id));
+            vModel.addAttribute("students", studentsSvc.findAll());
+//
+            return "class/view";
+        }
+    }
+
 
 }

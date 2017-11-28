@@ -2,6 +2,7 @@ package com.codeup.kidsync.services;
 
 
 import com.codeup.kidsync.models.Class;
+
 import com.codeup.kidsync.repositories.ClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ public class ClassSvc {
     @Autowired
     public ClassSvc(ClassRepository classDoa) {
         this.classDoa = classDoa;
+    }
+
+    public Iterable<Class> findAll() {  //returns ALL students
+        return classDoa.findAll();
     }
 
     public Class save(Class classroom) {

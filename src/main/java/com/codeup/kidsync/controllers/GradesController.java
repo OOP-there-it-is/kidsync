@@ -22,7 +22,7 @@ public class GradesController {
     private final StudentsSvc studentsSvc;
 
     @Autowired
-    public GradesController(GradesSvc gradesSvc, StudentsSvc studentsSvc, GradesRepository gradesDoa){
+    public GradesController(GradesSvc gradesSvc, StudentsSvc studentsSvc){
         this.gradesSvc = gradesSvc;
         this.studentsSvc = studentsSvc;
     }

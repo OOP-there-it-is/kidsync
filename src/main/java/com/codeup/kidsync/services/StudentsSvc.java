@@ -32,13 +32,9 @@ import java.util.List;
         return studentsDoa.findAllByUserId(userId);
     }
 
+
         public Student findOne(long id) {
             return studentsDoa.findOne(id);
         }
-
-//        public void deletePost(long id) {
-//            studentsDoa.delete(id);
-//        }
-
 
     }
