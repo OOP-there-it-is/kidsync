@@ -1,6 +1,6 @@
 package com.codeup.kidsync.controllers;
 
-import com.codeup.kidsync.models.Class;
+import com.codeup.kidsync.models.ClassRoom;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.ClassRepository;
 import com.codeup.kidsync.repositories.UsersRepository;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-public class ClassController {
+public class ClassRoomController {
 
     private final UsersRepository usersDoa;
     private final ClassSvc classSvc;
@@ -30,61 +30,61 @@ public class ClassController {
 
 
     @Autowired
-    public ClassController(UsersRepository usersDoa, ClassSvc classSvc, ClassRepository classRepository, StudentsSvc studentsSvc) {
+    public ClassRoomController(UsersRepository usersDoa, ClassSvc classSvc, ClassRepository classRepository, StudentsSvc studentsSvc) {
         this.usersDoa = usersDoa;
         this.classSvc = classSvc;
         this.classRepository = classRepository;
         this.studentsSvc = studentsSvc;
     }
 
-    @GetMapping("/class/create/{email}")
-    public String CreateClass(@PathVariable String email, Model vModel, HttpServletRequest request) {
-        User user = usersDoa.findByEmail(email);
+    @GetMapping("/classRoom/create/{id}")
+    public String CreateClass(@PathVariable long id, Model vModel, HttpServletRequest request) {
+        User user = usersDoa.findOne(id);
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
 
-            vModel.addAttribute("class", new Class());
-            vModel.addAttribute("teacher", usersDoa.findByEmail(email));
+            vModel.addAttribute("class", new ClassRoom());
+            vModel.addAttribute("teacher", usersDoa.findOne(id));
             request.getSession().setAttribute("user", user);
-            return "class/create";
+            return "classRoom/create";
         }
     }
 
-    @PostMapping("/class/create") //
-    public String AddGrade(@ModelAttribute Class classroom, HttpServletRequest request) {
+    @PostMapping("/classRoom/create") //
+    public String AddGrade(@ModelAttribute ClassRoom classroom, HttpServletRequest request) {
         User teacher = (User) request.getSession().getAttribute("user");
         classroom.setUser(teacher);
         classSvc.save(classroom);
-        return "users/homePage";
+        return "redirect:/home";
     }
 
 
 
-    @GetMapping("/class/myClasses/{email}")
-    public String showClasses(@PathVariable String email, Model vModel, HttpServletRequest request) {
-        User user = usersDoa.findByEmail(email);
+    @GetMapping("/classRoom/myClasses/{id}")
+    public String showClasses(@PathVariable long id, Model vModel, HttpServletRequest request) {
+        User user = usersDoa.findOne(id);
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
 
             request.getSession().setAttribute("user", user);
             vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()));
-            return "class/myClasses";
+            return "classRoom/myClasses";
         }
     }
 
-    @GetMapping("/class/view/{id}")
+    @GetMapping("/classRoom/view/{id}")
     public String viewClasses(@PathVariable long id, Model vModel, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
-            long num = 2;
+
             vModel.addAttribute("classroom", classRepository.findOne(id));
-            vModel.addAttribute("students", studentsSvc.findAll());
+            vModel.addAttribute("students", studentsSvc.getStudentsByClassId(id));
 //
-            return "class/view";
+            return "classRoom/view";
         }
     }
 

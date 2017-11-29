@@ -1,7 +1,7 @@
 package com.codeup.kidsync.services;
 
 
-import com.codeup.kidsync.models.Class;
+import com.codeup.kidsync.models.ClassRoom;
 
 import com.codeup.kidsync.repositories.ClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +19,20 @@ public class ClassSvc {
         this.classDoa = classDoa;
     }
 
-    public Iterable<Class> findAll() {  //returns ALL students
+    public Iterable<ClassRoom> findAll() {  //returns ALL students
         return classDoa.findAll();
     }
 
-    public Class save(Class classroom) {
+    public ClassRoom save(ClassRoom classroom) {
         classDoa.save(classroom);
         return classroom;
     }
 
-    public List<Class> findClassByTeacher(Long userId){
+    public List<ClassRoom> findClassByTeacher(Long userId){
         return classDoa.findAllByUserId(userId);
     }
 
+    public List<ClassRoom> findClassById(Long classId){
+        return classDoa.findAllById(classId);
+    }
 }

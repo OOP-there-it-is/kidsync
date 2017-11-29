@@ -1,13 +1,9 @@
 package com.codeup.kidsync.controllers;
 
-import com.codeup.kidsync.models.Class;
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
-import com.codeup.kidsync.repositories.UsersRepository;
-import com.codeup.kidsync.services.AttendanceSvc;
-import com.codeup.kidsync.services.ClassSvc;
-import com.codeup.kidsync.services.GradesSvc;
-import com.codeup.kidsync.services.StudentsSvc;
+import com.codeup.kidsync.repositories.ClassRepository;
+import com.codeup.kidsync.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -24,23 +20,27 @@ import javax.servlet.http.HttpServletRequest;
 public class StudentsController {
 
     private final StudentsSvc studentsSvc;
-    private final UsersRepository usersDoa;
+    private final ClassRepository classRepository;
     private final GradesSvc gradesSvc;
     private final AttendanceSvc attendanceSvc;
     private final ClassSvc classSvc;
+    private final HealthLogSvc healthLogSvc;
 
     @Autowired
-    public StudentsController(StudentsSvc studentsSvc, UsersRepository usersDoa, GradesSvc gradesSvc, AttendanceSvc attendanceSvc, ClassSvc classSvc){
+    public StudentsController(StudentsSvc studentsSvc, ClassRepository classRepository, GradesSvc gradesSvc, AttendanceSvc attendanceSvc, ClassSvc classSvc, HealthLogSvc healthLogSvc){
         this.studentsSvc = studentsSvc;
-        this.usersDoa = usersDoa;
+        this.classRepository = classRepository;
         this.gradesSvc= gradesSvc;
         this.attendanceSvc = attendanceSvc;
         this.classSvc = classSvc;
+        this.healthLogSvc = healthLogSvc;
     }
 
     @GetMapping("/mystudents/{id}")
     public String showAll(@PathVariable long id, Model vModel) {
         vModel.addAttribute("students", studentsSvc.getStudentsByUserId(id));
+        studentsSvc.getStudentsByUserId(id);
+        vModel.addAttribute("classroom", classSvc.findAll());
         return "students/view";
     }
 
@@ -48,14 +48,15 @@ public class StudentsController {
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
         vModel.addAttribute("classrooms",classSvc.findAll());
-        System.out.println(classSvc.findAll());
         return "students/add";
     }
 
     @PostMapping("/students/add")
-    public String AddChild(@ModelAttribute Student student) {
+    public String AddChild(@ModelAttribute Student student, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         student.setUser(user);
+        long classId = Long.parseLong(request.getParameter("classroom"));
+        student.setClassroom(classRepository.findOne(classId));
         studentsSvc.save(student);
         return "users/homePage";
     }
@@ -67,6 +68,7 @@ public class StudentsController {
         vModel.addAttribute("student", studentsSvc.findOne(id));
         vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
         vModel.addAttribute("attendance", attendanceSvc.getAttendanceByStudent(id));
+        vModel.addAttribute("healthlog", healthLogSvc.getHealthLogByStudent(id));
 
         return "students/dash";
     }

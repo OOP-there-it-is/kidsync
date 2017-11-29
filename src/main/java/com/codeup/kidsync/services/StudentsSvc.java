@@ -32,6 +32,10 @@ import java.util.List;
         return studentsDoa.findAllByUserId(userId);
     }
 
+    public List<Student> getStudentsByClassId(Long classId){
+        return studentsDoa.findAllByClassroomId(classId);
+    }
+
 
         public Student findOne(long id) {
             return studentsDoa.findOne(id);

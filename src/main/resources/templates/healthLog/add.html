@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/healthLog/add}" method="post" th:object="${healthLog}">
+    <select th:field="*{student.id}">
+        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>
+    </select>
+    <label for="symptoms">Symptoms</label>
+    <input id="symptoms" name="symptoms"/>
+    <br/>
+    <label for="notes">Notes</label>
+    <input id="notes" name="notes"/>
+    <br/>
+    <label for="date">Date</label>
+    <input id="date" th:field="*{date}" placeholder="2017-11-27"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
