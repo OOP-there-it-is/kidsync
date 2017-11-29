@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<head th:replace="fragments/header :: main-header('Your Home Page')"></head>
+<head th:replace="fragments/header :: main-header('Your Home Page')">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script> <script src="https://youcanbook.me/resources/scripts/ycbm.modal.js"></script> <link rel="stylesheet" href="https://youcanbook.me/resources/css/simplemodal/simplemodal.css" type="text/css"/>
+</head>
     <!--<meta charset="UTF-8"/>-->
     <!--<title>Welcome</title>-->
 <!--</head>-->
@@ -15,12 +17,15 @@
         View current appintments and copy to your personal calendar
     </p>
     <br />
+
+    <!--***********  CALENDAR  **************-->
+
     <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
             style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
 </div>
 <div class="col-md-6">
     <!--<a th:href="${'teacher'}" class="btn btn-block btn-warning">Teacher</a>-->
-    <a th:href="${'signUp'}" class="btn btn-block btn-success">Set an appointment with the teacher</a>
+    <!--<a th:href="${'signUp'}" class="btn btn-block btn-success">Set an appointment with the teacher</a>-->
 
     <!--<br />-->
 </div>
@@ -29,5 +34,49 @@
     <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
 
 </div>
+<div>
+    <a href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="border-style:none;"/></a>
+</div>
+
+<div id="upload"></div>
+
+<!--***********  PDF UPLOAD  ***************-->
+
+<input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
+<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script type="text/javascript">
+
+    var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
+    var transformURL = "https://cdn.filestack.com/watermark=file:";
+    function fileLoad(){
+
+        client.pick({
+            //Only accepting files with a mimetype 'image/*'
+            accept: 'image/*',
+            //Only accepting at most 1 file
+            maxFiles:3
+
+//        *****************************
+
+        }).then(function(result) {//Taking the result object in as 'result'
+            //Putting the result in a string, and printing it to the console
+            console.table(result);
+
+            //Sets the file handle to the handle of the first file in the result
+            var fileHandle = result.filesUploaded[0].url;
+
+            // save the url in your database -> ajax
+            //Logs the new file handle in the console
+            //console.log("fileHandle");
+            document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
+
+            function buildURL(){
+                transformURL += fileHandle;
+                transformURL += imageHandle;
+                console.log(transfromURL);
+            }
+        });
+    }
+</script>
 </body>
 </html>
