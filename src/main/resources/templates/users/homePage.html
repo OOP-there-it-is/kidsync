@@ -1,33 +1,765 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<head th:replace="fragments/header :: main-header('Your Home Page')"></head>
-    <!--<meta charset="UTF-8"/>-->
-    <!--<title>Welcome</title>-->
-<!--</head>-->
+    <title>Dashboard | KidSYNC</title>
+    <meta name="author" content=""/>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.__cfRocketOptions = {byc:0,p:0,petok:"5c03b4243731ac721afa320f85d2251a94f5c70e-1511912244-1800"};
+        //]]>
+    </script>
+
+    <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/0e574bed/cloudflare-static/rocket.min.js"></script>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="css/materialize.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/custom-style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="css/prettify.css" rel="stylesheet" type="text/css"/>
+    <link href="css/admin.css" rel="stylesheet" type="text/css"/>
+    <link href="css/light.css" id="ssThemeColor" rel="stylesheet" type="text/css"/>
+    <link href="css/themes/main/materialize-red.css" id="ssMainColor" rel="stylesheet" type="text/css"/>
+    <link href="css/themes/alternative/red.css" id="ssAlternativeColor" rel="stylesheet" type="text/css"/>
+    <link href="css/theme-switcher.css" rel="stylesheet" type="text/css"/>
+    <link href="css/pages/dashboard.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
 <body>
-<nav th:include="fragments/navbar :: mainNavbar"></nav>
-<p>
-<h1> Welcome to YOUR Kidsync's Home Page!!</h1>
-</p>
-<div>
-    <p>
-        View current appintments and copy to your personal calendar
-    </p>
-    <br />
-    <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
-            style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
-</div>
-<div class="col-md-6">
-    <!--<a th:href="${'teacher'}" class="btn btn-block btn-warning">Teacher</a>-->
-    <a th:href="${'signUp'}" class="btn btn-block btn-success">Set an appointment with the teacher</a>
+<div id="nav-content">
+    <nav>
+        <div class="row">
+            <div class="col s12">
 
-    <!--<br />-->
-</div>
-<div id="actions">
-    <a th:href="@{'/class/create/' + ${#authentication.principal.email}}">Add Your Class</a>
-    <a th:href="@{'/class/myClasses/' + ${#authentication.principal.email}}">View Your Class</a>
+                <div class="nav-wrapper">
+                    <a href="index.html" class="brand-logo">
+                        <img src="img/logo.png"/>
+                        <span class="valign">
+                            KidSYNC Dashboard Mari
+                        </span>
+                    </a>
 
+                    <ul class="right hide-on-med-and-down">
+                        <li class="active"><a href="index.html">My Student</a></li>
+                        <li><a href="documentation.html">Calendar</a></li>
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">
+                                Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                        <!--<li>-->
+                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">-->
+                                <!--Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">-->
+                                <!--Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">-->
+                                <!--APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">-->
+                                <!--Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="profile ">-->
+                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">-->
+                                <!--<div class="valign-wrapper">-->
+                                    <!--<img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">-->
+                                    <!--John Doe-->
+                                    <!--<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                    <ul id="dropdown-css" class="dropdown-content">
+                        <li><a href="css_color.html">Color</a></li>
+                        <li><a href="css_grid.html">Grid</a></li>
+                        <li><a href="css_helpers.html">Helpers</a></li>
+                        <li><a href="css_media.html">Media</a></li>
+                        <li><a href="css_sass.html">Sass</a></li>
+                        <li><a href="css_shadow.html">Shadow</a></li>
+                        <li><a href="css_table.html">Table</a></li>
+                        <li><a href="css_typography.html">Typography</a></li>
+                    </ul>
+                    <ul id="dropdown-components" class="dropdown-content">
+                        <li><a href="components_badges.html">Badges</a></li>
+                        <li><a href="components_buttons.html">Buttons</a></li>
+                        <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+                        <li><a href="components_cards.html">Cards</a></li>
+                        <li><a href="components_chips.html">Chips</a></li>
+                        <li><a href="components_collections.html">Collections</a></li>
+                        <li><a href="components_footer.html">Footer</a></li>
+                        <li><a href="components_forms.html">Forms</a></li>
+                        <li><a href="components_icons.html">Icons</a></li>
+                        <li><a href="components_navbar.html">Navbar</a></li>
+                        <li><a href="components_pagination.html">Pagination</a></li>
+                        <li><a href="components_preloader.html">Preloader</a></li>
+                    </ul>
+                    <ul id="dropdown-javascript" class="dropdown-content">
+                        <li><a href="js_collapsible.html">Collapsible</a></li>
+                        <li><a href="js_dialogs.html">Dialogs</a></li>
+                        <li><a href="js_dropdown.html">Dropdown</a></li>
+                        <li><a href="js_media.html">Media</a></li>
+                        <li><a href="js_modals.html">Modals</a></li>
+                        <li><a href="js_parallax.html">Parallax</a></li>
+                        <li><a href="js_pushpin.html">Pushpin</a></li>
+                        <li><a href="js_scrollfire.html">ScrollFire</a></li>
+                        <li><a href="js_scrollspy.html">Scrollspy</a></li>
+                        <li><a href="js_sidenav.html">SideNav</a></li>
+                        <li><a href="js_tabs.html">Tabs</a></li>
+                        <li><a href="js_transitions.html">Transitions</a></li>
+                        <li><a href="js_waves.html">Waves</a></li>
+                    </ul>
+                    <ul id="dropdown-apps" class="dropdown-content">
+                        <li><a href="apps_crud.html">CRUD</a></li>
+                        <li><a href="apps_pricing_table.html">Pricing Table</a></li>
+                        <li><a href="apps_datatables.html">DataTables</a></li>
+                        <li><a href="apps_maps.html">Maps</a></li>
+                        <li><a href="apps_charts.html">Charts</a></li>
+                    </ul>
+                    <ul id="dropdown-pages" class="dropdown-content">
+                        <li><a href="pages_blank.html">Blank</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="forgot_password.html">Forgot Password</a></li>
+                        <li class="divider"></li>
+                        <li><a href="error_400.html">Error 400</a></li>
+                        <li><a href="error_403.html">Error 403</a></li>
+                        <li><a href="error_404.html">Error 404</a></li>
+                        <li><a href="error_500.html">Error 500</a></li>
+                    </ul>
+                    <ul id="dropdown-profile" class="dropdown-content">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="login.html">Logout</a></li>
+                    </ul>
+
+                    <a href="#" data-activates="mobile-demo" class="button-collapse">
+                        <i class="material-icons">menu</i>
+                    </a>
+                </div>
+
+
+
+                <ul class="side-nav" id="mobile-demo">
+                    <li class="logo">
+                        <img src="img/logo.png" />
+                        <p>
+                            KidSYNC Dashboard Mari
+                        </p>
+                    </li>
+                    <li>
+                        <a href="index.html" class="waves-effect">My Student</a>
+                    </li>
+                    <li class="padding-0">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect">Messaging</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="css_color.html">Color</a></li>
+                                        <li><a href="css_grid.html">Grid</a></li>
+                                        <li><a href="css_helpers.html">Helpers</a></li>
+                                        <li><a href="css_media.html">Media</a></li>
+                                        <li><a href="css_sass.html">Sass</a></li>
+                                        <li><a href="css_shadow.html">Shadow</a></li>
+                                        <li><a href="css_table.html">Table</a></li>
+                                        <li><a href="css_typography.html">Typography</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect">Components</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="components_badges.html">Badges</a></li>
+                                        <li><a href="components_buttons.html">Buttons</a></li>
+                                        <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+                                        <li><a href="components_cards.html">Cards</a></li>
+                                        <li><a href="components_chips.html">Chips</a></li>
+                                        <li><a href="components_collections.html">Collections</a></li>
+                                        <li><a href="components_footer.html">Footer</a></li>
+                                        <li><a href="components_forms.html">Forms</a></li>
+                                        <li><a href="components_icons.html">Icons</a></li>
+                                        <li><a href="components_navbar.html">Navbar</a></li>
+                                        <li><a href="components_pagination.html">Pagination</a></li>
+                                        <li><a href="components_preloader.html">Preloader</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect">JavaScript</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="js_collapsible.html">Collapsible</a></li>
+                                        <li><a href="js_dialogs.html">Dialogs</a></li>
+                                        <li><a href="js_dropdown.html">Dropdown</a></li>
+                                        <li><a href="js_media.html">Media</a></li>
+                                        <li><a href="js_modals.html">Modals</a></li>
+                                        <li><a href="js_parallax.html">Parallax</a></li>
+                                        <li><a href="js_pushpin.html">Pushpin</a></li>
+                                        <li><a href="js_scrollfire.html">ScrollFire</a></li>
+                                        <li><a href="js_scrollspy.html">Scrollspy</a></li>
+                                        <li><a href="js_sidenav.html">SideNav</a></li>
+                                        <li><a href="js_tabs.html">Tabs</a></li>
+                                        <li><a href="js_transitions.html">Transitions</a></li>
+                                        <li><a href="js_waves.html">Waves</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect">APPs</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="apps_crud.html">CRUD</a></li>
+                                        <li><a href="apps_pricing_table.html">Pricing Table</a></li>
+                                        <li><a href="app_datatables.html">Datatables</a></li>
+                                        <li><a href="app_maps.html">Maps</a></li>
+                                        <li><a href="app_charts.html">Charts</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
+<main>
+    <div class="main-content no-gutter">
+        <section id="dashboard">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                My Student
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> Mason Coindreau
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <div id="chartSalesperDay" class="chart-wrapper">
+                                <ul>
+                                    <li><a href="">Class</a></li>
+                                    <li><a href="">Grades</a></li>
+                                    <li><a href="">Attendance</a></li>
+                                    <li><a href="">Gallery</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                Calendar
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> December Events
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <div id="chartCustomersPerDay" class="chart-wrapper">
+                                &nbsp;
+                                <ul>
+                                    <li>Dec. 4 - Potluck</li>
+                                    <li>Dec. 8th - Fire Truck Party</li>
+                                    <li>Dec. 12th - Portrait Day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                Attendance Log
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> View Mason's Log
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <ul id="chartNewsletterSignups" class="chart-wrapper">
+                                Current Week
+                                    <li>Dec. 4 - Present</li>
+                                    <li>Dec. 5 - Absent</li>
+                                    <li>Dec. 6 - Tardy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
+                        <ul class="collapsible popout" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="col s12 m6 cyan">
+                        <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                            <div class="panel-header cyan lighten-5">
+                                <div class="title">
+                                    Mason's Attendance
+                                </div>
+                                <div class="subtitle">
+                                    Last 14 days
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="chartTotalSales" class="chart-wrapper">
+                                    Enter log here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="row">
+                <div class="col s12 m6 deep-orange">
+                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
+                        <div class="panel-header deep-orange lighten-5">
+                            <div class="title">
+                                Mason's Calendar
+                            </div>
+                            <div class="subtitle">
+                                Last 14 days
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="chartTotalSales" class="chart-wrapper">
+                                Enter calendar here
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 teal">
+                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                        <div class="panel-header teal lighten-5">
+                            <div class="title">
+                                My Students
+                            </div>
+
+                            <!--<div class="actions">-->
+                                <!--<a class="dropdown-button btn-flat waves-effect" href="#" data-activates="recentOrdersActions">-->
+                                    <!--<i class="large material-icons">more_vert</i>-->
+                                <!--</a>-->
+                                <!--<ul id="recentOrdersActions" class="dropdown-content main-dropdown lighten-2">-->
+                                    <!--<li><a href="#!">one</a></li>-->
+                                    <!--<li><a href="#!">two</a></li>-->
+                                    <!--<li class="divider"></li>-->
+                                    <!--<li><a href="#!">three</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="panel-body">
+                            <table class="table highlight">
+                                <thead>
+                                <tr>
+                                    <th class="center-align">
+                                        <!--<input type="checkbox" id="checkAllOrders" class="checkToggle" data-target="#boxRecentOrders table tbody [type=checkbox]"/>-->
+                                        <!--<label for="checkAllOrders"></label>-->
+                                    </th>
+                                    <th>First Name</th>
+                                    <th class="hide-on-small-only">Last Name</th>
+                                    <th>Progress</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="center-align">
+                                        <input type="checkbox" name="mari" id="mari"/>
+                                        <label for="mari"></label>
+                                    </td>
+                                    <td>Mari</td>
+                                    <td class="hide-on-small-only">Coindreau</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="determinate bg-green" style="width: 52%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center-align">
+                                        <input type="checkbox" name="art" id="art"/>
+                                        <label for="art"></label>
+                                    </td>
+                                    <td>Art</td>
+                                    <td class="hide-on-small-only">Valdez</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="determinate bg-orange" style="width: 22%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center-align">
+                                        <input type="checkbox" name="terrell" id="terrell"/>
+                                        <label for="terrell"></label>
+                                    </td>
+                                    <td>Elvin</td>
+                                    <td class="hide-on-small-only">Terrell</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="determinate bg-yellow" style="width: 32%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+
+
+                <div class="col s12 l5">
+                    <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
+                        <div class="panel-header">
+                            <div class="title">
+                                Chat
+                            </div>
+                            <div class="subtitle">
+                                Incoming messages
+                            </div>
+                        </div>
+                        <form>
+                            <div class="panel-body">
+                                <div class="slimscroll" data-height="230px" data-start="bottom">
+                                    <div class="messages-wrapper">
+                                        <div class="row message sent">
+                                            <div class="col s12">
+                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
+                                                <div class="text">
+                                                    <div class="name">John Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message received">
+                                            <div class="col s12">
+                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
+                                                <div class="text">
+                                                    <div class="name">Jane Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message received">
+                                            <div class="col s12">
+                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
+                                                <div class="text">
+                                                    <div class="name">Jane Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message sent">
+                                            <div class="col s12">
+                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
+                                                <div class="text">
+                                                    <div class="name">John Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <input type="text" placeholder="Type a message and hit 'enter' to send"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="col s12 l7">
+                    <div id="boxTodoList" class="panel panel-bordered panel-dashboard panel-todo z-depth-1">
+                        <div class="panel-header">
+                            <div class="row no-gutter">
+                                <div class="col s12 m6">
+                                    <div class="title">Todo list</div>
+                                    <div class="subtitle">Tasks summary</div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <form>
+                                        <div class="input-field">
+                                            <input type="text" name="search" id="search" required="" placeholder="Search"/>
+                                            <label for="search" class="active"></label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="panel-body">
+                                <div class="slimscroll" data-height="230px">
+                                    <div class="tasks-wrapper">
+                                        <p>
+                                            <input type="checkbox" name="task-lunch" id="task-lunch"/>
+                                            <label for="task-lunch">Have lunch</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="task-drink" id="task-drink"/>
+                                            <label for="task-drink">Work</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="task-watch-series" id="task-watch-series"/>
+                                            <label for="task-watch-series">Watch series</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="task-play-videogame" id="task-play-videogame"/>
+                                            <label for="task-play-videogame">Play videogame</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="task-run" id="task-run"/>
+                                            <label for="task-run">Brush teeth</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="task-to-sleep" id="task-to-sleep"/>
+                                            <label for="task-to-sleep">Sleep</label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <input type="text" placeholder="Type the description and hit 'enter' to add"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+
+
+                <!--<div class="col s12 l6">-->
+                    <!--<div id="boxServerStats" class="panel panel-bordered panel-dashboard panel-gauge-chart z-depth-1">-->
+                        <!--<div class="panel-header">-->
+                            <!--<div class="title">-->
+                                <!--Server stats-->
+                            <!--</div>-->
+                            <!--<div class="subtitle">-->
+                                <!--Refreshing in 3 seconds...-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col m4 s12">-->
+                                    <!--<div id="chartServerCpu" class="chart-wrapper" data-title="CPU usage (%)"></div>-->
+                                <!--</div>-->
+                                <!--<div class="col m4 s12">-->
+                                    <!--<div id="chartServerMemory" class="chart-wrapper" data-title="Memory usage (%)"></div>-->
+                                <!--</div>-->
+                                <!--<div class="col m4 s12">-->
+                                    <!--<div id="chartServerHd" class="chart-wrapper" data-title="HD  usage (%)"></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+
+                <div class="col s12 l3">
+                    <div class="card-panel card-dashboard facebook waves-effect waves-lighten-5">
+                        <div class="post">
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </div>
+                        <div class="date">
+                            15 March, 2016
+                        </div>
+                        <div class="row">
+                            <div class="col s4 brand">
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                            <div class="col s8 trending">
+                                <i class="fa fa-thumbs-o-up"></i> 1467
+                                <i class="fa fa-comment-o"></i> 127
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-panel card-dashboard twitter waves-effect waves-lighten-5 margin-top-15">
+                        <div class="post">
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </div>
+                        <div class="date">
+                            15 March, 2016
+                        </div>
+                        <div class="row">
+                            <div class="col s4 brand">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="col s8 trending">
+                                <i class="fa fa-star-o"></i> 1192
+                                <i class="fa fa-retweet"></i> 86
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>
+                        View current appintments and copy to your personal calendar
+                    </p>
+                    <br />
+                    <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
+                            style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <!--<a th:href="${'teacher'}" class="btn btn-block btn-warning">Teacher</a>-->
+                    <a th:href="${'signUp'}" class="btn btn-block btn-success">Set an appointment with the teacher</a>
+
+                    <!--<br />-->
+                </div>
+                <div id="actions">
+                    <a th:href="@{'/class/create/' + ${#authentication.principal.email}}">Add Your Class</a>
+                    <a th:href="@{'/class/myClasses/' + ${#authentication.principal.email}}">View Your Class</a>
+
+                </div>
+
+                <div class="col s12 l3">
+                    <div class="card card-dashboard">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="img/blog-cover.jpg"/>
+                        </div>
+                        <div class="card-content">
+<span class="card-title activator">
+Our Blog
+<i class="material-icons waves-effect right">more_vert</i>
+</span>
+                            <p class="right-align">
+                                <a class="btn-flat waves-effect" href="#">Go for it</a>
+                            </p>
+                        </div>
+                        <div class="card-reveal">
+<span class="card-title">
+Our Blog
+<i class="material-icons waves-effect right">close</i>
+</span>
+                            <p>Here is some more information about blog that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l3 s12">
+                <div class="brand-logo">
+                    <img src="img/logo.png" />
+                    <h5 class="valign"><b class="main-text">Aero</b> Admin</h5>
+                </div>
+                <p>A Material Design based admin template.</p>
+                <p>You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5>Calendar</h5>
+                <p>Please, in case of doubt <a href="documentation.html">read the documentation</a>. If the doubt still remains, don't hesitate to <a href="http://themeforest.net/user/lippep" target="_blank">contact me</a>. I'll be glad to help you or even listen to your suggestions. :)</p>
+            </div>
+            <div class="col l2 offset-l1 s12 footer-links">
+                <h5>Links</h5>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="css_color.html">CSS</a></li>
+                    <li><a href="components_badges.html">Components</a></li>
+                    <li><a href="js_collapsible.html">Javascript</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Aero Admin, All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script data-rocketsrc="bower_components/jquery/dist/jquery.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/materialize.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/prettify.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/admin.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/utils.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/colors.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/theme-switcher.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/amcharts.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/serial.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/gauge.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/themes/light.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/slimscroll/jquery.slimscroll.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
 </body>
 </html>
+
+
+
+
+
+<!--<head th:replace="fragments/header :: main-header('Your Home Page')"></head>-->
+<!--&lt;!&ndash;<meta charset="UTF-8"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<title>Welcome</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--<body>-->
+<!--<nav th:include="fragments/navbar :: mainNavbar"></nav>-->
+<!--<p>-->
+<!--<h1> Welcome to YOUR Kidsync's Home Page!!</h1>-->
+<!--</p>-->
+
+<!--</body>-->
+<!--</html>-->
