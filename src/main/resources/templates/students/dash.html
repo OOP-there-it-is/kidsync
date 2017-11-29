@@ -22,5 +22,13 @@
         <h2 th:text="${item.status}"></h2>
     </div>
 </div>
+
+<label for="healthlog">Health Log</label>
+<div id="healthlog" class="col-md-6">
+    <div th:each="log : ${healthlog}">
+        <h2 th:text="${log.date}"></h2>
+        <h2 th:text="${log.notes}"></h2>
+    </div>
+</div>
 </body>
 </html>

@@ -15,7 +15,7 @@
     <div th:each="classroom : ${classes}">
         <h2 th:text="${classroom.className}"></h2>
         <h2 th:text="${classroom.gradeLevel}"></h2>
-        <a th:href="@{'/class/view/' + ${classroom.id}}">View Class</a>
+        <a th:href="@{'/classRoom/view/' + ${classroom.id}}">View Class</a>
     </div>
 </div>
 </body>
