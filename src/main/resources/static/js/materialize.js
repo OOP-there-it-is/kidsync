@@ -4222,7 +4222,7 @@ if (Vel) {
          offsetRight : number -> offset from right. Default: 0
          offsetBottom : number -> offset from bottom. Default: 0
          offsetLeft : number -> offset from left. Default: 0
-  			activeClass : string -> Class name to be added to the active link. Default: active
+  			activeClass : string -> ClassRoom name to be added to the active link. Default: active
    * @returns {jQuery}
    */
   $.scrollSpy = function (selector, options) {

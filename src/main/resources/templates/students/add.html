@@ -13,8 +13,8 @@
     <input id="l_name" th:field="*{l_name}"/>
     <label for="special_needs">Special needs</label>
     <input id="special_needs" th:field="*{special_needs}"/>
-    <select th:field="*{classId}">
-        <option th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>
+    <select name="classroom" th:field="*{classroom}">
+        <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>
     </select>
     <input type="submit"/>
 </form>

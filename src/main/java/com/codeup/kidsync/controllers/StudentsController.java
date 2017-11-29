@@ -1,9 +1,8 @@
 package com.codeup.kidsync.controllers;
 
-import com.codeup.kidsync.models.Class;
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
-import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.repositories.ClassRepository;
 import com.codeup.kidsync.services.AttendanceSvc;
 import com.codeup.kidsync.services.ClassSvc;
 import com.codeup.kidsync.services.GradesSvc;
@@ -24,15 +23,15 @@ import javax.servlet.http.HttpServletRequest;
 public class StudentsController {
 
     private final StudentsSvc studentsSvc;
-    private final UsersRepository usersDoa;
+    private final ClassRepository classRepository;
     private final GradesSvc gradesSvc;
     private final AttendanceSvc attendanceSvc;
     private final ClassSvc classSvc;
 
     @Autowired
-    public StudentsController(StudentsSvc studentsSvc, UsersRepository usersDoa, GradesSvc gradesSvc, AttendanceSvc attendanceSvc, ClassSvc classSvc){
+    public StudentsController(StudentsSvc studentsSvc, ClassRepository classRepository, GradesSvc gradesSvc, AttendanceSvc attendanceSvc, ClassSvc classSvc){
         this.studentsSvc = studentsSvc;
-        this.usersDoa = usersDoa;
+        this.classRepository = classRepository;
         this.gradesSvc= gradesSvc;
         this.attendanceSvc = attendanceSvc;
         this.classSvc = classSvc;
@@ -48,14 +47,15 @@ public class StudentsController {
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
         vModel.addAttribute("classrooms",classSvc.findAll());
-        System.out.println(classSvc.findAll());
         return "students/add";
     }
 
     @PostMapping("/students/add")
-    public String AddChild(@ModelAttribute Student student) {
+    public String AddChild(@ModelAttribute Student student, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         student.setUser(user);
+        long classId = Long.parseLong(request.getParameter("classroom"));
+        student.setClassroom(classRepository.findOne(classId));
         studentsSvc.save(student);
         return "users/homePage";
     }

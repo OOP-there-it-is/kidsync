@@ -1,10 +1,10 @@
 package com.codeup.kidsync.repositories;
 
-import com.codeup.kidsync.models.Class;
+import com.codeup.kidsync.models.ClassRoom;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ClassRepository extends CrudRepository<Class, Long>{
-    List<Class> findAllByUserId(long id);
+public interface ClassRepository extends CrudRepository<ClassRoom, Long>{
+    List<ClassRoom> findAllByUserId(long id);
 }
