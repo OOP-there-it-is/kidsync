@@ -31,6 +31,17 @@
     <link href="css/theme-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="css/pages/dashboard.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+
+    <!--***** Chat Box *******-->
+
+    <script type="text/javascript">
+        (function(d) {
+            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
+            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
+            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
+            d.getElementsByTagName('head')[0].appendChild(cwjs);
+        })(document);
+    </script>
 </head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
@@ -331,7 +342,9 @@
                         </div>
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
-                                <!--***********  CALENDAR  **************-->
+
+         <!--******************  CALENDAR  ************************-->
+
                                 <div>
                                     <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
                                             style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>
@@ -444,7 +457,7 @@
 
                                 <div id="upload"></div>
 
-                                <!--***********  PDF UPLOAD  ***************-->
+          <!--***************  PDF UPLOAD  ***************-->
 
                                 <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
                                 <script src="https://static.filestackapi.com/v3/filestack.js"></script>
@@ -460,7 +473,6 @@
                                             //Only accepting at most 1 file
                                             maxFiles:3
 
-//        *****************************
 
                                         }).then(function(result) {//Taking the result object in as 'result'
                                             //Putting the result in a string, and printing it to the console
@@ -519,57 +531,62 @@
                                 Incoming messages
                             </div>
                         </div>
-                        <form>
-                            <div class="panel-body">
-                                <div class="slimscroll" data-height="230px" data-start="bottom">
-                                    <div class="messages-wrapper">
-                                        <div class="row message sent">
-                                            <div class="col s12">
-                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
-                                                <div class="text">
-                                                    <div class="name">John Doe</div>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row message received">
-                                            <div class="col s12">
-                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
-                                                <div class="text">
-                                                    <div class="name">Jane Doe</div>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row message received">
-                                            <div class="col s12">
-                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
-                                                <div class="text">
-                                                    <div class="name">Jane Doe</div>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row message sent">
-                                            <div class="col s12">
-                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
-                                                <div class="text">
-                                                    <div class="name">John Doe</div>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <input type="text" placeholder="Type a message and hit 'enter' to send"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        <div id="chatwing-embedded-e8f77d10-d546-11e7-bfac-6d7fac39f6bb">
+                            <!-- Begin chatwing.com chatbox -->
+                            <iframe src="https://chatwing.com/chatbox/e8f77d10-d546-11e7-bfac-6d7fac39f6bb" width="500" height="500" frameborder="0" scrolling="0">Please contact us at info@chatwing.com if you cant embed the chatbox</iframe>
+                            <!-- End chatwing.com chatbox -->
+                        </div>
+                        <!--<form>-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="slimscroll" data-height="230px" data-start="bottom">-->
+                                    <!--<div class="messages-wrapper">-->
+                                        <!--<div class="row message sent">-->
+                                            <!--<div class="col s12">-->
+                                                <!--<img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>-->
+                                                <!--<div class="text">-->
+                                                    <!--<div class="name">John Doe</div>-->
+                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row message received">-->
+                                            <!--<div class="col s12">-->
+                                                <!--<img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>-->
+                                                <!--<div class="text">-->
+                                                    <!--<div class="name">Jane Doe</div>-->
+                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row message received">-->
+                                            <!--<div class="col s12">-->
+                                                <!--<img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>-->
+                                                <!--<div class="text">-->
+                                                    <!--<div class="name">Jane Doe</div>-->
+                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row message sent">-->
+                                            <!--<div class="col s12">-->
+                                                <!--<img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>-->
+                                                <!--<div class="text">-->
+                                                    <!--<div class="name">John Doe</div>-->
+                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="panel-footer">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col s12">-->
+                                        <!--<input type="text" placeholder="Type a message and hit 'enter' to send"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</form>-->
                     </div>
                 </div>
 
@@ -785,5 +802,14 @@ Our Blog
 <script data-rocketsrc="bower_components/amcharts3/amcharts/themes/light.js" type="text/rocketscript"></script>
 <script data-rocketsrc="bower_components/slimscroll/jquery.slimscroll.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
+<!--<script type="text/javascript" src="static/js/chatBox.js"></script>-->
+
+<div id="chatwing-embedded-e8f77d10-d546-11e7-bfac-6d7fac39f6bb">
+    <!-- Begin chatwing.com chatbox -->
+    <iframe src="https://chatwing.com/chatbox/e8f77d10-d546-11e7-bfac-6d7fac39f6bb" width="240" height="370" frameborder="0" scrolling="0">Please contact us at info@chatwing.com if you cant embed the chatbox</iframe>
+    <!-- End chatwing.com chatbox -->
+</div>
+
+
 </body>
 </html>
