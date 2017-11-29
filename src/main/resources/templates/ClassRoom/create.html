@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:action="@{/class/create}" method="post" th:object="${class}">
+<form th:action="@{/classRoom/create}" method="post" th:object="${class}">
     <input type="hidden" th:field="*{user.id}" value="1"/>
     <label for="class_name">Class name</label>
     <input id="class_name" th:field="*{className}"/>

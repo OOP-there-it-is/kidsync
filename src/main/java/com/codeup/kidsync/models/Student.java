@@ -1,8 +1,6 @@
 package com.codeup.kidsync.models;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -19,9 +17,10 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToOne
     @JoinColumn(name = "class_id")
-    private Class classroom;
+    private ClassRoom classroom;
 
     public void setUser(User user) {
         this.user = user;
@@ -36,12 +35,12 @@ public class Student {
         this.special_needs = special_needs;
     }
 
-    public Student(Long id, String f_name, String l_name, String special_needs, User user, Class classId) {
+    public Student(Long id, String f_name, String l_name, String special_needs, User user, ClassRoom classRoomId) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.special_needs = special_needs;
         this.user = user;
-        this.classroom = classId;
+        this.classroom = classRoomId;
     }
 
     public long getId() {
@@ -80,12 +79,12 @@ public class Student {
         return user;
     }
 
-    public Class getClassId() {
+    public ClassRoom getClassroom() {
         return classroom;
     }
 
-    public void setClassId(Class classId) {
-        this.classroom = classId;
+    public void setClassroom(ClassRoom classroom) {
+        this.classroom = classroom;
     }
 
 

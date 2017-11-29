@@ -1,10 +1,11 @@
 package com.codeup.kidsync.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="class")
-public class Class {
+public class ClassRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +19,14 @@ public class Class {
     private String className;
 
 
-
-    public Class() {
+    public ClassRoom() {
     }
 
-    public Class(User user, String gradeLevel, String name) {
+    public ClassRoom(User user, String gradeLevel, String name) {
         this.user = user;
         this.gradeLevel = gradeLevel;
         this.className = name;
+
     }
 
     public long getId() {

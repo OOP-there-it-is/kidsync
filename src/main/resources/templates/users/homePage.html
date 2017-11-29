@@ -25,8 +25,8 @@
     <!--<br />-->
 </div>
 <div id="actions">
-    <a th:href="@{'/class/create/' + ${#authentication.principal.email}}">Add Your Class</a>
-    <a th:href="@{'/class/myClasses/' + ${#authentication.principal.email}}">View Your Class</a>
+    <a th:href="@{'/classRoom/create/' + ${#authentication.principal.id}}">Add Your Class</a>
+    <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
 
 </div>
 </body>
