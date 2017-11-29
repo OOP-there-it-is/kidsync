@@ -31,17 +31,6 @@
     <link href="css/theme-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="css/pages/dashboard.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-
-    <!--***** Chat Box *******-->
-
-    <script type="text/javascript">
-        (function(d) {
-            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
-            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
-            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
-            d.getElementsByTagName('head')[0].appendChild(cwjs);
-        })(document);
-    </script>
 </head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
@@ -56,49 +45,49 @@
 
                 <div class="nav-wrapper">
                     <!--<a href="index.html" class="brand-logo">-->
-                        <!--<img src="img/logo.png"/>-->
-                        <!--<span class="valign">-->
-                            <!--KidSYNC Dashboard Mari-->
-                        <!--</span>-->
+                    <!--<img src="img/logo.png"/>-->
+                    <!--<span class="valign">-->
+                    <!--KidSYNC Dashboard Mari-->
+                    <!--</span>-->
                     <!--</a>-->
 
                     <!--<ul class="right hide-on-med-and-down">-->
-                        <!--<li class="active"><a href="index.html">My Student</a></li>-->
-                        <!--<li><a href="documentation.html">Calendar</a></li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li class="profile ">-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">-->
-                                <!--<div class="valign-wrapper">-->
-                                    <!--<img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">-->
-                                    <!--John Doe-->
-                                    <!--<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                                <!--</div>-->
-                            <!--</a>-->
-                        <!--</li>-->
+                    <!--<li class="active"><a href="index.html">My Student</a></li>-->
+                    <!--<li><a href="documentation.html">Calendar</a></li>-->
+                    <!--<li>-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">-->
+                    <!--Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">-->
+                    <!--Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">-->
+                    <!--Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">-->
+                    <!--APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">-->
+                    <!--Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="profile ">-->
+                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">-->
+                    <!--<div class="valign-wrapper">-->
+                    <!--<img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">-->
+                    <!--John Doe-->
+                    <!--<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</li>-->
                     <!--</ul>-->
                     <ul id="dropdown-css" class="dropdown-content">
                         <li><a href="css_color.html">Color</a></li>
@@ -330,29 +319,7 @@
 
 
             <div class="row">
-                <div class="col s12 m6 deep-orange">
-                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
-                        <div class="panel-header deep-orange lighten-5">
-                            <div class="title">
-                                Mason's Calendar
-                            </div>
-                            <div class="subtitle">
-                                Last 14 days
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div id="chartTotalSales" class="chart-wrapper">
 
-         <!--******************  CALENDAR  ************************-->
-
-                                <div>
-                                    <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
-                                            style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
@@ -364,15 +331,15 @@
                                 <span><h1 th:text="${student.f_name}"></h1></span>
                             </div>
                             <!--<div class="actions">-->
-                                <!--<a class="dropdown-button btn-flat waves-effect" href="#" data-activates="recentOrdersActions">-->
-                                    <!--<i class="large material-icons">more_vert</i>-->
-                                <!--</a>-->
-                                <!--<ul id="recentOrdersActions" class="dropdown-content main-dropdown lighten-2">-->
-                                    <!--<li><a href="#!">one</a></li>-->
-                                    <!--<li><a href="#!">two</a></li>-->
-                                    <!--<li class="divider"></li>-->
-                                    <!--<li><a href="#!">three</a></li>-->
-                                <!--</ul>-->
+                            <!--<a class="dropdown-button btn-flat waves-effect" href="#" data-activates="recentOrdersActions">-->
+                            <!--<i class="large material-icons">more_vert</i>-->
+                            <!--</a>-->
+                            <!--<ul id="recentOrdersActions" class="dropdown-content main-dropdown lighten-2">-->
+                            <!--<li><a href="#!">one</a></li>-->
+                            <!--<li><a href="#!">two</a></li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li><a href="#!">three</a></li>-->
+                            <!--</ul>-->
                             <!--</div>-->
                         </div>
                         <div class="panel-body">
@@ -480,7 +447,7 @@
 
                                 <div id="upload"></div>
 
-          <!--***************  PDF UPLOAD  ***************-->
+                                <!--***********  PDF UPLOAD  ***************-->
 
                                 <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
                                 <script src="https://static.filestackapi.com/v3/filestack.js"></script>
@@ -496,6 +463,7 @@
                                             //Only accepting at most 1 file
                                             maxFiles:3
 
+//        *****************************
 
                                         }).then(function(result) {//Taking the result object in as 'result'
                                             //Putting the result in a string, and printing it to the console
@@ -554,70 +522,57 @@
                                 Incoming messages
                             </div>
                         </div>
-                        <div>
-
-
-                        <div id="rt-ce067dad2464d593ee55a39d2be44486"></div>
-                        <script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
-                        </div>
-                        <!--<div id="chatwing-embedded-e8f77d10-d546-11e7-bfac-6d7fac39f6bb">-->
-                            <!--&lt;!&ndash; Begin chatwing.com chatbox &ndash;&gt;-->
-                            <!--<iframe src="https://chatwing.com/chatbox/e8f77d10-d546-11e7-bfac-6d7fac39f6bb" width="500" height="500" frameborder="0" scrolling="0">Please contact us at info@chatwing.com if you cant embed the chatbox</iframe>-->
-                            <!--&lt;!&ndash; End chatwing.com chatbox &ndash;&gt;-->
-                        <!--</div>-->
-
-
-                        <!--<form>-->
-                            <!--<div class="panel-body">-->
-                                <!--<div class="slimscroll" data-height="230px" data-start="bottom">-->
-                                    <!--<div class="messages-wrapper">-->
-                                        <!--<div class="row message sent">-->
-                                            <!--<div class="col s12">-->
-                                                <!--<img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>-->
-                                                <!--<div class="text">-->
-                                                    <!--<div class="name">John Doe</div>-->
-                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="row message received">-->
-                                            <!--<div class="col s12">-->
-                                                <!--<img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>-->
-                                                <!--<div class="text">-->
-                                                    <!--<div class="name">Jane Doe</div>-->
-                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="row message received">-->
-                                            <!--<div class="col s12">-->
-                                                <!--<img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>-->
-                                                <!--<div class="text">-->
-                                                    <!--<div class="name">Jane Doe</div>-->
-                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="row message sent">-->
-                                            <!--<div class="col s12">-->
-                                                <!--<img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>-->
-                                                <!--<div class="text">-->
-                                                    <!--<div class="name">John Doe</div>-->
-                                                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="panel-footer">-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col s12">-->
-                                        <!--<input type="text" placeholder="Type a message and hit 'enter' to send"/>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</form>-->
+                        <form>
+                            <div class="panel-body">
+                                <div class="slimscroll" data-height="230px" data-start="bottom">
+                                    <div class="messages-wrapper">
+                                        <div class="row message sent">
+                                            <div class="col s12">
+                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
+                                                <div class="text">
+                                                    <div class="name">John Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message received">
+                                            <div class="col s12">
+                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
+                                                <div class="text">
+                                                    <div class="name">Jane Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message received">
+                                            <div class="col s12">
+                                                <img src="img/person-2.jpg" alt="Jane Doe" class="circle responsive-img right-align"/>
+                                                <div class="text">
+                                                    <div class="name">Jane Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row message sent">
+                                            <div class="col s12">
+                                                <img src="img/person-1.jpg" alt="John Doe" class="circle responsive-img left-align"/>
+                                                <div class="text">
+                                                    <div class="name">John Doe</div>
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <input type="text" placeholder="Type a message and hit 'enter' to send"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -688,29 +643,29 @@
 
 
                 <!--<div class="col s12 l6">-->
-                    <!--<div id="boxServerStats" class="panel panel-bordered panel-dashboard panel-gauge-chart z-depth-1">-->
-                        <!--<div class="panel-header">-->
-                            <!--<div class="title">-->
-                                <!--Server stats-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Refreshing in 3 seconds...-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body">-->
-                            <!--<div class="row">-->
-                                <!--<div class="col m4 s12">-->
-                                    <!--<div id="chartServerCpu" class="chart-wrapper" data-title="CPU usage (%)"></div>-->
-                                <!--</div>-->
-                                <!--<div class="col m4 s12">-->
-                                    <!--<div id="chartServerMemory" class="chart-wrapper" data-title="Memory usage (%)"></div>-->
-                                <!--</div>-->
-                                <!--<div class="col m4 s12">-->
-                                    <!--<div id="chartServerHd" class="chart-wrapper" data-title="HD  usage (%)"></div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                <!--<div id="boxServerStats" class="panel panel-bordered panel-dashboard panel-gauge-chart z-depth-1">-->
+                <!--<div class="panel-header">-->
+                <!--<div class="title">-->
+                <!--Server stats-->
+                <!--</div>-->
+                <!--<div class="subtitle">-->
+                <!--Refreshing in 3 seconds...-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="panel-body">-->
+                <!--<div class="row">-->
+                <!--<div class="col m4 s12">-->
+                <!--<div id="chartServerCpu" class="chart-wrapper" data-title="CPU usage (%)"></div>-->
+                <!--</div>-->
+                <!--<div class="col m4 s12">-->
+                <!--<div id="chartServerMemory" class="chart-wrapper" data-title="Memory usage (%)"></div>-->
+                <!--</div>-->
+                <!--<div class="col m4 s12">-->
+                <!--<div id="chartServerHd" class="chart-wrapper" data-title="HD  usage (%)"></div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
                 <!--</div>-->
 
 
@@ -833,10 +788,5 @@ Our Blog
 <script data-rocketsrc="bower_components/amcharts3/amcharts/themes/light.js" type="text/rocketscript"></script>
 <script data-rocketsrc="bower_components/slimscroll/jquery.slimscroll.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
-<!--<script type="text/javascript" src="/js/chatBox.js"></script>-->
-
-
-<div id="rt-ce067dad2464d593ee55a39d2be44486"></div><script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
-
 </body>
 </html>
