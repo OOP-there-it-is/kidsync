@@ -32,4 +32,7 @@ public class ClassSvc {
         return classDoa.findAllByUserId(userId);
     }
 
+    public List<ClassRoom> findClassById(Long classId){
+        return classDoa.findAllById(classId);
+    }
 }
