@@ -33,32 +33,27 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
-<nav th:include="fragments/navbar :: mainNavbar"></nav>
-
-<div class="col-md-6">
-</div>
-
 <div id="nav-content">
     <nav>
         <div class="row">
             <div class="col s12">
 
                 <div class="nav-wrapper">
-                    <!--<a href="index.html" class="brand-logo">-->
-                        <!--<img src="img/logo.png"/>-->
-                        <!--<span class="valign">-->
-                            <!--KidSYNC Dashboard Mari-->
-                        <!--</span>-->
-                    <!--</a>-->
+                    <a href="index.html" class="brand-logo">
+                        <img src="img/logo.png"/>
+                        <span class="valign">
+                            KidSYNC Dashboard Mari
+                        </span>
+                    </a>
 
-                    <!--<ul class="right hide-on-med-and-down">-->
-                        <!--<li class="active"><a href="index.html">My Student</a></li>-->
-                        <!--<li><a href="documentation.html">Calendar</a></li>-->
-                        <!--<li>-->
-                            <!--<a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">-->
-                                <!--Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                            <!--</a>-->
-                        <!--</li>-->
+                    <ul class="right hide-on-med-and-down">
+                        <li class="active"><a href="index.html">My Student</a></li>
+                        <li><a href="documentation.html">Calendar</a></li>
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">
+                                Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                            </a>
+                        </li>
                         <!--<li>-->
                             <!--<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">-->
                                 <!--Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
@@ -88,7 +83,7 @@
                                 <!--</div>-->
                             <!--</a>-->
                         <!--</li>-->
-                    <!--</ul>-->
+                    </ul>
                     <ul id="dropdown-css" class="dropdown-content">
                         <li><a href="css_color.html">Color</a></li>
                         <li><a href="css_grid.html">Grid</a></li>
@@ -296,25 +291,61 @@
                     <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                Messaging
+                                Attendance Log
                             </div>
                             <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
+                                <i class="material-icons">schedule</i> View Mason's Log
                             </div>
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
                             <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
+                                Current Week
+                                    <li>Dec. 4 - Present</li>
+                                    <li>Dec. 5 - Absent</li>
+                                    <li>Dec. 6 - Tardy</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-
+            <div class="row">
+                <div class="col s12 m6">
+                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
+                        <ul class="collapsible popout" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="col s12 m6 cyan">
+                        <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                            <div class="panel-header cyan lighten-5">
+                                <div class="title">
+                                    Mason's Attendance
+                                </div>
+                                <div class="subtitle">
+                                    Last 14 days
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="chartTotalSales" class="chart-wrapper">
+                                    Enter log here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -331,11 +362,7 @@
                         </div>
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
-                                <!--***********  CALENDAR  **************-->
-                                <div>
-                                    <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
-                                            style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>
-                                </div>
+                                Enter calendar here
                             </div>
                         </div>
                     </div>
@@ -416,92 +443,6 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col s12 m6 cyan">
-                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
-                        <div class="panel-header cyan lighten-5">
-                            <div class="title">
-                                Mason's Options
-                            </div>
-                            <div class="subtitle">
-                                Activity for last 14 days
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div id="chartTotalSales" class="chart-wrapper">
-                                <div id="actions">
-                                    <a th:href="@{'/classRoom/create/' + ${#authentication.principal.id}}">Add Your Class</a>
-                                    <br/>
-                                    <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
-                                </div>
-                                <div>
-                                    <a href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank"><img src="img/kidsync-03.png" width="150" style="border-style:none;"/><br/>Book Appointment</a>
-                                </div>
-
-                                <div id="upload"></div>
-
-                                <!--***********  PDF UPLOAD  ***************-->
-
-                                <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
-                                <script src="https://static.filestackapi.com/v3/filestack.js"></script>
-                                <script type="text/javascript">
-
-                                    var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
-                                    var transformURL = "https://cdn.filestack.com/watermark=file:";
-                                    function fileLoad(){
-
-                                        client.pick({
-                                            //Only accepting files with a mimetype 'image/*'
-                                            accept: 'image/*',
-                                            //Only accepting at most 1 file
-                                            maxFiles:3
-
-//        *****************************
-
-                                        }).then(function(result) {//Taking the result object in as 'result'
-                                            //Putting the result in a string, and printing it to the console
-                                            console.table(result);
-
-                                            //Sets the file handle to the handle of the first file in the result
-                                            var fileHandle = result.filesUploaded[0].url;
-
-                                            // save the url in your database -> ajax
-                                            //Logs the new file handle in the console
-                                            //console.log("fileHandle");
-                                            document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
-
-                                            function buildURL(){
-                                                transformURL += fileHandle;
-                                                transformURL += imageHandle;
-                                                console.log(transfromURL);
-                                            }
-                                        });
-                                    }
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
-                        <ul class="collapsible popout" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                                <div class="collapsible-body" style="height: 200px;"><p>Lorem ipsum dolor sit amet.</p></div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -706,8 +647,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="col s12 l3">
                     <div class="card card-dashboard">
                         <div class="card-image waves-effect waves-block waves-light">
@@ -787,3 +726,20 @@ Our Blog
 <script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
 </body>
 </html>
+
+
+
+
+
+<!--<head th:replace="fragments/header :: main-header('Your Home Page')"></head>-->
+<!--&lt;!&ndash;<meta charset="UTF-8"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<title>Welcome</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--<body>-->
+<!--<nav th:include="fragments/navbar :: mainNavbar"></nav>-->
+<!--<p>-->
+<!--<h1> Welcome to YOUR Kidsync's Home Page!!</h1>-->
+<!--</p>-->
+
+<!--</body>-->
+<!--</html>-->
