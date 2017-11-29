@@ -104,64 +104,57 @@
                         <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                             <div class="panel-header cyan lighten-5">
                                 <div class="title">
-                                    Mason's Options
+                                    Student(s)
                                 </div>
                                 <div class="subtitle">
                                     Activity for last 14 days
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <div id="chartTotalSales" class="chart-wrapper">
-                                    <div id="actions">
-                                        <a th:href="@{'/classRoom/create/' + ${#authentication.principal.id}}">Add Your Class</a>
-                                        <br/>
-                                        <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
+                                <div class="row">
+
+                                    <div class="col s12 m4" th:each="student : ${students}">
+                                        <span><h1 th:text="${student.f_name}"></h1></span>
+                                        <!--<label for="grades">Grades</label>-->
+                                            <!--<div id="grades" class="col-md-6">-->
+                                                <!--<div th:each="grade : ${grades}">-->
+                                                <!--<h3 th:text="${grade.date}"></h3>-->
+                                                <!--<h3 th:text="${grade.rating}"></h3>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                        <!--<label for="attendance">Attendance</label>-->
+                                            <!--<div id="attendance" class="col-md-6">-->
+                                                <!--<div th:each="item : ${attendance}">-->
+                                                    <!--<h2 th:text="${item.status}"></h2>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                        <!--<label for="healthlog">Health Log</label>-->
+                                            <!--<div id="healthlog" class="col-md-6">-->
+                                                <!--<div th:each="log : ${healthlog}">-->
+                                                    <!--<h2 th:text="${log.date}"></h2>-->
+                                                    <!--<h2 th:text="${log.notes}"></h2>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
                                     </div>
-                                    <div>
-                                        <a href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank"><img src="img/kidsync-03.png" width="150" style="border-style:none;"/><br/>Book Appointment</a>
-                                    </div>
-
-                                    <div id="upload"></div>
-
-                                    <!--***********  PDF UPLOAD  ***************-->
-
-                                    <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
-                                    <script src="https://static.filestackapi.com/v3/filestack.js"></script>
-                                    <script type="text/javascript">
-
-                                        var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
-                                        var transformURL = "https://cdn.filestack.com/watermark=file:";
-                                        function fileLoad(){
-
-                                            client.pick({
-                                                //Only accepting files with a mimetype 'image/*'
-                                                accept: 'image/*',
-                                                //Only accepting at most 1 file
-                                                maxFiles:3
-
-                                                //        *****************************
-
-                                            }).then(function(result) {//Taking the result object in as 'result'
-                                                //Putting the result in a string, and printing it to the console
-                                                console.table(result);
-
-                                                //Sets the file handle to the handle of the first file in the result
-                                                var fileHandle = result.filesUploaded[0].url;
-
-                                                // save the url in your database -> ajax
-                                                //Logs the new file handle in the console
-                                                //console.log("fileHandle");
-                                                document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
-
-                                                function buildURL(){
-                                                    transformURL += fileHandle;
-                                                    transformURL += imageHandle;
-                                                    console.log(transfromURL);
-                                                }
-                                            });
-                                        }
-                                    </script>
+                                    <br/><p>Add Student</p>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <!--<form th:action="@{/students/add}" method="post" th:object="${student}">-->
+                                    <!--<label for="f_name">First Name</label>-->
+                                    <!--<input id="f_name" th:field="*{f_name}"/>-->
+                                    <!--<label for="l_name">Last Name</label>-->
+                                    <!--<input id="l_name" th:field="*{l_name}"/>-->
+                                    <!--<label for="special_needs">Special needs</label>-->
+                                    <!--<input id="special_needs" th:field="*{special_needs}"/>-->
+                                    <!--<select name="classroom" th:field="*{classroom}">-->
+                                        <!--<option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>-->
+                                    <!--</select>-->
+                                    <!--<input type="submit"/>-->
+                                <!--</form>-->
                             </div>
                         </div>
                     </div>
@@ -269,13 +262,13 @@
             <div class="col l3 s12">
                 <div class="brand-logo">
                     <img src="img/logo.png" />
-                    <h5 class="valign"><b class="main-text">Aero</b> Admin</h5>
+                    <h5 class="valign">KidSYNC</h5>
                 </div>
-                <p>A Material Design based admin template.</p>
+                <p>Making things just a bit easier</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5>Calendar</h5>
-                <p>Please, in case of doubt <a href="documentation.html">read the documentation</a>. If the doubt still remains, don't hesitate to <a href="http://themeforest.net/user/lippep" target="_blank">contact me</a>. I'll be glad to help you or even listen to your suggestions. :)</p>
+                <h5>Events</h5>
+                <p>Events here</p>
             </div>
             <div class="col l2 offset-l1 s12 footer-links">
                 <h5>Links</h5>

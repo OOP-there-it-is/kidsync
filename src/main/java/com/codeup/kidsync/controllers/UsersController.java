@@ -7,6 +7,7 @@ import com.codeup.kidsync.services.StudentsSvc;
 import com.codeup.kidsync.twillio.CheckCode;
 import com.codeup.kidsync.twillio.SendSms;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +18,22 @@ import javax.servlet.http.HttpServletRequest;
 public class UsersController {
     private UsersRepository users;
     private PasswordEncoder passwordEncoder;
+    private final StudentsSvc studentsSvc;
 
 
 
     @Autowired
-    public UsersController(UsersRepository users, PasswordEncoder passwordEncoder) {
+    public UsersController(UsersRepository users, PasswordEncoder passwordEncoder, StudentsSvc studentsSvc) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
+        this.studentsSvc = studentsSvc;
     }
 
     @GetMapping("/home")
     public String yourPage(Model vModel){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         vModel.addAttribute("users", users.findAll());
+        vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
         return "users/homePage";
     }
 

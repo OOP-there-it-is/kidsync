@@ -48,7 +48,7 @@ public class StudentsController {
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
         vModel.addAttribute("classrooms",classSvc.findAll());
-        return "students/add";
+        return "students/dash";
     }
 
     @PostMapping("/students/add")
@@ -65,7 +65,8 @@ public class StudentsController {
     public String ShowStudent(@PathVariable long id, Model vModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        vModel.addAttribute("student", studentsSvc.findOne(id));
+//        vModel.addAttribute("student", studentsSvc.findOne(id));
+        vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
         vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
         vModel.addAttribute("attendance", attendanceSvc.getAttendanceByStudent(id));
         vModel.addAttribute("healthlog", healthLogSvc.getHealthLogByStudent(id));
