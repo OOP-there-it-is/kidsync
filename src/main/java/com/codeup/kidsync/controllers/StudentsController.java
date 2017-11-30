@@ -58,7 +58,7 @@ public class StudentsController {
         long classId = Long.parseLong(request.getParameter("classroom"));
         student.setClassroom(classRepository.findOne(classId));
         studentsSvc.save(student);
-        return "users/homePage";
+        return "redirect:/home";
     }
 
     @GetMapping("/dash/{id}")

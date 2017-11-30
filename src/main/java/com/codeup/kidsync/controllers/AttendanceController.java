@@ -31,7 +31,7 @@ public class AttendanceController {
         return "attendance/add";
     }
 
-    @PostMapping("/attendance/add") //
+    @PostMapping("/attendance/add")
     public String AddAttendance(@ModelAttribute Attendance attendance) {
         attendanceSvc.save(attendance);
         return "users/homePage";

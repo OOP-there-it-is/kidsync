@@ -240,11 +240,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
             <div class="row">
 
                 <div class="col s12 m6 teal">
@@ -252,9 +247,6 @@
                         <div class="panel-header teal lighten-5">
                             <div class="title">
                                 Student(s)
-                            </div>
-                            <div class="col s12 m4" th:each="student : ${students}">
-                                <span><h1 th:text="${student.f_name}"></h1></span>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -265,49 +257,48 @@
                                     </th>
                                     <th>First Name</th>
                                     <th class="hide-on-small-only">Last Name</th>
-                                    <th>Progress</th>
+                                    <!--<th>Progress</th>-->
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <tr th:each="student : ${students}">
                                     <td class="center-align">
-                                        <input type="checkbox" name="mari" id="mari"/>
-                                        <label for="mari"></label>
+                                        <a th:href="@{'/dash/' + ${student.id}}">Dashboard</a>
                                     </td>
-                                    <td>Mari</td>
-                                    <td class="hide-on-small-only">Coindreau</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="determinate bg-green" style="width: 52%"></div>
-                                        </div>
-                                    </td>
+                                    <td th:text="${student.f_name}"></td>
+                                    <td class="hide-on-small-only" th:text="${student.l_name}"></td>
+                                    <!--<td>-->
+                                        <!--<div class="progress">-->
+                                            <!--<div class="determinate bg-green" style="width: 52%"></div>-->
+                                        <!--</div>-->
+                                    <!--</td>-->
                                 </tr>
-                                <tr>
-                                    <td class="center-align">
-                                        <input type="checkbox" name="art" id="art"/>
-                                        <label for="art"></label>
-                                    </td>
-                                    <td>Art</td>
-                                    <td class="hide-on-small-only">Valdez</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="determinate bg-orange" style="width: 22%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="center-align">
-                                        <input type="checkbox" name="terrell" id="terrell"/>
-                                        <label for="terrell"></label>
-                                    </td>
-                                    <td>Elvin</td>
-                                    <td class="hide-on-small-only">Terrell</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="determinate bg-yellow" style="width: 32%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <!--<tr>-->
+                                    <!--<td class="center-align">-->
+                                        <!--<input type="checkbox" name="art" id="art"/>-->
+                                        <!--<label for="art"></label>-->
+                                    <!--</td>-->
+                                    <!--<td>Art</td>-->
+                                    <!--<td class="hide-on-small-only">Valdez</td>-->
+                                    <!--<td>-->
+                                        <!--<div class="progress">-->
+                                            <!--<div class="determinate bg-orange" style="width: 22%"></div>-->
+                                        <!--</div>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td class="center-align">-->
+                                        <!--<input type="checkbox" name="terrell" id="terrell"/>-->
+                                        <!--<label for="terrell"></label>-->
+                                    <!--</td>-->
+                                    <!--<td>Elvin</td>-->
+                                    <!--<td class="hide-on-small-only">Terrell</td>-->
+                                    <!--<td>-->
+                                        <!--<div class="progress">-->
+                                            <!--<div class="determinate bg-yellow" style="width: 32%"></div>-->
+                                        <!--</div>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
                                 </tbody>
                             </table>
                         </div>
@@ -350,7 +341,6 @@
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
                                 <div id="actions">
-                                    <a th:href="@{'/classRoom/create/' + ${#authentication.principal.id}}">Add Your Class</a>
                                     <br/>
                                     <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
                                 </div>

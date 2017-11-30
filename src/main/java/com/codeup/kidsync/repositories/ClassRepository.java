@@ -9,4 +9,5 @@ public interface ClassRepository extends CrudRepository<ClassRoom, Long>{
     List<ClassRoom> findAllByUserId(long id);
 
     List<ClassRoom> findAllById(long id);
+
 }

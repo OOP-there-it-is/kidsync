@@ -16,7 +16,7 @@ public class Grade {
     @Column(columnDefinition = "TEXT")
     private String notes;
     @Column(nullable = false)
-    private Date date;
+    private String quarter;
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
@@ -32,12 +32,12 @@ public class Grade {
         this.id = id;
     }
 
-    public Grade(long id, String rating, String notes, Date date, Student student) {
+    public Grade(long id, String rating, String notes, String quarter, Student student) {
         this.id = id;
         this.rating = rating;
         this.notes = notes;
         this.student = student;
-        this.date = date;
+        this.quarter = quarter;
     }
 
     public long getId() {
@@ -68,11 +68,19 @@ public class Grade {
         return student;
     }
 
-    public Date getDate() {
-        return date;
+    public String getQuarter() {
+        return quarter;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setQuarter(String quarter) {
+        this.quarter = quarter;
+    }
+
+    public String getDate() {
+        return quarter;
+    }
+
+    public void setDate(String Quarter) {
+        this.quarter = quarter;
     }
 }

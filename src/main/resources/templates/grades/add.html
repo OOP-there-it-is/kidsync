@@ -6,23 +6,31 @@
 </head>
 <body>
 
-<form th:action="@{/grades/addGrade}" method="post" th:object="${grade}">
-    <select th:field="*{student.id}">
-        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>
-    </select>
+<div>
+    <h2> <h1 th:text="${student.f_name}"></h1></h2>
+    <h3> <h1>Quarterly Rating</h1></h3>
+</div>
+<form th:action="@{/grades/add}" method="post" th:object="${grade}" id="grade">
+    <input type="hidden" th:field="*{student.id}" th:value="${student.id}"/>
     <label for="rating">Rating</label>
-    <select id="rating" name="rating">
-        <option value="Satisfactory">Satisfactory</option>
-        <option value="Unsatisfactory">Unsatisfactory</option>
-        <option value="Needs Improvement">Needs Improvement</option>
-        <option value="Did Not Participate">Did Not Participate</option>
-    </select>
-    <br/>
+        <select id="rating" name="rating">
+            <option value="Satisfactory">Satisfactory</option>
+            <option value="Unsatisfactory">Unsatisfactory</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
     <label for="notes">Notes</label>
-    <input id="notes" name="notes"/>
-    <br/>
-    <label for="date">Date</label>
-    <input id="date" th:field="*{date}" placeholder="2017-11-27"/>
+
+    <textarea form="grade" id="notes" name="notes"></textarea>
+
+    <label for="quarter">Quarter</label>
+
+    <select id="quarter" name="quarter">
+        <option value="First">First Quarter</option>
+        <option value="Second">Second Quarter</option>
+        <option value="Third">Third Quarter</option>
+        <option value="Fourth">Fourth Quarter</option>
+    </select>
     <input type="submit"/>
 </form>
 </body>

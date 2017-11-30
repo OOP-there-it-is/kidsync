@@ -35,4 +35,5 @@ public class ClassSvc {
     public List<ClassRoom> findClassById(Long classId){
         return classDoa.findAllById(classId);
     }
+
 }

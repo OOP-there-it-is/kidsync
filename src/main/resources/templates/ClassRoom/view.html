@@ -19,6 +19,8 @@
              Last Name
         <span th:text="${student.l_name}"></span>
         </div>
+        <a th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+        <a th:href="@{'/grades/add/' + ${student.id}}">View Grades</a>
     </div>
 </div>
 </body>
