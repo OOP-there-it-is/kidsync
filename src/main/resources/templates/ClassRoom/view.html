@@ -132,12 +132,17 @@
                                          Last Name
                                     <span th:text="${student.l_name}"></span>
                                     </div>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View Grades</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">add attendance</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View attendance</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">add Health Log</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View Health Log</a>
+
+                                    <!--<a class="waves-effect waves-light btn">button</a>-->
+                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>-->
+                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>-->
+
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">View Grades</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">add attendance</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">View attendance</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">add Health Log</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">View Health Log</a>
                                 </div>
                             </div>
                             <!--****here****-->
