@@ -137,13 +137,13 @@
                                 My Grade Book
                             </div>
                             <div class="subtitle">
-                                <i class="material-icons">schedule</i> Mason Coindreau
+                                <a th:href="${'/grades/viewAll'}"> Add Grade</a>
                             </div>
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
                             <div id="chartSalesperDay" class="chart-wrapper">
                                 <ul th:each="room : ${classrooms}">
-                                    <li th:text="*{room.className}"><a th:href="${'/grades/add'}">View Class Grades</a></li>
+                                    <li th:text="*{room.className}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                     <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                HealthLog
+                                Events
                             </div>
                             <div class="subtitle">
                                 <i class="material-icons">schedule</i> December Events
@@ -193,10 +193,9 @@
                 </div>
             </div>
             <div class="row">
-
-                <div class="col s12 m6 teal">
+                <div class="col s12 m6 yellow darken-1">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
-                        <div class="panel-header teal lighten-5">
+                        <div class="panel-header yellow lighten-5">
                             <div class="title">
                                 My Classes
                             </div>
@@ -243,11 +242,35 @@
                 </div>
             </div>
             <div class="row">
-
-
-                <div class="col s12 l5">
+                <div class="col s12 m6 brown darken-3">
+                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                        <div class="panel-header brown lighten-5">
+                            <div class="title">
+                                Attendance Log
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table highlight">
+                                <thead>
+                                <tr>
+                                    <th>Class Name</th>
+                                    <th>Grade Level</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="room : ${classrooms}">
+                                    <td th:text="${room.className}"></td>
+                                    <td th:text="${room.gradeLevel}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <a th:href="${'/classRoom/create'}">Add Class</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 pink darken-2">
                     <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
-                        <div class="panel-header">
+                        <div class="panel-header lighten-5">
                             <div class="title">
                                 Chat
                             </div>
@@ -256,13 +279,39 @@
                             </div>
                         </div>
                         <div>
-                            <div id="rt-ce067dad2464d593ee55a39d2be44486"></div>
+                            <div style="height: 255px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>
                             <script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
                         </div>
                     </div>
                 </div>
-
-
+            </div>
+            <div class="row">
+                <div class="col s12 m6 teal">
+                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                        <div class="panel-header teal lighten-5">
+                            <div class="title">
+                                Health Log
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table highlight">
+                                <thead>
+                                <tr>
+                                    <th>Class Name</th>
+                                    <th>Grade Level</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="room : ${classrooms}">
+                                    <td th:text="${room.className}"></td>
+                                    <td th:text="${room.gradeLevel}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <a th:href="${'/classRoom/create'}">Add Class</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

@@ -49,6 +49,9 @@ public class UsersController {
     @GetMapping("/teacher-dash")
     public String teacherHome(Model vModel, HttpServletRequest request){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(user.getRole() != 1) {
+            return "errors/unauthorized";
+        }
         request.getSession().setAttribute("user", user);
         List<ClassRoom> classRooms = classSvc.findClassByTeacher(user.getId());
 

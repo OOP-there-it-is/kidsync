@@ -11,7 +11,6 @@
         window.__cfRocketOptions = {byc:0,p:0,petok:"5c03b4243731ac721afa320f85d2251a94f5c70e-1511912244-1800"};
         //]]>
     </script>
-
     <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -37,7 +36,7 @@
     <script type="text/javascript">
         (function(d) {
             var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
-            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
+            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id;
             cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
             d.getElementsByTagName('head')[0].appendChild(cwjs);
         })(document);
@@ -223,32 +222,6 @@
                                     <td th:text="${student.f_name}"></td>
                                     <td class="hide-on-small-only" th:text="${student.l_name}"></td>
                                 </tr>
-                                <!--<tr>-->
-                                    <!--<td class="center-align">-->
-                                        <!--<input type="checkbox" name="art" id="art"/>-->
-                                        <!--<label for="art"></label>-->
-                                    <!--</td>-->
-                                    <!--<td>Art</td>-->
-                                    <!--<td class="hide-on-small-only">Valdez</td>-->
-                                    <!--<td>-->
-                                        <!--<div class="progress">-->
-                                            <!--<div class="determinate bg-orange" style="width: 22%"></div>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td class="center-align">-->
-                                        <!--<input type="checkbox" name="terrell" id="terrell"/>-->
-                                        <!--<label for="terrell"></label>-->
-                                    <!--</td>-->
-                                    <!--<td>Elvin</td>-->
-                                    <!--<td class="hide-on-small-only">Terrell</td>-->
-                                    <!--<td>-->
-                                        <!--<div class="progress">-->
-                                            <!--<div class="determinate bg-yellow" style="width: 32%"></div>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
                                 </tbody>
                             </table>
                         </div>
@@ -341,9 +314,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s12 l5">
+                <div class="col s12 l5 pink darken-2">
                     <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
-                        <div class="panel-header">
+                        <div class="panel-header pink lighten-5">
                             <div class="title">
                                 Chat
                             </div>
@@ -352,7 +325,7 @@
                             </div>
                         </div>
                         <div>
-                            <div id="rt-ce067dad2464d593ee55a39d2be44486"></div>
+                            <div style="height: 255px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>
                             <script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
                         </div>
                     </div>
@@ -369,7 +342,7 @@
         <div class="row">
             <div class="col l3 s12">
                 <div class="brand-logo">
-                    <img src="img/logo.png" />
+                    <img src="/img/login-logo.png" />
                     <h5 class="valign">KidSYNC</h5>
                 </div>
                 <p>Making things a bit easier</p>
