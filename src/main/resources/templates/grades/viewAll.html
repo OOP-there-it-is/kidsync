@@ -134,7 +134,7 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Grade Book
+                                My Student
                             </div>
                             <div class="subtitle">
                                 <i class="material-icons">schedule</i> Mason Coindreau
@@ -142,12 +142,11 @@
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
                             <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul th:each="room : ${classrooms}">
-                                    <li th:text="*{room.className}">
-                                    </li>
-                                    <li>
-                                        <a th:href="${'/grades/add'}">View Class Grades</a>
-                                    </li>
+                                <ul>
+                                    <li><a href="">Class</a></li>
+                                    <li><a href="">Grades</a></li>
+                                    <li><a href="">Attendance</a></li>
+                                    <li><a href="">Gallery</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -157,7 +156,7 @@
                     <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                HealthLog
+                                Events
                             </div>
                             <div class="subtitle">
                                 <i class="material-icons">schedule</i> December Events
@@ -179,7 +178,7 @@
                     <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                Attendance Log
+                                Messaging
                             </div>
                             <div class="subtitle">
                                 <i class="material-icons">schedule</i> Ms. Ashely's Parents
@@ -198,7 +197,7 @@
             </div>
             <div class="row">
 
-                <div class="m6 teal">
+                <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
@@ -224,6 +223,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 </main>
@@ -280,30 +280,29 @@
 </body>
 </html>
 
-<!--<div>-->
-    <!--<h2> <h1 th:text="${student.f_name}"></h1></h2>-->
-    <!--<h3> <h1>Quarterly Rating</h1></h3>-->
+<!--<div class="col s12 m6 teal">-->
+    <!--<div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">-->
+        <!--<div class="panel-header teal lighten-5">-->
+            <!--<div class="title">-->
+                <!--Grade Book-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+            <!--<table class="table highlight">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>Class Name</th>-->
+                    <!--<th>Grade Level</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr th:each="room : ${classrooms}">-->
+                    <!--<td th:text="${room.className}"></td>-->
+                    <!--<td th:text="${room.gradeLevel}"></td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+            <!--<a th:href="${'/classRoom/create'}">Add Class</a>-->
+        <!--</div>-->
+    <!--</div>-->
 <!--</div>-->
-<!--<form th:action="@{/grades/add}" method="post" th:object="${grade}" id="grade">-->
-    <!--<input type="hidden" th:field="*{student.id}" th:value="${student.id}"/>-->
-    <!--<label for="rating">Rating</label>-->
-    <!--<select id="rating" name="rating">-->
-        <!--<option value="Satisfactory">Satisfactory</option>-->
-        <!--<option value="Unsatisfactory">Unsatisfactory</option>-->
-        <!--<option value="Needs Improvement">Needs Improvement</option>-->
-    <!--</select>-->
-
-    <!--<label for="notes">Notes</label>-->
-
-    <!--<textarea form="grade" id="notes" name="notes"></textarea>-->
-
-    <!--<label for="quarter">Quarter</label>-->
-
-    <!--<select id="quarter" name="quarter">-->
-        <!--<option value="First">First Quarter</option>-->
-        <!--<option value="Second">Second Quarter</option>-->
-        <!--<option value="Third">Third Quarter</option>-->
-        <!--<option value="Fourth">Fourth Quarter</option>-->
-    <!--</select>-->
-    <!--<input type="submit"/>-->
-<!--</form>-->
