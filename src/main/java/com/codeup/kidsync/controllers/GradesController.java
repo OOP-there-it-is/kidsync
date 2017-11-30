@@ -60,16 +60,14 @@ public class GradesController {
         return "users/homePage";
     }
 
-    @GetMapping("/grades/viewAll")
-    public String ViewAll(Model vModel, HttpServletRequest request) {
+    @GetMapping("/grades/view/{id}")
+    public String ViewAll(Model vModel, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        vModel.addAttribute("classrooms", classSvc.findClassByTeacher(user.getId()));
-
-//        vModel.addAttribute("students", studentsSvc.getStudentsByClassId();
+        vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
 
 
 
 
-        return "grades/viewAll";
+        return "grades/view";
     }
 }
