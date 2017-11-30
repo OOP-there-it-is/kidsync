@@ -177,12 +177,11 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="room : ${classrooms}">
-                                    <td th:text="${room.className}"></td>
-                                    <td th:text="${room.gradeLevel}"></td>
+                                    <td><a th:href="@{'/classRoom/view/' + ${room.id}}" th:text="${room.className}"></a> </td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <a th:href="${'/classRoom/create'}">Add Class</a>
+                            <a th:href="${'/attendance/add'}">Add Attendance</a>
                         </div>
                     </div>
                 </div>
@@ -221,12 +220,11 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="room : ${classrooms}">
-                                    <td th:text="${room.className}"></td>
-                                    <td th:text="${room.gradeLevel}"></td>
+                                    <td><a th:href="@{'/classRoom/view/' + ${room.id}}" th:text="${room.className}"></a> </td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <a th:href="${'/classRoom/create'}">Add Class</a>
+                            <a th:href="${'/healthLog/add'}">Add Health Log</a>
                         </div>
                     </div>
                 </div>
