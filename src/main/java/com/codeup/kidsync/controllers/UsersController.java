@@ -32,9 +32,20 @@ public class UsersController {
     @GetMapping("/home")
     public String yourPage(Model vModel){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(user.getRole() ==1){
+            return "users/teacher-homePage";
+        }
         vModel.addAttribute("users", users.findAll());
         vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
         return "users/homePage";
+    }
+
+    @GetMapping("/teacher-dash")
+    public String teacherHome(Model vModel){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        vModel.addAttribute("users", users.findAll());
+        vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
+        return "users/teacher-homePage";
     }
 
     @GetMapping("/register")
