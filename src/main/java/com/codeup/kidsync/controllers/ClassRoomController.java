@@ -7,6 +7,7 @@ import com.codeup.kidsync.repositories.UsersRepository;
 import com.codeup.kidsync.services.ClassSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,15 +38,15 @@ public class ClassRoomController {
         this.studentsSvc = studentsSvc;
     }
 
-    @GetMapping("/classRoom/create/{id}")
-    public String CreateClass(@PathVariable long id, Model vModel, HttpServletRequest request) {
-        User user = usersDoa.findOne(id);
+    @GetMapping("/classRoom/create")
+    public String CreateClass(Model vModel, HttpServletRequest request) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
 
             vModel.addAttribute("class", new ClassRoom());
-            vModel.addAttribute("teacher", usersDoa.findOne(id));
+            vModel.addAttribute("teacher", user);
             request.getSession().setAttribute("user", user);
             return "classRoom/create";
         }

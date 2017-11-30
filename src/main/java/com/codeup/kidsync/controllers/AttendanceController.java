@@ -2,10 +2,12 @@ package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.Attendance;
 import com.codeup.kidsync.models.Grade;
+import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.GradesRepository;
 import com.codeup.kidsync.services.AttendanceSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,10 @@ public class AttendanceController {
 
     @GetMapping("/attendance/add")
     public String AddAttendance(Model vModel) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(user.getRole() != 1) {
+            return "errors/unauthorized";
+        }
         vModel.addAttribute("attendance", new Attendance());
         vModel.addAttribute("students", studentsSvc.findAll());
         return "attendance/add";
