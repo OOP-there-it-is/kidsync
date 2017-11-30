@@ -115,46 +115,24 @@
 
                                     <div class="col s12 m4" th:each="student : ${students}">
                                         <span><h1 th:text="${student.f_name}"></h1></span>
-                                        <!--<label for="grades">Grades</label>-->
-                                            <!--<div id="grades" class="col-md-6">-->
-                                                <!--<div th:each="grade : ${grades}">-->
-                                                <!--<h3 th:text="${grade.date}"></h3>-->
-                                                <!--<h3 th:text="${grade.rating}"></h3>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
 
-                                        <!--<label for="attendance">Attendance</label>-->
-                                            <!--<div id="attendance" class="col-md-6">-->
-                                                <!--<div th:each="item : ${attendance}">-->
-                                                    <!--<h2 th:text="${item.status}"></h2>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-
-                                        <!--<label for="healthlog">Health Log</label>-->
-                                            <!--<div id="healthlog" class="col-md-6">-->
-                                                <!--<div th:each="log : ${healthlog}">-->
-                                                    <!--<h2 th:text="${log.date}"></h2>-->
-                                                    <!--<h2 th:text="${log.notes}"></h2>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
 
                                     </div>
-                                    <br/><p>Add Student</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <!--<form th:action="@{/students/add}" method="post" th:object="${student}">-->
-                                    <!--<label for="f_name">First Name</label>-->
-                                    <!--<input id="f_name" th:field="*{f_name}"/>-->
-                                    <!--<label for="l_name">Last Name</label>-->
-                                    <!--<input id="l_name" th:field="*{l_name}"/>-->
-                                    <!--<label for="special_needs">Special needs</label>-->
-                                    <!--<input id="special_needs" th:field="*{special_needs}"/>-->
-                                    <!--<select name="classroom" th:field="*{classroom}">-->
-                                        <!--<option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>-->
-                                    <!--</select>-->
-                                    <!--<input type="submit"/>-->
-                                <!--</form>-->
+                                <form th:action="@{/students/add}" method="post" th:object="${student}">
+                                    <label for="f_name">First Name</label>
+                                    <input id="f_name" th:field="*{f_name}"/>
+                                    <label for="l_name">Last Name</label>
+                                    <input id="l_name" th:field="*{l_name}"/>
+                                    <label for="special_needs">Special needs</label>
+                                    <input id="special_needs" th:field="*{special_needs}"/>
+                                    <select name="classroom" th:field="*{classroom}">
+                                        <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>
+                                    </select>
+                                    <input type="submit"/>
+                                </form>
                             </div>
                         </div>
                     </div>
