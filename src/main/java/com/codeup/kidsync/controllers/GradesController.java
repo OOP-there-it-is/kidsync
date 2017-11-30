@@ -41,20 +41,27 @@ public class GradesController {
 
     }
 
-    @GetMapping("/grades/add")
-    public String AddGrade(Model vModel, HttpServletRequest request) {
+    @GetMapping("/grades/add/{id}")
+    public String AddGrade(Model vModel, HttpServletRequest request, @PathVariable long id) {
         User user = (User) request.getSession().getAttribute("user");
         if(user.getRole() != 1) {
             return "errors/unauthorized";
         }
+
+        Student student = studentsSvc.findOne(id);
+         request.getSession().setAttribute("student", student);
+
         vModel.addAttribute("grade", new Grade());
-        vModel.addAttribute("student", studentsSvc.getStudentsByUserId(user.getId()));
+        vModel.addAttribute("student", studentsSvc.findOne(id));
+
         return "grades/add";
     }
 
     @PostMapping("/grades/add")
     public String AddGrade(@ModelAttribute Grade grade, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
+        System.out.println(student);
+
         grade.setStudent(student);
         gradesSvc.save(grade);
         return "users/homePage";
