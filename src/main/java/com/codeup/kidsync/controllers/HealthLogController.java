@@ -45,12 +45,15 @@ public class HealthLogController {
     }
 
     @PostMapping("/healthLog/add")
-    public String AddHealthLog(@ModelAttribute HealthLog log, HttpServletRequest request) {
+    public String AddLog(@ModelAttribute HealthLog log, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
         log.setStudent(student);
         healthLogSvc.save(log);
-        return "redirect:/teacher-dash";
+        return "redirect:/healthLog/add/" + student.getId();
+
     }
+
+
 
     @GetMapping("/healthLog/view/{id}")
     public String ViewLog(@PathVariable long id, Model vModel, HttpServletRequest request) {
@@ -64,6 +67,6 @@ public class HealthLogController {
 
         vModel.addAttribute("student", student);
         vModel.addAttribute("healthLog", healthLogSvc.getHealthLogByStudent(student.getId()));
-        return "healthLog/add";
+        return "healthLog/view";
     }
 }
