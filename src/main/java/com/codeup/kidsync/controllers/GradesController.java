@@ -62,7 +62,7 @@ public class GradesController {
         Student student = (Student) request.getSession().getAttribute("student");
         grade.setStudent(student);
         gradesSvc.save(grade);
-        return "users/teacher-dash";
+        return "redirect:/teacher-dash";
     }
 
     @GetMapping("/grades/view/{id}")

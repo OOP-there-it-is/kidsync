@@ -127,7 +127,6 @@
                                 <div th:each="student : ${students}">
                                     <strong><p th:text="${student.f_name} + ' ' + ${student.l_name}"></p></strong>
                                     <p th:text="${student.classroom.className} + '\'s Class'"></p>
-                                    <!--<a th:href="@{'/dash/' + ${student.id}}">Dashboard</a>-->
                                     <hr/>
                                 </div>
 
