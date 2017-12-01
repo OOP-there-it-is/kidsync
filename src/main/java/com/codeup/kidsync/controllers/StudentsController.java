@@ -48,7 +48,7 @@ public class StudentsController {
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
         vModel.addAttribute("classrooms",classSvc.findAll());
-        return "students/dash";
+        return "students/add";
     }
 
     @PostMapping("/students/add")

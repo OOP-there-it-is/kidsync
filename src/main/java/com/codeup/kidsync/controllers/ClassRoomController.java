@@ -9,6 +9,7 @@ import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+@Transactional
 @Controller
 public class ClassRoomController {
 
@@ -89,5 +90,17 @@ public class ClassRoomController {
         }
     }
 
+    @PostMapping("/classRoom/view")
+    public String dropClassroom(@ModelAttribute ClassRoom classRoom, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        if(user.getRole() != 1){
+            return "errors/unauthorized";
+        } else {
+ String classname = request.getParameter("classname");
+            System.out.println(classname);
+            classRepository.deleteClassRoomByClassName(classname);
+            return "redirect:/teacher-dash";
+        }
+    }
 
 }

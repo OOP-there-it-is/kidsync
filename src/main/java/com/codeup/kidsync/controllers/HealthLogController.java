@@ -51,4 +51,19 @@ public class HealthLogController {
         healthLogSvc.save(log);
         return "redirect:/teacher-dash";
     }
+
+    @GetMapping("/healthLog/view/{id}")
+    public String ViewLog(@PathVariable long id, Model vModel, HttpServletRequest request) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(user.getRole() != 1) {
+            return "errors/unauthorized";
+        }
+
+        Student student = studentsSvc.findOne(id);
+        request.getSession().setAttribute("student", student);
+
+        vModel.addAttribute("student", student);
+        vModel.addAttribute("healthLog", healthLogSvc.getHealthLogByStudent(student.getId()));
+        return "healthLog/add";
+    }
 }

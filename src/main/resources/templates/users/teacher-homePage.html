@@ -179,7 +179,6 @@
                                 <a class="btn btn-primary" th:href="${'/classRoom/create'}">Add Class</a>
                     </div>
                 </div>
-                <!--put it here-->
                 <div class="col s12 m6 deep-orange">
                     <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
                         <div class="panel-header deep-orange lighten-5">
@@ -203,24 +202,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="m6 pink darken-2">
+                <div class="col s12 m6 pink darken-2">
                     <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
                         <div class="panel-header lighten-5">
                             <div class="title">
-                                Chat
+                                Chat here
                             </div>
                             <div class="subtitle">
                                 Incoming messages
                             </div>
                         </div>
                         <div>
-                            <div style="height: 255px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>
+                            <div style="height: 355px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>
                             <script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
@@ -231,8 +228,8 @@
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
                                 <!--<div id="actions">-->
-                                    <!--<br/>-->
-                                    <!--<a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>-->
+                                <!--<br/>-->
+                                <!--<a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>-->
                                 <!--</div>-->
                                 <br/><br/>
                                 <div id="upload"></div>
@@ -274,12 +271,12 @@
                                         });
                                     }
                                 </script>
-                                <br/><br/>
+                                <div style="height: 268px;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-          </div>
+            </div>
         </section>
     </div>
 </main>
