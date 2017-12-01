@@ -173,9 +173,9 @@ $(function() {
 
 
   // Floating-Fixed table of contents (Materialize pushpin)
-  if ($('nav').length) {
+  if ($('nav.js').length) {
     $('.toc-wrapper').pushpin({
-      top: $('nav').height()
+      top: $('nav.js').height()
     });
   }
   else if ($('#index-banner').length) {
@@ -224,7 +224,7 @@ $(function() {
     }
   }
   if (is_touch_device()) {
-    $('#nav-mobile').css({
+    $('#nav.js-mobile').css({
       overflow: 'auto'
     })
   }
