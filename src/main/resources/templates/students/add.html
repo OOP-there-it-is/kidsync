@@ -196,17 +196,15 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                Student(s)
+                                Student(s) here
                             </div>
                         </div>
                         <div class="panel-body">
                             <form th:action="@{/students/add}" method="post" th:object="${student}">
-
 
                                 <label for="f_name">First Name</label>
                                 <input id="f_name" th:field="*{f_name}"/>
@@ -217,7 +215,7 @@
 
                                 <label for="classroom">Special needs</label>
 
-                                <select id="classroom" name="classroom" th:field="*{classroom}">
+                                <select id="classroom" name="classroom" th:field="*{classroom}" class="browser-default">
                                     <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
                                     </option>
                                 </select>
