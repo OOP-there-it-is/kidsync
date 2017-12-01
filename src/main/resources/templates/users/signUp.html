@@ -3,6 +3,7 @@
 <head th:replace="fragments/header :: main-header('All posts')"></head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
+<div class="signUp"> &nbsp;
 <div class="row valign-wrapper" style="margin-top:150px;">
     <p>&nbsp;</p>
        <p> &nbsp;<br/></p>
@@ -10,19 +11,21 @@
        <p> &nbsp;<br/></p>
        <p> &nbsp;</p>
     <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
+        <!--<img src="/img/class-03.jpg"/>-->
 
         <img src="/img/teacher-board.png" alt="Teacher Sign Up" style="width: 200px"/>
         <div class="caption">
-            <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5>Sign up as Teacher</h5></a>
+            <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5 class="signupTitle">Sign up as Teacher</h5></a>
         </div>
     </div>
     <div class="offset-s2">&nbsp;</div>
     <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
         <img src="/img/parents.png" alt="Parents Sign Up" style="width: 200px"/>
         <div class="caption">
-            <a th:href="${'invite'}" class="btn btn-block btn-warning"><h5>Sign up as Parent</h5></a>
+            <a th:href="${'invite'}" class="btn btn-block btn-warning"><h5 class="signupTitle">Sign up as Parent</h5></a>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
