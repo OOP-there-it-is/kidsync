@@ -12,3 +12,35 @@
     background-color: #FF9800 !important;
     color: #fff;
 }
+
+.signup {
+    background-image: url('../img/class-03.jpg');
+    background-color: pink;
+    /*opacity: 0.6;*/
+    background-color: rgba(0,0,255,0.5);
+}
+
+.signUp {
+    position: relative;
+    z-index: 1;
+    height:800px;
+    display: block;
+    position: relative;
+}
+
+.signUp:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('../img/class-03.jpg') no-repeat;
+    opacity: .4;
+}
+
+h5.signupTitle{
+    font-size: large;
+    padding-top: 8px;
+}
