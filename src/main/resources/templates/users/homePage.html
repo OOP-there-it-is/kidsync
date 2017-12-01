@@ -133,22 +133,24 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Student
+                                Class Info
                             </div>
                             <div class="subtitle">
-                                <i class="material-icons">schedule</i> Mason Coindreau
+                                <p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Ashley's Class</a></p>
+
+                                <p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Cathy's Class</a></p>
                             </div>
                         </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul>
-                                    <li><a href="">Class</a></li>
-                                    <li><a href="">Grades</a></li>
-                                    <li><a href="">Attendance</a></li>
-                                    <li><a href="">Gallery</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <!--<div class="panel-body" style="padding-top:0px;">-->
+                            <!--<div id="chartSalesperDay" class="chart-wrapper">-->
+                                <!--<ul>-->
+                                    <!--<li><a href="">Class</a></li>-->
+                                    <!--<li><a href="">Grades</a></li>-->
+                                    <!--<li><a href="">Attendance</a></li>-->
+                                    <!--<li><a href="">Gallery</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 <div class="col s12 m4">
@@ -209,20 +211,27 @@
                                 <tr>
                                     <th class="center-align">
                                     </th>
-                                    <th>First Name</th>
-                                    <th class="hide-on-small-only">Last Name</th>
+                                    <th>Name</th>
+                                    <!--<th class="hide-on-small-only">Last Name</th>-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="student : ${students}">
                                     <td class="center-align">
-                                        <a th:href="@{'/dash/' + ${student.id}}">Dashboard</a>
+                                        <!--<a th:href="@{'/dash/' + ${student.id}}">Dashboard</a>-->
                                     </td>
-                                    <td th:text="${student.f_name}"></td>
-                                    <td class="hide-on-small-only" th:text="${student.l_name}"></td>
+                                    <!--<td th:text="${student.f_name}"></td>-->
+                                    <td>
+                                        <p style="line-height: 20px;margin:0px;padding:0;"><a th:href="@{'/mystudents/' + ${student.user.id}}" th:text="${student.f_name} + ' ' + ${student.l_name}"></a></p>
+                                    <!--<td><a th:href="@{'/classRoom/view/' + ${room.id}}" th:text="${room.className}"></a> </td>-->
+                                    </td>
+                                    <!--<td>-->
+                                        <!--<p><a href="" th:text="${student.l_name}"></a></p>-->
+                                    <!--</td>-->
                                 </tr>
                                 </tbody>
                             </table>
+                            <br/>
                             <a th:href="${'/students/add'}">Add Student</a>
                         </div>
                     </div>
@@ -239,12 +248,15 @@
                         </div>
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
+
                                 <!--***********  CALENDAR  **************-->
+
                                 <div>
                                     <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
                                             style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>
                                 </div>
                             </div>
+                            <a class="waves-effect waves-light btn" href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank" style="width: 500px;">Book Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -263,58 +275,12 @@
                         </div>
                         <div class="panel-body">
                             <div id="chartTotalSales" class="chart-wrapper">
-                                <div id="actions">
-                                    <br/>
-                                    <a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>
-                                </div>
-                                <div>
-                                    <a href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank"><img src="img/kidsync-03.png" width="150" style="border-style:none;"/><br/>Book Appointment</a>
-                                </div>
 
-                                <div id="upload"></div>
-
-          <!--***************  PDF UPLOAD  ***************-->
-
-                                <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
-                                <script src="https://static.filestackapi.com/v3/filestack.js"></script>
-                                <script type="text/javascript">
-
-                                    var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
-                                    var transformURL = "https://cdn.filestack.com/watermark=file:";
-                                    function fileLoad(){
-
-                                        client.pick({
-                                            //Only accepting files with a mimetype 'image/*'
-                                            accept: 'image/*',
-                                            //Only accepting at most 1 file
-                                            maxFiles:3
-
-
-                                        }).then(function(result) {//Taking the result object in as 'result'
-                                            //Putting the result in a string, and printing it to the console
-                                            console.table(result);
-
-                                            //Sets the file handle to the handle of the first file in the result
-                                            var fileHandle = result.filesUploaded[0].url;
-
-                                            // save the url in your database -> ajax
-                                            //Logs the new file handle in the console
-                                            //console.log("fileHandle");
-                                            document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
-
-                                            function buildURL(){
-                                                transformURL += fileHandle;
-                                                transformURL += imageHandle;
-                                                console.log(transfromURL);
-                                            }
-                                        });
-                                    }
-                                </script>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 l5 pink darken-2">
+                <div class="col s12 m6 pink darken-2">
 
                     <div id="boxChat" class="panel  panel-bordered panel-dashboard panel-chat z-depth-1">
 
@@ -344,7 +310,7 @@
         <div class="row">
             <div class="col l3 s12">
                 <div class="brand-logo">
-                    <img src="/img/login-logo.png" />
+                    <!--<img src="/img/login-logo.png" />-->
                     <h5 class="valign">KidSYNC</h5>
                 </div>
                 <p>Making things a bit easier</p>
@@ -374,15 +340,6 @@
 <script data-rocketsrc="js/materialize.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/prettify.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/admin.js" type="text/rocketscript"></script>
-<script data-rocketsrc="js/utils.js" type="text/rocketscript"></script>
-<script data-rocketsrc="js/colors.js" type="text/rocketscript"></script>
-<script data-rocketsrc="js/theme-switcher.js" type="text/rocketscript"></script>
-<script data-rocketsrc="bower_components/amcharts3/amcharts/amcharts.js" type="text/rocketscript"></script>
-<script data-rocketsrc="bower_components/amcharts3/amcharts/serial.js" type="text/rocketscript"></script>
-<script data-rocketsrc="bower_components/amcharts3/amcharts/gauge.js" type="text/rocketscript"></script>
-<script data-rocketsrc="bower_components/amcharts3/amcharts/themes/light.js" type="text/rocketscript"></script>
-<script data-rocketsrc="bower_components/slimscroll/jquery.slimscroll.js" type="text/rocketscript"></script>
-<script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
 <!--<script type="text/javascript" src="/js/chatBox.js"></script>-->
 
 
