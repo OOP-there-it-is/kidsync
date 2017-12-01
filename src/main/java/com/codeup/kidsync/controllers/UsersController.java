@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -53,10 +54,20 @@ public class UsersController {
             return "errors/unauthorized";
         }
         request.getSession().setAttribute("user", user);
-        List<ClassRoom> classRooms = classSvc.findClassByTeacher(user.getId());
+        List<ClassRoom> allClassRooms = classSvc.findClassByTeacher(user.getId());
+
+
+
+        for(int i = 0; i < allClassRooms.size(); i++){
+            List<ClassRoom> classRooms = new ArrayList<>();
+
+            if(allClassRooms.get(i).isActive()){
+                classRooms.add(allClassRooms.get(i));
+            }
+        vModel.addAttribute("classrooms", classRooms);
+        }
 
         vModel.addAttribute("user", user);
-        vModel.addAttribute("classrooms", classRooms);
         return "users/teacher-homePage";
     }
 

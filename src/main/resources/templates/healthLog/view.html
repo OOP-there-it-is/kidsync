@@ -196,23 +196,23 @@
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                <span th:text="${student.f_name}"></span><span>'s Ratings</span>
+                                <span th:text="${student.f_name}"></span><span>'s Health Log</span>
                             </div>
                         </div>
                         <div class="panel-body">
                             <table class="table highlight">
                                 <thead>
                                 <tr>
-                                    <th>Quarter</th>
-                                    <th>Rating</th>
+                                    <th>Date</th>
+                                    <th>Symptoms</th>
                                     <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="grade : ${grades}">
-                                    <td th:text="${grade.quarter}"></td>
-                                    <td th:text="${grade.rating}"></td>
-                                    <td th:text="${grade.notes}"></td>
+                                <tr th:each="log : ${healthLog}">
+                                    <td th:text="${log.date}"></td>
+                                    <td th:text="${log.symptoms}"></td>
+                                    <td th:text="${log.notes}"></td>
                                 </tr>
                                 </tbody>
                             </table>

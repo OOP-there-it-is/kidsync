@@ -1,7 +1,5 @@
 package com.codeup.kidsync.models;
 
-
-
 import javax.persistence.*;
 
 
@@ -19,15 +17,18 @@ public class ClassRoom {
     public String gradeLevel;
     @Column(nullable =false, name = "class_name")
     private String className;
+    @Column(nullable = false)
+    private boolean isActive;
 
 
     public ClassRoom() {
     }
 
-    public ClassRoom(User user, String gradeLevel, String name) {
+    public ClassRoom(User user, String gradeLevel, String name, boolean isActive) {
         this.user = user;
         this.gradeLevel = gradeLevel;
         this.className = name;
+        this.isActive = isActive;
 
     }
 
@@ -61,5 +62,13 @@ public class ClassRoom {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

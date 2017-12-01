@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Transactional
 @Controller
@@ -57,6 +58,7 @@ public class ClassRoomController {
     public String AddGrade(@ModelAttribute ClassRoom classroom, HttpServletRequest request) {
         User teacher = (User) request.getSession().getAttribute("user");
         classroom.setUser(teacher);
+        classroom.setActive(true);
         classSvc.save(classroom);
         return "redirect:/home";
     }
@@ -71,7 +73,7 @@ public class ClassRoomController {
         } else {
 
             request.getSession().setAttribute("user", user);
-            vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()));
+            vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()) );
             return "classRoom/myClasses";
         }
     }
@@ -82,23 +84,25 @@ public class ClassRoomController {
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
-
-            vModel.addAttribute("classroom", classRepository.findOne(id));
+            ClassRoom classroom = classRepository.findOne(id);
+            vModel.addAttribute("classroom", classroom);
+            request.getSession().setAttribute("classroom",classroom);
             vModel.addAttribute("students", studentsSvc.getStudentsByClassId(id));
-//
             return "classRoom/view";
         }
     }
 
     @PostMapping("/classRoom/view")
-    public String dropClassroom(@ModelAttribute ClassRoom classRoom, HttpServletRequest request) {
+    public String dropClassroom(@ModelAttribute ClassRoom classroom, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
- String classname = request.getParameter("classname");
-            System.out.println(classname);
-            classRepository.deleteClassRoomByClassName(classname);
+            classroom = (ClassRoom) request.getSession().getAttribute("classroom");
+
+            classroom.setActive(false);
+            classSvc.save(classroom);
+
             return "redirect:/teacher-dash";
         }
     }
