@@ -95,6 +95,8 @@
             </div>
             <div class="row">
 
+                <!--**********  Students  **********-->
+
                 <div class="col s12 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
@@ -107,6 +109,12 @@
                                 <div th:each="student : ${students}">
                                     <strong><p th:text="${student.f_name} + ' ' + ${student.l_name}"></p></strong>
                                     <p th:text="${student.classroom.className} + '\'s Class'"></p>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a>
+                                    <!--<p th:text="${student.grades.rating}">-->
+
+                                    <!--</p>-->
                                     <hr/>
                                 </div>
 
@@ -114,112 +122,8 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="col s12 m6 deep-orange">-->
-                    <!--<div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">-->
-                        <!--<div class="panel-header deep-orange lighten-5">-->
-                            <!--<div class="title">-->
-                                <!--Mason's Calendar 1-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Last 14 days-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash;<div class="panel-body">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div id="chartTotalSales" class="chart-wrapper">&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash;***********  CALENDAR  **************&ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"&ndash;&gt;-->
-                                            <!--&lt;!&ndash;style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<a class="waves-effect waves-light btn" href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank" style="width: 500px;">Book Appointment</a>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</div>-->
-                <!--</div>-->
+
             </div>
-            <!--<div class="row">-->
-
-                <!--<div class="col s12 m6 cyan">-->
-                    <!--<div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">-->
-                        <!--<div class="panel-header cyan lighten-5">-->
-                            <!--<div class="title">-->
-                                <!--Mason's Options-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Activity for last 14 days-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body">-->
-                            <!--<div id="chartTotalSales" class="chart-wrapper">-->
-                                <!--<div id="actions">-->
-                                    <!--<br/>-->
-                                    <!--<a th:href="@{'/classRoom/myClasses/' + ${#authentication.principal.id}}">View Your Class</a>-->
-                                <!--</div>-->
-
-                                <!--<div id="upload"></div>-->
-
-                                <!--&lt;!&ndash;***************  PDF UPLOAD  ***************&ndash;&gt;-->
-
-                                <!--<input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>-->
-                                <!--<script src="https://static.filestackapi.com/v3/filestack.js"></script>-->
-                                <!--<script type="text/javascript">-->
-
-                                    <!--var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');-->
-                                    <!--var transformURL = "https://cdn.filestack.com/watermark=file:";-->
-                                    <!--function fileLoad(){-->
-
-                                        <!--client.pick({-->
-                                            <!--//Only accepting files with a mimetype 'image/*'-->
-                                            <!--accept: 'image/*',-->
-                                            <!--//Only accepting at most 1 file-->
-                                            <!--maxFiles:3-->
-
-
-                                        <!--}).then(function(result) {//Taking the result object in as 'result'-->
-                                            <!--//Putting the result in a string, and printing it to the console-->
-                                            <!--console.table(result);-->
-
-                                            <!--//Sets the file handle to the handle of the first file in the result-->
-                                            <!--var fileHandle = result.filesUploaded[0].url;-->
-
-                                            <!--// save the url in your database -> ajax-->
-                                            <!--//Logs the new file handle in the console-->
-                                            <!--//console.log("fileHandle");-->
-                                            <!--document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';-->
-
-                                            <!--function buildURL(){-->
-                                                <!--transformURL += fileHandle;-->
-                                                <!--transformURL += imageHandle;-->
-                                                <!--console.log(transfromURL);-->
-                                            <!--}-->
-                                        <!--});-->
-                                    <!--}-->
-                                <!--</script>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col s12 m6 pink darken-2">-->
-
-                    <!--<div id="boxChat" class="panel  panel-bordered panel-dashboard panel-chat z-depth-1">-->
-
-                        <!--<div class="panel-header pink lighten-5">-->
-                            <!--<div class="title">-->
-                                <!--Chat-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Incoming messages-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div>-->
-                            <!--<div style="height: 255px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>-->
-                            <!--<script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-
-            <!--</div>-->
         </section>
     </div>
 </main>

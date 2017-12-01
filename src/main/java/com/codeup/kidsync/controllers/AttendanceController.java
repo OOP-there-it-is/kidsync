@@ -65,10 +65,7 @@ public class AttendanceController {
 
     @GetMapping("/attendance/view/{id}")
     public String viewAttendance(@PathVariable long id, Model vModel) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(user.getRole() != 1) {
-            return "errors/unauthorized";
-        }
+
         vModel.addAttribute("student", studentsSvc.findOne(id));
         vModel.addAttribute("attendances", attendanceSvc.getAttendanceByStudent(id));
         return "attendance/view";

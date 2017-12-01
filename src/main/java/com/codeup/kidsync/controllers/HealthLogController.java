@@ -54,10 +54,6 @@ public class HealthLogController {
 
     @GetMapping("/healthLog/view/{id}")
     public String ViewLog(@PathVariable long id, Model vModel, HttpServletRequest request) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(user.getRole() != 1) {
-            return "errors/unauthorized";
-        }
 
         Student student = studentsSvc.findOne(id);
         request.getSession().setAttribute("student", student);
