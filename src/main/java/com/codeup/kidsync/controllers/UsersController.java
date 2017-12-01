@@ -55,7 +55,7 @@ public class UsersController {
         request.getSession().setAttribute("user", user);
         List<ClassRoom> classRooms = classSvc.findClassByTeacher(user.getId());
 
-        vModel.addAttribute("users", users.findOne(user.getId()));
+        vModel.addAttribute("user", user);
         vModel.addAttribute("classrooms", classRooms);
         return "users/teacher-homePage";
     }
