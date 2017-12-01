@@ -133,11 +133,11 @@
                                     <span th:text="${student.l_name}"></span>
                                     </div>
                                     <a th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View Grades</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">add attendance</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View attendance</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">add Health Log</a>
-                                    <a th:href="@{'/grades/add/' + ${student.id}}">View Health Log</a>
+                                    <a th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
+                                    <a th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
+                                    <a th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
+                                    <a th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
+                                    <a th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a>
                                 </div>
                             </div>
                             <!--****here****-->
@@ -145,29 +145,10 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="row">-->
-                <!--<div class="col s12 m6 pink darken-2">-->
-                    <!--<div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">-->
-                        <!--<div class="panel-header lighten-5">-->
-                            <!--<div class="title">-->
-                                <!--Chat-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Incoming messages-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div>-->
-                            <!--<div style="height: 255px;" id="rt-ce067dad2464d593ee55a39d2be44486"></div>-->
-                            <!--<script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
         </section>
     </div>
 </main>
-
+<button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
 <footer class="page-footer">
     <div class="container">
         <div class="row">
