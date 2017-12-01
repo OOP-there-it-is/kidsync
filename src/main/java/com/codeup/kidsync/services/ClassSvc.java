@@ -36,4 +36,9 @@ public class ClassSvc {
         return classDoa.findAllById(classId);
     }
 
+//    private List<ClassRoom> findAllyActiveClasses(Long userId, List<ClassRoom> all){
+//        List<ClassRoom> allTeacherClasses = classDoa.findAllByUserId(userId);
+//        return classDoa.findAllByActive()
+//    }
+
 }

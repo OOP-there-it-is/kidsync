@@ -124,7 +124,7 @@
                                 <span th:text="${student.f_name}"></span><span>'s Health Log</span>
                                 <span></span>
                             </div>
-                            <form th:action="@{/attendance/add}" method="post" th:object="${attendance}" id="attendance">
+                            <form th:action="@{/healthLog/add}" method="post" th:object="${healthLog}" id="attendance">
 
 
                                 <label for="symptoms">Symptoms</label>
@@ -142,6 +142,8 @@
                                 <br/>
                                 <input type="submit"/>
                             </form>
+
+                            <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
                         </div>
                     </div>
                 </div>

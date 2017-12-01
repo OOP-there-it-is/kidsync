@@ -26,17 +26,6 @@
     <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-
-    <!--***** Chat Box *******-->
-
-    <script type="text/javascript">
-        (function(d) {
-            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
-            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
-            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
-            d.getElementsByTagName('head')[0].appendChild(cwjs);
-        })(document);
-    </script>
 </head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
@@ -196,23 +185,23 @@
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                <span th:text="${student.f_name}"></span><span>'s Ratings</span>
+                                <span th:text="${student.f_name}"></span><span>'s Health Log</span>
                             </div>
                         </div>
                         <div class="panel-body">
                             <table class="table highlight">
                                 <thead>
                                 <tr>
-                                    <th>Quarter</th>
-                                    <th>Rating</th>
+                                    <th>Date</th>
+                                    <th>Symptoms</th>
                                     <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="grade : ${grades}">
-                                    <td th:text="${grade.quarter}"></td>
-                                    <td th:text="${grade.rating}"></td>
-                                    <td th:text="${grade.notes}"></td>
+                                <tr th:each="log : ${healthLog}">
+                                    <td th:text="${log.date}"></td>
+                                    <td th:text="${log.symptoms}"></td>
+                                    <td th:text="${log.notes}"></td>
                                 </tr>
                                 </tbody>
                             </table>
