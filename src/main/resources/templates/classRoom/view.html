@@ -157,6 +157,11 @@
     </div>
 </main>
 <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
+<form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
+    <input type="hidden" name="classname" th:value="${classroom.className}"/>
+    <label for="drop">Drop Classroom</label>
+    <input id="drop" type="submit"/>
+</form>
 <footer class="page-footer">
     <div class="container">
         <div class="row">
