@@ -11,7 +11,7 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(nullable = false, name = "student_id")
     private Student student;
     @Column(nullable = false)
     public String status;

@@ -39,6 +39,7 @@ public class User {
         l_name = copy.l_name;
         password = copy.password;
         phone = copy.phone;
+        role = copy.role;
 
     }
 

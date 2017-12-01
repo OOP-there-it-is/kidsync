@@ -10,14 +10,6 @@
         //<![CDATA[
         window.__cfRocketOptions = {byc:0,p:0,petok:"5c03b4243731ac721afa320f85d2251a94f5c70e-1511912244-1800"};
         //]]>
-//        $(‘.datepicker’).pickadate({
-//            selectMonths: true, // Creates a dropdown to control month
-//            selectYears: 15, // Creates a dropdown of 15 years to control year,
-//            today: ‘Today’,
-//        clear: ‘Clear’,
-//        close: ‘Ok’,
-//        closeOnSelect: false // Close upon selecting a date,
-//        });
     </script>
 
     <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
@@ -34,16 +26,16 @@
     <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'
+    <!--***** Chat Box *******-->
 
-            }).val();
-        });
+    <script type="text/javascript">
+        (function(d) {
+            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
+            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
+            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
+            d.getElementsByTagName('head')[0].appendChild(cwjs);
+        })(document);
     </script>
 </head>
 <body>
@@ -62,7 +54,7 @@
                                 My Grade Book
                             </div>
                             <div class="subtitle">
-                                <a th:href="${'/grades/viewAll'}">Add Grade</a>
+                                <a th:href="${'/grades/viewAll'}"> Add Grade</a>
                             </div>
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
@@ -122,40 +114,54 @@
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header yellow lighten-5">
                             <div class="title">
-                                <span>Add Attendance for </span><span th:text="${student.f_name}"></span>
+                                My Classes
                             </div>
                         </div>
                         <div class="panel-body">
                             <!--****here****-->
+                            <div id="myStudents" class="col-md-12">
+                                    <h5 th:text="${classroom.className}"></h5>
+                                    <h5 th:text="${classroom.gradeLevel}"></h5>
+                                    <h2>Roster</h2>
+                                <div th:each="student : ${students}">
+                                    <div>
+                                       First name
+                                    <span th:text="${student.f_name}"></span>
+                                    </div>
+                                    <div>
+                                         Last Name
+                                    <span th:text="${student.l_name}"></span>
+                                    </div>
 
-                            <form th:action="@{/attendance/add}" method="post" th:object="${attendance}" id="attendance">
-                                <label for="status">Status</label>
 
-                                <!--<form>-->
-                                    <!--<input id="datepicker" />-->
-                                <!--</form>-->
 
-                                <select id="status" name="status" class="browser-default">
-                                    <option value="Present">Present</option>
-                                    <option value="Tardy">Tardy</option>
-                                    <option value="Absent">Absent</option>
-                                </select>
-                                <!--<form>-->
+                                    <!--<a class="waves-effect waves-light btn">button</a>-->
+                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>-->
+                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>-->
 
-                                <input type="text" name="date" id="datepicker" placeholder="choose date"/>
-                                <!--<input type="hidden" th:field="" th:value="${student.id}"/>-->
-                                <!--</form>-->
-                                <input type="submit"/>
-                            </form>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
+                                    <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a>
+
+                                </div>
+                            </div>
                             <!--****here****-->
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
     </div>
 </main>
-
+<button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
+<form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
+    <input type="hidden" name="classname" th:value="${classroom.className}"/>
+    <label for="drop">Drop Classroom</label>
+    <input id="drop" type="submit"/>
+</form>
 <footer class="page-footer">
     <div class="container">
         <div class="row">
@@ -190,5 +196,8 @@
 <script data-rocketsrc="js/materialize.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/admin.js" type="text/rocketscript"></script>
 <script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
+<!--<script type="text/javascript" src="/js/chatBox.js"></script>-->
+
+<!--<div id="rt-ce067dad2464d593ee55a39d2be44486"></div><script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>-->
 </body>
 </html>

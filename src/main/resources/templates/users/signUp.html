@@ -1,46 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="fragments/header :: main-header('All posts')"></head>
-<!--<meta charset="UTF-8" />-->
-<!--<title>Home</title>-->
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
+<div class="signUp"> &nbsp;
+<div class="row valign-wrapper" style="margin-top:150px;">
+    <p>&nbsp;</p>
+       <p> &nbsp;<br/></p>
+       <p> &nbsp;<br/></p>
+       <p> &nbsp;<br/></p>
+       <p> &nbsp;</p>
+    <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
+        <!--<img src="/img/class-03.jpg"/>-->
 
-<h1>Sign up Page</h1>
-
-<!--<div class="col-md-6">-->
-
-    <!--<br />-->
-<!--</div>-->
-
-
-<div class="row">
-    <div class="col-sm-6 col-md-5">
-        <div class="thumbnail">
-                <h3>TEACHERS</h3>
-            <img src="/img/teacher_parent_communication.png" alt="..."/>
-            <div class="caption">
-                <h4><p>this is where the teachers will click to sign up</p></h4>
-                <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5>Sign up as Teacher</h5></a>
-                <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-            </div>
+        <img src="/img/teacher-board.png" alt="Teacher Sign Up" style="width: 200px"/>
+        <div class="caption">
+            <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5 class="signupTitle">Sign up as Teacher</h5></a>
         </div>
     </div>
-    <div class="col-sm-6 col-md-5">
-        <div class="thumbnail">
-                <h3>PARENTS</h3>
-            <img src="/img/teacher_parent_communication.png" alt="..."/>
-            <div class="caption">
-                <h4><p>This is where parents will sign up</p></h4>
-                <a th:href="${'invite'}" class="btn btn-block btn-warning"><h5>Sign up as Parent</h5></a>
-                <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-            </div>
+    <div class="offset-s2">&nbsp;</div>
+    <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
+        <img src="/img/parents.png" alt="Parents Sign Up" style="width: 200px"/>
+        <div class="caption">
+            <a th:href="${'register'}" class="btn btn-block btn-warning"><h5 class="signupTitle">Sign up as Parent</h5></a>
         </div>
     </div>
 </div>
-
-
-
-
+</div>
 </body>
 </html>

@@ -55,51 +55,6 @@
             <div class="col s12">
 
                 <div class="nav-wrapper">
-                    <!--<a href="index.html" class="brand-logo">-->
-                    <!--<img src="img/logo.png"/>-->
-                    <!--<span class="valign">-->
-                    <!--KidSYNC Dashboard Mari-->
-                    <!--</span>-->
-                    <!--</a>-->
-
-                    <!--<ul class="right hide-on-med-and-down">-->
-                    <!--<li class="active"><a href="index.html">My Student</a></li>-->
-                    <!--<li><a href="documentation.html">Calendar</a></li>-->
-                    <!--<li>-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">-->
-                    <!--Messaging<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">-->
-                    <!--Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">-->
-                    <!--Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">-->
-                    <!--APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">-->
-                    <!--Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li class="profile ">-->
-                    <!--<a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">-->
-                    <!--<div class="valign-wrapper">-->
-                    <!--<img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">-->
-                    <!--John Doe-->
-                    <!--<i class="material-icons dropdown-icon right">arrow_drop_down</i>-->
-                    <!--</div>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--</ul>-->
                     <ul id="dropdown-css" class="dropdown-content">
                         <li><a href="css_color.html">Color</a></li>
                         <li><a href="css_grid.html">Grid</a></li>
@@ -241,27 +196,34 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                Student(s)
+                                Student(s) here
                             </div>
                         </div>
                         <div class="panel-body">
                             <form th:action="@{/students/add}" method="post" th:object="${student}">
+
                                 <label for="f_name">First Name</label>
                                 <input id="f_name" th:field="*{f_name}"/>
                                 <label for="l_name">Last Name</label>
                                 <input id="l_name" th:field="*{l_name}"/>
                                 <label for="special_needs">Special needs</label>
                                 <input id="special_needs" th:field="*{special_needs}"/>
-                                <select name="classroom" th:field="*{classroom}">
-                                    <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}"></option>
+
+                                <label for="classroom">Special needs</label>
+
+                                <select id="classroom" name="classroom" th:field="*{classroom}" class="browser-default">
+                                    <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
+                                    </option>
                                 </select>
+
                                 <input type="submit"/>
+
                             </form>
+
                         </div>
                     </div>
                 </div>

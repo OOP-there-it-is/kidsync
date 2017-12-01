@@ -32,7 +32,7 @@
     <script type="text/javascript">
         (function(d) {
             var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
-            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id;
+            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
             cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
             d.getElementsByTagName('head')[0].appendChild(cwjs);
         })(document);
@@ -41,6 +41,86 @@
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
 
+<div class="col-md-6">
+</div>
+
+<div id="nav-content">
+    <nav>
+        <div class="row">
+            <div class="col s12">
+
+                <div class="nav-wrapper">
+                    <ul id="dropdown-css" class="dropdown-content">
+                        <li><a href="css_color.html">Color</a></li>
+                        <li><a href="css_grid.html">Grid</a></li>
+                        <li><a href="css_helpers.html">Helpers</a></li>
+                        <li><a href="css_media.html">Media</a></li>
+                        <li><a href="css_sass.html">Sass</a></li>
+                        <li><a href="css_shadow.html">Shadow</a></li>
+                        <li><a href="css_table.html">Table</a></li>
+                        <li><a href="css_typography.html">Typography</a></li>
+                    </ul>
+                    <ul id="dropdown-components" class="dropdown-content">
+                        <li><a href="components_badges.html">Badges</a></li>
+                        <li><a href="components_buttons.html">Buttons</a></li>
+                        <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+                        <li><a href="components_cards.html">Cards</a></li>
+                        <li><a href="components_chips.html">Chips</a></li>
+                        <li><a href="components_collections.html">Collections</a></li>
+                        <li><a href="components_footer.html">Footer</a></li>
+                        <li><a href="components_forms.html">Forms</a></li>
+                        <li><a href="components_icons.html">Icons</a></li>
+                        <li><a href="components_navbar.html">Navbar</a></li>
+                        <li><a href="components_pagination.html">Pagination</a></li>
+                        <li><a href="components_preloader.html">Preloader</a></li>
+                    </ul>
+                    <ul id="dropdown-javascript" class="dropdown-content">
+                        <li><a href="js_collapsible.html">Collapsible</a></li>
+                        <li><a href="js_dialogs.html">Dialogs</a></li>
+                        <li><a href="js_dropdown.html">Dropdown</a></li>
+                        <li><a href="js_media.html">Media</a></li>
+                        <li><a href="js_modals.html">Modals</a></li>
+                        <li><a href="js_parallax.html">Parallax</a></li>
+                        <li><a href="js_pushpin.html">Pushpin</a></li>
+                        <li><a href="js_scrollfire.html">ScrollFire</a></li>
+                        <li><a href="js_scrollspy.html">Scrollspy</a></li>
+                        <li><a href="js_sidenav.html">SideNav</a></li>
+                        <li><a href="js_tabs.html">Tabs</a></li>
+                        <li><a href="js_transitions.html">Transitions</a></li>
+                        <li><a href="js_waves.html">Waves</a></li>
+                    </ul>
+                    <ul id="dropdown-apps" class="dropdown-content">
+                        <li><a href="apps_crud.html">CRUD</a></li>
+                        <li><a href="apps_pricing_table.html">Pricing Table</a></li>
+                        <li><a href="apps_datatables.html">DataTables</a></li>
+                        <li><a href="apps_maps.html">Maps</a></li>
+                        <li><a href="apps_charts.html">Charts</a></li>
+                    </ul>
+                    <ul id="dropdown-pages" class="dropdown-content">
+                        <li><a href="pages_blank.html">Blank</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="forgot_password.html">Forgot Password</a></li>
+                        <li class="divider"></li>
+                        <li><a href="error_400.html">Error 400</a></li>
+                        <li><a href="error_403.html">Error 403</a></li>
+                        <li><a href="error_404.html">Error 404</a></li>
+                        <li><a href="error_500.html">Error 500</a></li>
+                    </ul>
+                    <ul id="dropdown-profile" class="dropdown-content">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="login.html">Logout</a></li>
+                    </ul>
+
+                    <a href="#" data-activates="mobile-demo" class="button-collapse">
+                        <i class="material-icons">menu</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
 <main>
     <div class="main-content no-gutter">
         <section id="dashboard">
@@ -111,39 +191,30 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                <div>
-                                    <span>Add Quarterly Rating for</span>
-                                    <span th:text="${student.f_name}"></span>
-                                </div>
+                                Student(s)
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form th:action="@{/grades/add}" method="post" th:object="${grade}" id="grade">
-
-
-                                <label for="quarter">Quarter</label>
-
-                                <select id="quarter" name="quarter" class="browser-default">
-                                    <option value="First">First Quarter</option>
-                                    <option value="Second">Second Quarter</option>
-                                    <option value="Third">Third Quarter</option>
-                                    <option value="Fourth">Fourth Quarter</option>
+                            <form th:action="@{/classRoom/create}" method="post" th:object="${class}">
+                                <input type="hidden" th:field="*{user.id}" value="1"/>
+                                <label for="class_name">Class name</label>
+                                <input id="class_name" th:field="*{className}"/>
+                                <label for="grade_level">Grade level</label>
+                                <select id="grade_level" name="grade_level" th:field="*{gradeLevel}" class="browser-default">
+                                    <option value="Pre-School">Pre-k and younger</option>
+                                    <option value="Kindergarten">Kindergarten</option>
+                                    <option value="1st Grade">1st</option>
+                                    <option value="2nd Grade">2nd</option>
+                                    <option value="3rd Grade">3rd</option>
+                                    <option value="4th Grade">4th</option>
+                                    <option value="5th Grade">5th</option>
+                                    <option value="6th Grade">6th</option>
                                 </select>
-
-                                <label for="rating">Rating</label>
-
-                                <select id="rating" name="rating" class="browser-default">
-                                    <option value="Satisfactory">Satisfactory</option>
-                                    <option value="Unsatisfactory">Unsatisfactory</option>
-                                    <option value="Needs Improvement">Needs Improvement</option>
-                                </select>
-                                <label for="notes">Notes</label>
-
-                                <textarea form="grade" id="notes" name="notes"></textarea>
                                 <br/>
                                 <input type="submit"/>
                             </form>
@@ -265,7 +336,7 @@
         <div class="row">
             <div class="col l3 s12">
                 <div class="brand-logo">
-                    <img src="/img/login-logo.png" />
+                    <img src="img/logo.png" />
                     <h5 class="valign">KidSYNC</h5>
                 </div>
                 <p>Making things a bit easier</p>
@@ -307,9 +378,7 @@
 <!--<script type="text/javascript" src="/js/chatBox.js"></script>-->
 
 
-
 <div id="rt-ce067dad2464d593ee55a39d2be44486"></div><script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
 
 </body>
 </html>
-

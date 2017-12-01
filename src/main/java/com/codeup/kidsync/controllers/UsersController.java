@@ -1,8 +1,10 @@
 package com.codeup.kidsync.controllers;
 
+import com.codeup.kidsync.models.ClassRoom;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.StudentsRepository;
 import com.codeup.kidsync.repositories.UsersRepository;
+import com.codeup.kidsync.services.ClassSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import com.codeup.kidsync.twillio.CheckCode;
 import com.codeup.kidsync.twillio.SendSms;
@@ -13,27 +15,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class UsersController {
     private UsersRepository users;
     private PasswordEncoder passwordEncoder;
     private final StudentsSvc studentsSvc;
+    private final ClassSvc classSvc;
 
 
 
     @Autowired
-    public UsersController(UsersRepository users, PasswordEncoder passwordEncoder, StudentsSvc studentsSvc) {
+    public UsersController(UsersRepository users, PasswordEncoder passwordEncoder, StudentsSvc studentsSvc, ClassSvc classSvc) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.studentsSvc = studentsSvc;
+        this.classSvc = classSvc;
     }
 
     @GetMapping("/home")
-    public String yourPage(Model vModel){
+    public String parentHome(Model vModel, HttpServletRequest request){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        request.getSession().setAttribute("user", user);
         if(user.getRole() ==1){
-            return "users/teacher-homePage";
+            return "redirect:/teacher-dash";
         }
         vModel.addAttribute("users", users.findAll());
         vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
@@ -41,10 +47,16 @@ public class UsersController {
     }
 
     @GetMapping("/teacher-dash")
-    public String teacherHome(Model vModel){
+    public String teacherHome(Model vModel, HttpServletRequest request){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        vModel.addAttribute("users", users.findAll());
-        vModel.addAttribute("students", studentsSvc.getStudentsByUserId(user.getId()));
+        if(user.getRole() != 1) {
+            return "errors/unauthorized";
+        }
+        request.getSession().setAttribute("user", user);
+        List<ClassRoom> classRooms = classSvc.findClassByTeacher(user.getId());
+
+        vModel.addAttribute("user", user);
+        vModel.addAttribute("classrooms", classRooms);
         return "users/teacher-homePage";
     }
 

@@ -1,7 +1,9 @@
 package com.codeup.kidsync.models;
 
+
+
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 @Table(name="class")
@@ -11,11 +13,11 @@ public class ClassRoom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(nullable =false, name= "user_id")
     public User user;
     @Column(nullable = false, name = "grade_level")
     public String gradeLevel;
-    @Column(name = "class_name")
+    @Column(nullable =false, name = "class_name")
     private String className;
 
 
