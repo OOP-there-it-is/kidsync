@@ -34,16 +34,16 @@
     <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-    <!--***** Chat Box *******-->
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'
 
-    <script type="text/javascript">
-        (function(d) {
-            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
-            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id
-            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
-            d.getElementsByTagName('head')[0].appendChild(cwjs);
-        })(document);
+            }).val();
+        });
     </script>
 </head>
 <body>
@@ -131,13 +131,20 @@
                             <form th:action="@{/attendance/add}" method="post" th:object="${attendance}" id="attendance">
                                 <label for="status">Status</label>
 
+                                <!--<form>-->
+                                    <!--<input id="datepicker" />-->
+                                <!--</form>-->
+
                                 <select id="status" name="status" class="browser-default">
                                     <option value="Present">Present</option>
                                     <option value="Tardy">Tardy</option>
                                     <option value="Absent">Absent</option>
                                 </select>
-                                <input type="text" name="date" placeholder="yyy-mm-dd"/>
+                                <!--<form>-->
+
+                                <input type="text" name="date" id="datepicker" placeholder="choose date"/>
                                 <!--<input type="hidden" th:field="" th:value="${student.id}"/>-->
+                                <!--</form>-->
                                 <input type="submit"/>
                             </form>
                             <!--****here****-->
