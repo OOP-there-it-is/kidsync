@@ -26,6 +26,7 @@ public class HealthLogController {
     public HealthLogController(HealthLogSvc healthLogSvc, StudentsSvc studentsSvc){
         this.healthLogSvc = healthLogSvc;
         this.studentsSvc = studentsSvc;
+
     }
 
     @GetMapping("/healthLog/add/{id}")
