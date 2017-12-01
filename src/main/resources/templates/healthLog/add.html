@@ -1,24 +1,320 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Dashboard | KidSYNC</title>
+    <meta name="author" content=""/>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.__cfRocketOptions = {byc:0,p:0,petok:"5c03b4243731ac721afa320f85d2251a94f5c70e-1511912244-1800"};
+        //]]>
+    </script>
+
+    <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/0e574bed/cloudflare-static/rocket.min.js"></script>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/materialize.css}"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/custom-style.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/prettify.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+
+    <!--***** Chat Box *******-->
+
+    <script type="text/javascript">
+        (function(d) {
+            var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
+            cwjs = d.createElement('script'); cwjs.type = 'text/javascript'; cwjs.async = true; cwjs.id = id;
+            cwjs.src = "//chatwing.com/code/e8f77d10-d546-11e7-bfac-6d7fac39f6bb/embedded";
+            d.getElementsByTagName('head')[0].appendChild(cwjs);
+        })(document);
+    </script>
 </head>
 <body>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
 
-<form th:action="@{/healthLog/add}" method="post" th:object="${healthLog}">
-    <select th:field="*{student.id}">
-        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>
-    </select>
-    <label for="symptoms">Symptoms</label>
-    <input id="symptoms" name="symptoms"/>
-    <br/>
-    <label for="notes">Notes</label>
-    <input id="notes" name="notes"/>
-    <br/>
-    <label for="date">Date</label>
-    <input id="date" th:field="*{date}" placeholder="2017-11-27"/>
-    <input type="submit"/>
-</form>
+<main>
+    <div class="main-content no-gutter">
+        <section id="dashboard">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                My Student
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> Mason Coindreau
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <div id="chartSalesperDay" class="chart-wrapper">
+                                <ul>
+                                    <li><a href="">Class</a></li>
+                                    <li><a href="">Grades</a></li>
+                                    <li><a href="">Attendance</a></li>
+                                    <li><a href="">Gallery</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                Events
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> December Events
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <div id="chartCustomersPerDay" class="chart-wrapper">
+                                &nbsp;
+                                <ul>
+                                    <li>Dec. 4 - Potluck</li>
+                                    <li>Dec. 8th - Fire Truck Party</li>
+                                    <li>Dec. 12th - Portrait Day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
+                        <div class="panel-header">
+                            <div class="title center-align">
+                                Messaging
+                            </div>
+                            <div class="subtitle">
+                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top:0px;">
+                            <ul id="chartNewsletterSignups" class="chart-wrapper">
+                                <li>Mari Coindreau</li>
+                                <li>Elvin Terrell</li>
+                                <li>Art Valdez</li>
+                                <li>Tomas Hippo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 teal">
+                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                        <div class="panel-header teal lighten-5">
+                            <div class="title">
+                                <span>Add a Health entry for </span>
+                                <span th:text="${student.f_name}"></span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <span th:text="${student.f_name}"></span><span>'s Health Log</span>
+                                <span></span>
+                            </div>
+                            <form th:action="@{/attendance/add}" method="post" th:object="${attendance}" id="attendance">
+
+
+                                <label for="symptoms">Symptoms</label>
+
+                             <input id="symptoms" name="symptoms"/>
+
+                                <label for="date">Date</label>
+                                <input id="date" type="text" name="date" placeholder="yyy-mm-dd"/>health_log
+
+
+
+                                <label for="notes">Notes</label>
+
+                                <textarea form="attendance" id="notes" name="notes" placeholder="Enter  treatment if any"></textarea>
+                                <br/>
+                                <input type="submit"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 deep-orange">
+                    <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
+                        <div class="panel-header deep-orange lighten-5">
+                            <div class="title">
+                                Mason's Calendar 1
+                            </div>
+                            <div class="subtitle">
+                                Last 14 days
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="chartTotalSales" class="chart-wrapper">
+                                <!--***********  CALENDAR  **************-->
+                                <div>
+                                    <iframe src="https://calendar.google.com/calendar/embed?src=7j58eurohtqvofi4hl2t290168%40group.calendar.google.com&ctz;=America/Chicago"
+                                            style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 cyan">
+                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
+                        <div class="panel-header cyan lighten-5">
+                            <div class="title">
+                                Mason's Options
+                            </div>
+                            <div class="subtitle">
+                                Activity for last 14 days
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="chartTotalSales" class="chart-wrapper">
+                                <div>
+                                    <a href="https://kidsync.youcanbook.me/" data-ycbm-modal="true" target="_blank"><img src="img/kidsync-03.png" width="150" style="border-style:none;"/><br/>Book Appointment</a>
+                                </div>
+
+                                <div id="upload"></div>
+
+                                <!--***************  PDF UPLOAD  ***************-->
+
+                                <input type="BUTTON" value="File Upload" id="fileUpload" onclick="fileLoad()"/>
+                                <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+                                <script type="text/javascript">
+
+                                    var client = filestack.init('AFYoQMhFpTPHx24Sd8iagz');
+                                    var transformURL = "https://cdn.filestack.com/watermark=file:";
+                                    function fileLoad(){
+
+                                        client.pick({
+                                            //Only accepting files with a mimetype 'image/*'
+                                            accept: 'image/*',
+                                            //Only accepting at most 1 file
+                                            maxFiles:3
+
+
+                                        }).then(function(result) {//Taking the result object in as 'result'
+                                            //Putting the result in a string, and printing it to the console
+                                            console.table(result);
+
+                                            //Sets the file handle to the handle of the first file in the result
+                                            var fileHandle = result.filesUploaded[0].url;
+
+                                            // save the url in your database -> ajax
+                                            //Logs the new file handle in the console
+                                            //console.log("fileHandle");
+                                            document.getElementById('upload').innerHTML = '<img src="'+fileHandle+'"/>';
+
+                                            function buildURL(){
+                                                transformURL += fileHandle;
+                                                transformURL += imageHandle;
+                                                console.log(transfromURL);
+                                            }
+                                        });
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 l5">
+                    <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
+                        <div class="panel-header">
+                            <div class="title">
+                                Chat
+                            </div>
+                            <div class="subtitle">
+                                Incoming messages
+                            </div>
+                        </div>
+                        <div>
+                            <div id="rt-ce067dad2464d593ee55a39d2be44486"></div>
+                            <script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l3 s12">
+                <div class="brand-logo">
+                    <img src="/img/login-logo.png" />
+                    <h5 class="valign">KidSYNC</h5>
+                </div>
+                <p>Making things a bit easier</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5>Events</h5>
+                <p>Event List</p>
+            </div>
+            <div class="col l2 offset-l1 s12 footer-links">
+                <h5>Links</h5>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="css_color.html">Calendar</a></li>
+                    <li><a href="components_badges.html">Messaging</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 KidSYNC, All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script data-rocketsrc="bower_components/jquery/dist/jquery.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/materialize.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/prettify.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/admin.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/utils.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/colors.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/theme-switcher.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/amcharts.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/serial.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/gauge.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/amcharts3/amcharts/themes/light.js" type="text/rocketscript"></script>
+<script data-rocketsrc="bower_components/slimscroll/jquery.slimscroll.js" type="text/rocketscript"></script>
+<script data-rocketsrc="js/pages/dashboard.js" type="text/rocketscript"></script>
+<!--<script type="text/javascript" src="/js/chatBox.js"></script>-->
+
+
+
+<div id="rt-ce067dad2464d593ee55a39d2be44486"></div><script src="https://www.rumbletalk.com/client/?fdPx@aEX"></script>
+
 </body>
 </html>
+<!--<form th:action="@{/healthLog/add}" method="post" th:object="${healthLog}">-->
+    <!--<select th:field="*{student.id}">-->
+        <!--<option th:each="student : ${students}" th:value="${student.id}" th:text="${student.f_name}"></option>-->
+    <!--</select>-->
+    <!--<label for="symptoms">Symptoms</label>-->
+    <!--<input id="symptoms" name="symptoms"/>-->
+    <!--<br/>-->
+    <!--<label for="notes">Notes</label>-->
+    <!--<input id="notes" name="notes"/>-->
+    <!--<br/>-->
+    <!--<label for="date">Date</label>-->
+    <!--<input id="date" th:field="*{date}" placeholder="2017-11-27"/>-->
+    <!--<input type="submit"/>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

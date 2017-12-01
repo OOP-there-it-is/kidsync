@@ -2,18 +2,23 @@ package com.codeup.kidsync.controllers;
 
 import com.codeup.kidsync.models.Attendance;
 import com.codeup.kidsync.models.Grade;
+import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.GradesRepository;
 import com.codeup.kidsync.services.AttendanceSvc;
 import com.codeup.kidsync.services.ClassSvc;
 import com.codeup.kidsync.services.StudentsSvc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AttendanceController {
@@ -30,21 +35,42 @@ public class AttendanceController {
         this.classSvc = classSvc;
     }
 
-    @GetMapping("/attendance/add")
-    public String AddAttendance(Model vModel) {
+    @GetMapping("/attendance/add/{id}")
+    public String AddAttendance(@PathVariable long id, Model vModel, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(user.getRole() != 1) {
             return "errors/unauthorized";
         }
+        Student student = studentsSvc.findOne(id);
+        request.getSession().setAttribute("student", student);
+
         vModel.addAttribute("attendance", new Attendance());
-        vModel.addAttribute("students", studentsSvc.findAll());
+        vModel.addAttribute("student", student);
         vModel.addAttribute("classes", classSvc.findClassByTeacher(user.getId()));
         return "attendance/add";
     }
 
     @PostMapping("/attendance/add")
-    public String AddAttendance(@ModelAttribute Attendance attendance) {
+    public String AddAttendance(@ModelAttribute Attendance attendance, HttpServletRequest request) {
+        Student student = (Student)request.getSession().getAttribute("student");
+
+
+        attendance.setStudent(student);
+
+
         attendanceSvc.save(attendance);
-        return "users/homePage";
+
+        return "redirect:/teacher-dash";
+    }
+
+    @GetMapping("/attendance/view/{id}")
+    public String viewAttendance(@PathVariable long id, Model vModel) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(user.getRole() != 1) {
+            return "errors/unauthorized";
+        }
+        vModel.addAttribute("student", studentsSvc.findOne(id));
+        vModel.addAttribute("attendances", attendanceSvc.getAttendanceByStudent(id));
+        return "attendance/view";
     }
 }

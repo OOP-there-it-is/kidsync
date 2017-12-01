@@ -19,17 +19,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/0e574bed/cloudflare-static/rocket.min.js"></script>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="css/materialize.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="css/custom-style.css" rel="stylesheet" type="text/css"/>
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
-    <link href="css/prettify.css" rel="stylesheet" type="text/css"/>
-    <link href="css/admin.css" rel="stylesheet" type="text/css"/>
-    <link href="css/light.css" id="ssThemeColor" rel="stylesheet" type="text/css"/>
-    <link href="css/themes/main/materialize-red.css" id="ssMainColor" rel="stylesheet" type="text/css"/>
-    <link href="css/themes/alternative/red.css" id="ssAlternativeColor" rel="stylesheet" type="text/css"/>
-    <link href="css/theme-switcher.css" rel="stylesheet" type="text/css"/>
-    <link href="css/pages/dashboard.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/materialize.css}"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/custom-style.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/prettify.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
     <!--***** Chat Box *******-->
@@ -197,29 +192,32 @@
             </div>
             <div class="row">
 
-                <div class="col s12 m6 teal">
+                <div class="m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                My Classes
+                                <span th:text="${student.f_name}"></span><span>'s Ratings</span>
                             </div>
                         </div>
                         <div class="panel-body">
                             <table class="table highlight">
                                 <thead>
                                 <tr>
-                                    <th>Class Name</th>
-                                    <th>Grade Level</th>
+                                    <th>Quarter</th>
+                                    <th>Rating</th>
+                                    <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="room : ${classrooms}">
-                                    <td th:text="${room.className}"></td>
-                                    <td th:text="${room.gradeLevel}"></td>
+                                <tr th:each="grade : ${grades}">
+                                    <td th:text="${grade.quarter}"></td>
+                                    <td th:text="${grade.rating}"></td>
+                                    <td th:text="${grade.notes}"></td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <a th:href="${'/classRoom/create'}">Add Class</a>
+
+                            <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
                         </div>
                     </div>
                 </div>

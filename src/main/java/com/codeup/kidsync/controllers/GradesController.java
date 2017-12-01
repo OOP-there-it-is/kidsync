@@ -60,20 +60,17 @@ public class GradesController {
     @PostMapping("/grades/add")
     public String AddGrade(@ModelAttribute Grade grade, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
-        System.out.println(student);
-
         grade.setStudent(student);
         gradesSvc.save(grade);
-        return "users/homePage";
+        return "users/teacher-dash";
     }
 
     @GetMapping("/grades/view/{id}")
     public String ViewAll(Model vModel, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
-
-
-
+        vModel.addAttribute("student", studentsSvc.findOne(id));
 
         return "grades/view";
     }
