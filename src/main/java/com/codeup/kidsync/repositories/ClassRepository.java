@@ -11,4 +11,6 @@ public interface ClassRepository extends CrudRepository<ClassRoom, Long>{
     List<ClassRoom> findAllById(long id);
     ClassRoom deleteClassRoomByClassName(String className);
 
+
+
 }
