@@ -19,7 +19,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/0e574bed/cloudflare-static/rocket.min.js"></script>
-    <script type="text/javascript" src="js/nav.js"></script>
+    <script type="text/javascript" th:src="@{/js/nav.js}"></script>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/materialize.css}"/>
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,6 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
     <!--***** Chat Box *******-->
-
     <script type="text/javascript">
         (function(d) {
             var cwjs, id='chatwing-js';  if(d.getElementById(id)) {return;}
@@ -44,7 +43,7 @@
 <!--<nav th:include="fragments/navbar :: mainNavbar"></nav>-->
 <header>
     <div class="navbar-fixed">
-        <nav th:fragment="parentNavbar" role="navigation">
+        <nav role="navigation">
             <div class="nav-wrapper"> <a href="#!" class="brand-logo"><img src="../img/kidsync-04.png"/></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
