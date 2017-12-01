@@ -94,16 +94,16 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Grade Book
-                            </div>
-                            <div class="subtitle">
-                                <a th:href="${'/grades/viewAll'}"> Add Grade</a>
+                                My Info
                             </div>
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
                             <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul th:each="room : ${classrooms}">
-                                    <li th:text="*{room.className}"></li>
+                                <ul >
+                                   <li>classes</li>
+                                   <li>classes</li>
+                                   <li>classes</li>
+                                   <li>classes</li>
                                 </ul>
                             </div>
                         </div>
@@ -175,15 +175,16 @@
                                 </tr>
                                 </tbody>
                             </table>
-                                <a th:href="${'/classRoom/create'}">Add Class</a>
                         </div>
+                                <a class="btn btn-primary" th:href="${'/classRoom/create'}">Add Class</a>
                     </div>
                 </div>
+                <!--put it here-->
                 <div class="col s12 m6 deep-orange">
                     <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
                         <div class="panel-header deep-orange lighten-5">
                             <div class="title">
-                                Mason's Calendar 1
+                               My Calendar
                             </div>
                             <div class="subtitle">
                                 Last 14 days
@@ -202,33 +203,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 m6 brown darken-3">
-                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
-                        <div class="panel-header brown lighten-5">
-                            <div class="title">
-                                Attendance Log
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table highlight">
-                                <thead>
-                                <tr>
-                                    <th>Class Name</th>
-                                    <th>Grade Level</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="room : ${classrooms}">
-                                    <td th:text="${room.className}"></td>
-                                    <td th:text="${room.gradeLevel}"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a th:href="${'/classRoom/create'}">Add Class</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 pink darken-2">
+                <div class="m6 pink darken-2">
                     <div id="boxChat" class="panel panel-bordered panel-dashboard panel-chat z-depth-1">
                         <div class="panel-header lighten-5">
                             <div class="title">
@@ -246,32 +221,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 m6 teal">
-                    <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
-                        <div class="panel-header teal lighten-5">
-                            <div class="title">
-                                Health Log
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table highlight">
-                                <thead>
-                                <tr>
-                                    <th>Class Name</th>
-                                    <th>Grade Level</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="room : ${classrooms}">
-                                    <td th:text="${room.className}"></td>
-                                    <td th:text="${room.gradeLevel}"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a th:href="${'/classRoom/create'}">Add Class</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="col s12 m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
@@ -330,7 +279,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+          </div>
         </section>
     </div>
 </main>

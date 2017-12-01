@@ -16,7 +16,7 @@ public class HealthLog {
     @Column(nullable = false)
     private Date date;
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(nullable = false, name = "student_id")
     private Student student;
 
     public HealthLog(){
