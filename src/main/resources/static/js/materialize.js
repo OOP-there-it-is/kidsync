@@ -6959,7 +6959,7 @@ if (Vel) {
       on('focus.toOpen', handleFocusToOpenEvent).
 
       // If there’s a click on an actionable element, carry out the actions.
-      on('click', '[data-pick], [data-nav], [data-clear], [data-close]', function () {
+      on('click', '[data-pick], [data-nav.js], [data-clear], [data-close]', function () {
 
         var $target = $(this),
             targetData = $target.data(),
@@ -6976,7 +6976,7 @@ if (Vel) {
           P.$root.eq(0).focus();
         }
 
-        // If something is superficially changed, update the `highlight` based on the `nav`.
+        // If something is superficially changed, update the `highlight` based on the `nav.js`.
         if (!targetDisabled && targetData.nav) {
           P.set('highlight', P.component.item.highlight, { nav: targetData.nav });
         }
@@ -8274,14 +8274,14 @@ if (Vel) {
         //tableHead
 
 
-    // Create the nav for next/prev month.
+    // Create the nav.js for next/prev month.
     createMonthNav = function (next) {
 
       // Otherwise, return the created month tag.
       return _.node('div', ' ', settings.klass['nav' + (next ? 'Next' : 'Prev')] + (
 
       // If the focused month is outside the range, disabled the button.
-      next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month || !next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month ? ' ' + settings.klass.navDisabled : ''), 'data-nav=' + (next || -1) + ' ' + _.ariaAttr({
+      next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month || !next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month ? ' ' + settings.klass.navDisabled : ''), 'data-nav.js=' + (next || -1) + ' ' + _.ariaAttr({
         role: 'button',
         controls: calendar.$node[0].id + '_table'
       }) + ' ' + 'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev) + '"'); //endreturn
@@ -8504,7 +8504,7 @@ if (Vel) {
 
     return {
 
-      // The title label to use for the month nav buttons
+      // The title label to use for the month nav.js buttons
       labelMonthNext: 'Next month',
       labelMonthPrev: 'Previous month',
 
@@ -8548,9 +8548,9 @@ if (Vel) {
         // end
 
 
-        navPrev: prefix + 'nav--prev',
-        navNext: prefix + 'nav--next',
-        navDisabled: prefix + 'nav--disabled',
+        navPrev: prefix + 'nav.js--prev',
+        navNext: prefix + 'nav.js--next',
+        navDisabled: prefix + 'nav.js--disabled',
 
         month: prefix + 'month',
         year: prefix + 'year',
