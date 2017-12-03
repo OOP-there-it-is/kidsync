@@ -49,20 +49,10 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Student
+                                Back to Class
                             </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Mason Coindreau
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul>
-                                    <li><a href="">Class</a></li>
-                                    <li><a href="">Grades</a></li>
-                                    <li><a href="">Attendance</a></li>
-                                    <li><a href="">Gallery</a></li>
-                                </ul>
+                            <div class="subtitle"> <h5><a th:href="@{'/classRoom/view/' + ${student.classroom.id}}" th:text="${student.classroom.className }"></a></h5>
+
                             </div>
                         </div>
                     </div>
@@ -71,20 +61,10 @@
                     <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                Events
+                                Current Student
                             </div>
                             <div class="subtitle">
-                                <i class="material-icons">schedule</i> December Events
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartCustomersPerDay" class="chart-wrapper">
-                                &nbsp;
-                                <ul>
-                                    <li>Dec. 4 - Potluck</li>
-                                    <li>Dec. 8th - Fire Truck Party</li>
-                                    <li>Dec. 12th - Portrait Day</li>
-                                </ul>
+                                <h5><span th:text="${student.f_name}"></span></h5>
                             </div>
                         </div>
                     </div>
@@ -93,19 +73,20 @@
                     <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
                         <div class="panel-header">
                             <div class="title center-align">
-                                Messaging
+                                 Ratings This year
                             </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
-                            </ul>
+                            <table class="table highlight">
+                                <tbody>
+
+                                <thead>
+                                <tr th:each="grade : ${grades}">
+                                    <td th:text="${grade.quarter}"></td>
+                                    <td th:text="${grade.rating}"></td>
+                                    <td th:text="${grade.notes}"></td>
+                                </tr>
+                                </thead>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
