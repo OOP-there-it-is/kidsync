@@ -88,20 +88,7 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Student
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Mason Coindreau
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul>
-                                    <li><a href="">Class</a></li>
-                                    <li><a href="">Grades</a></li>
-                                    <li><a href="">Attendance</a></li>
-                                    <li><a href="">Gallery</a></li>
-                                </ul>
+                                <a th:href="@{'/classRoom/view/' + ${student.classroom.id}}">Back to Class</a>
                             </div>
                         </div>
                     </div>
