@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
-<!--Use head fragment or layout will break-->
-<head th:replace="fragments/head :: main-head('Sign Up')"></head>
+<head>
+
+</head>
 <body>
-<!--<nav th:include="fragments/signup-nav :: signUpNav"></nav>-->
 <header>
-    <div class="navbar-fixed">
-        <nav th:fragment="parentNavbar" role="navigation">
+    <div class="signUpNav">
+        <nav role="navigation">
             <div class="nav-wrapper"> <a href="index.html" class="brand-logo"><img src="img/kidsync-04.png"/></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
                     <li><a href="/../home">Home</a></li>
+                    <li>
+                        <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
+                    </li>
                     <li>
                         <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
                     </li>
@@ -29,6 +32,9 @@
     <ul class="side-nav" id="mobile-demo">
         <li><a href="/../home">Home</a></li>
         <li>
+            <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
+        </li>
+        <li>
             <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
         </li>
         <li sec:authorize="isAuthenticated()">
@@ -38,29 +44,6 @@
         </li>
     </ul>
 </header>
-<div class="signUp"> &nbsp;
-<div class="row valign-wrapper" style="margin-top:150px;">
-    <p>&nbsp;</p>
-       <p> &nbsp;<br/></p>
-       <p> &nbsp;<br/></p>
-       <p> &nbsp;<br/></p>
-       <p> &nbsp;</p>
-    <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
-        <!--<img src="/img/class-03.jpg"/>-->
 
-        <img src="/img/teacher-board.png" alt="Teacher Sign Up" style="width: 200px"/>
-        <div class="caption">
-            <a th:href="${'teacher'}" class="btn btn-block btn-primary"><h5 class="signupTitle">Sign up as Teacher</h5></a>
-        </div>
-    </div>
-    <div class="offset-s2">&nbsp;</div>
-    <div class="col s4 offset-s1 center-align" style="border:1px solid #e8e8e8;background-color: #f9f9f9;padding: 25px;">
-        <img src="/img/parents.png" alt="Parents Sign Up" style="width: 200px"/>
-        <div class="caption">
-            <a th:href="${'register'}" class="btn btn-block btn-warning"><h5 class="signupTitle">Sign up as Parent</h5></a>
-        </div>
-    </div>
-</div>
-</div>
 </body>
 </html>

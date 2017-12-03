@@ -40,7 +40,6 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
                     <li><a href="homePage.html">Home</a></li>
-                    <li><a href="signUp.html">Register</a></li>
                     <li>
                         <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
                     </li>
@@ -60,7 +59,6 @@
     <!-- Move the sidenav outside of .navbar-fixed -->
     <ul class="side-nav" id="mobile-demo">
         <li><a href="sass.html">Home</a></li>
-        <li><a href="badges.html">Register</a></li>
         <li>
             <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
         </li>
