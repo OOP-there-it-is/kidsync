@@ -154,13 +154,14 @@
                         <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                             <div class="panel-header teal lighten-5">
                                 <div class="title">
-                                    Student(s)
+                                    My Student(s)
                                 </div>
                             </div>
                             <div class="panel-body">
                                 <div id="myStudents" class="col-md-6">
                                     <div th:each="student : ${students}">
                                         <strong><p th:text="${student.f_name} + ' ' + ${student.l_name}"></p></strong>
+                                        <p th:text="${student.classroom.className} + '\'s Class'"></p>
                                         <p th:text="${student.classroom.className} + '\'s Class'"></p>
                                         <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
                                         <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
@@ -171,7 +172,7 @@
                                         <!--</p>-->
                                         <hr/>
                                     </div>
-                                        <a th:href="${'/students/add'}">Add Student</a>
+                                        <a class="waves-effect waves-light btn"  th:href="${'/students/add'}">Add Student</a>
 
                                 </div>
                             </div>
