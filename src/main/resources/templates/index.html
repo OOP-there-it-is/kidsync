@@ -4,7 +4,27 @@
 <head th:replace="fragments/header :: main-header('Welcome')">
 
 </head>
-<body>
+<script type="text/javascript">
+    $( window ).ready(function() {
+
+        var wHeight = $(window).height();
+
+        $('.slide')
+            .height(wHeight)
+            .scrollie({
+                scrollOffset : -50,
+                scrollingInView : function(elem) {
+
+                    var bgColor = elem.data('background');
+
+                    $('body').css('background-color', bgColor);
+
+                }
+            });
+
+    });
+</script>
+<body style="transition: background 1s ease;background: #3498db;">
 <!--<nav th:include="fragments/navbar :: mainNavbar"></nav>-->
 <header>
     <div class="navbar-fixed">
@@ -70,7 +90,7 @@
     <div class="section">
 
         <!--   Icon Section   -->
-        <div class="row">
+        <div class="row slide slide-one" data-background="#3498db">
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
@@ -117,7 +137,7 @@
 <div class="container">
     <div class="section">
 
-        <div class="row">
+        <div class="row slide slide-two" data-background="#27ae60">
             <div class="col s12 center">
                 <h3><i class="mdi-content-send brown-text"></i></h3>
                 <h4>Contact Us</h4>
