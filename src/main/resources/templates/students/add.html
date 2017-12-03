@@ -145,7 +145,7 @@
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
-                                Student(s)
+                                Add a Student
                             </div>
                         </div>
                         <div class="panel-body">
@@ -166,10 +166,8 @@
                                     <option id="classroom" th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
                                     </option>
                                 </select>
-
-
-
-                                <input type="submit"/>
+                                <br/>
+                                <input class="btn btn-primary" type="submit"/>
 
                             </form>
 

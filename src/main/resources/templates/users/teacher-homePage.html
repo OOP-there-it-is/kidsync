@@ -84,13 +84,21 @@
                     <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
                         <div class="panel-header">
                             <div class="title center-align">
-                                My Info
+                                Edit info
                             </div>
                         </div>
                         <div class="panel-body" style="padding-top:0px;">
                             <div id="chartSalesperDay" class="chart-wrapper">
                                 <ul >
-                                   <li></li>
+                                   <li>
+                                       <a href="">Edit Email</a>
+                                   </li>
+                                    <li>
+                                        <a href="">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Change Phone number</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -129,8 +137,11 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="room : ${classrooms}">
-                                    <td><a th:href="@{'/classRoom/view/' + ${room.id}}" th:text="${room.className}"></a> </td>
-                                    <td th:text="${room.gradeLevel}"></td>
+                                    <td>
+                                        <a th:href="@{'/classRoom/view/' + ${room.id}}" th:text="${room.className}"></a>
+                                    </td>
+                                    <td th:text="${room.gradeLevel}">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td> <a class="btn btn-primary" th:href="${'/classRoom/create'}">Add Class</a></td>

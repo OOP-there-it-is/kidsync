@@ -1,5 +1,6 @@
 package com.codeup.kidsync.controllers;
 
+import com.codeup.kidsync.models.ClassRoom;
 import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.ClassRepository;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -48,7 +50,17 @@ public class StudentsController {
     @GetMapping("/students/add")
     public String AddChild(Model vModel) {
         vModel.addAttribute("student", new Student());
-        vModel.addAttribute("classrooms",classSvc.findAll());
+
+        List<ClassRoom> activeClasses = (List<ClassRoom>) classSvc.findAll();
+
+
+        for(int i = 0; i < activeClasses.size(); i++){
+            if(!activeClasses.get(i).isActive()){
+                activeClasses.remove(i);
+            }
+            vModel.addAttribute("classrooms", activeClasses);
+        }
+        vModel.addAttribute("classrooms", activeClasses);
         return "students/add";
     }
 
@@ -81,8 +93,17 @@ public class StudentsController {
 
        request.getSession().setAttribute("student", studentsSvc.findOne(id));
 
-        studentsSvc.getStudentsByUserId(id);
-        vModel.addAttribute("classrooms", classSvc.findAll());
+        List<ClassRoom> activeClasses = (List<ClassRoom>) classSvc.findAll();
+
+
+        for(int i = 0; i < activeClasses.size(); i++){
+            if(!activeClasses.get(i).isActive()){
+                activeClasses.remove(i);
+            }
+            vModel.addAttribute("classrooms", activeClasses);
+        }
+
+        vModel.addAttribute("classrooms", activeClasses);
         return "students/edit";
     }
 

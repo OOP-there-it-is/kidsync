@@ -54,15 +54,14 @@ public class UsersController {
             return "errors/unauthorized";
         }
         request.getSession().setAttribute("user", user);
-        List<ClassRoom> allClassRooms = classSvc.findClassByTeacher(user.getId());
+        List<ClassRoom> activeClasses = classSvc.findClassByTeacher(user.getId());
 
 
-        for(int i = 0; i < allClassRooms.size(); i++){
-            if(!allClassRooms.get(i).isActive()){
-                allClassRooms.remove(i);
+        for(int i = 0; i < activeClasses.size(); i++){
+            if(!activeClasses.get(i).isActive()){
+                activeClasses.remove(i);
             }
-            System.out.println(allClassRooms);
-            vModel.addAttribute("classrooms", allClassRooms);
+            vModel.addAttribute("classrooms", activeClasses);
         }
 
         vModel.addAttribute("user", user);
