@@ -53,10 +53,8 @@
                     </li>
                 </ul>
             </div>
-
          </nav>
     </div>
-
 </header>
 <main>
     <div class="main-content no-gutter">
@@ -147,13 +145,14 @@
                                 <label for="special_needs">Special needs</label>
                                 <input id="special_needs" th:field="*{special_needs}"/>
 
-                                <!--<label for="classroom">Class Room</label>-->
+                                <label for="classroom">Class Room</label>
                                 <!--<input id="classroom" th:field="*{classroom}"/>-->
 
-                                <!--<select class="browser-default">-->
-                                    <!--&lt;!&ndash;<option id="classroom" th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</option>&ndash;&gt;-->
-                                <!--</select>-->
+                                <select id="classroom" name="classroom" class="browser-default">
+                                    <option id="classroom" th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
+                                    </option>
+                                </select>
+
 
 
                                 <input type="submit"/>
