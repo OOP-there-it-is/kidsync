@@ -57,14 +57,12 @@ public class UsersController {
         List<ClassRoom> allClassRooms = classSvc.findClassByTeacher(user.getId());
 
 
-
         for(int i = 0; i < allClassRooms.size(); i++){
-            List<ClassRoom> classRooms = new ArrayList<>();
-
-            if(allClassRooms.get(i).isActive()){
-                classRooms.add(allClassRooms.get(i));
+            if(!allClassRooms.get(i).isActive()){
+                allClassRooms.remove(i);
             }
-        vModel.addAttribute("classrooms", classRooms);
+            System.out.println(allClassRooms);
+            vModel.addAttribute("classrooms", allClassRooms);
         }
 
         vModel.addAttribute("user", user);
