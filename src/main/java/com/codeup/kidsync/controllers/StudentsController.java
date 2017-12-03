@@ -4,6 +4,7 @@ import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.ClassRepository;
 import com.codeup.kidsync.services.*;
+import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -72,6 +73,28 @@ public class StudentsController {
         vModel.addAttribute("healthlog", healthLogSvc.getHealthLogByStudent(id));
 
         return "students/dash";
+    }
+
+    @GetMapping("/mystudent/edit/{id}")
+    public String EditClass(@PathVariable long id, Model vModel, HttpServletRequest request) {
+        vModel.addAttribute("student", studentsSvc.findOne(id));
+
+       request.getSession().setAttribute("student", studentsSvc.findOne(id));
+
+        studentsSvc.getStudentsByUserId(id);
+        vModel.addAttribute("classrooms", classSvc.findAll());
+        return "students/edit";
+    }
+
+    @PostMapping("/students/edit")
+    public String EditClass(HttpServletRequest request) {
+
+        Student student = (Student) request.getSession().getAttribute("student");
+
+        long classId = Long.parseLong(request.getParameter("classroom"));
+        student.setClassroom(classRepository.findOne(classId));
+        studentsSvc.save(student);
+        return "redirect:/home";
     }
 
 }

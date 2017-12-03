@@ -93,12 +93,12 @@ public class ClassRoomController {
     }
 
     @PostMapping("/classRoom/view")
-    public String dropClassroom(@ModelAttribute ClassRoom classroom, HttpServletRequest request) {
+    public String dropClassroom( HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if(user.getRole() != 1){
             return "errors/unauthorized";
         } else {
-            classroom = (ClassRoom) request.getSession().getAttribute("classroom");
+           ClassRoom classroom = (ClassRoom) request.getSession().getAttribute("classroom");
 
             classroom.setActive(false);
             classSvc.save(classroom);
