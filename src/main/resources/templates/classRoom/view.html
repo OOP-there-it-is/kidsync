@@ -114,45 +114,39 @@
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header yellow lighten-5">
                             <div class="title">
-                                My Classes
+                                <h5 th:text="${classroom.className}"></h5>
                             </div>
                         </div>
                         <div class="panel-body">
                             <!--****here****-->
                             <div id="myStudents" class="col-md-12">
-                                    <h5 th:text="${classroom.className}"></h5>
-                                    <h5 th:text="${classroom.gradeLevel}"></h5>
-                                    <h2>Roster</h2>
-                                <div th:each="student : ${students}">
-                                    <div>
-                                       First name:
-                                    <span th:text="${student.f_name}"></span>
-                                    </div>
-                                    <div>
-                                         Last Name:
-                                    <span th:text="${student.l_name}"></span>
-                                    </div>
-
-
-
-                                    <!--<a class="waves-effect waves-light btn">button</a>-->
-                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>-->
-                                    <!--<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>-->
-
-                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
-                                    <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
-                                    <a class="waves-effect waves-light btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
-                                    <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
-                                    <a class="waves-effect waves-light btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
-                                    <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a>
-
+                                <table class="table highlight">
+                                    <thead>
+                                    <tr>
+                                        <th>Class Roster</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="student : ${students}">
+                                        <td>
+                                            <h5 th:text="${student.f_name}"></h5>
+                                            <h5 th:text="${student.l_name}"></h5>
+                                        </td>
+                                        <td><a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+                                            <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
+                                            <a class="waves-effect waves-light btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
+                                            <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
+                                            <a class="waves-effect waves-light btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
+                                            <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                                 </div>
                             </div>
                             <!--****here****-->
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 </main>
