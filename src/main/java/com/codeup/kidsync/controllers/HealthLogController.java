@@ -49,7 +49,7 @@ public class HealthLogController {
         Student student = (Student) request.getSession().getAttribute("student");
         log.setStudent(student);
         healthLogSvc.save(log);
-        return "redirect:/healthLog/add/" + student.getId();
+        return "redirect:/healthLog/view/" + student.getId();
 
     }
 

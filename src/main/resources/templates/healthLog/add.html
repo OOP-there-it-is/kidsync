@@ -37,6 +37,13 @@
             d.getElementsByTagName('head')[0].appendChild(cwjs);
         })(document);
     </script>
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'
+
+            }).val();
+        });
+    </script>
 </head>
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
@@ -131,8 +138,8 @@
 
                              <input id="symptoms" name="symptoms"/>
 
-                                <label for="date">Date</label>
-                                <input id="date" type="text" name="date" placeholder="yyy-mm-dd"/>health_log
+                                <label for="datepicker">Date</label>
+                                <input type="text" name="date" id="datepicker" placeholder="choose date"/>
 
 
 

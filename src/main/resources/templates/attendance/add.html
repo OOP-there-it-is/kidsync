@@ -131,20 +131,13 @@
                             <form th:action="@{/attendance/add}" method="post" th:object="${attendance}" id="attendance">
                                 <label for="status">Status</label>
 
-                                <!--<form>-->
-                                    <!--<input id="datepicker" />-->
-                                <!--</form>-->
-
                                 <select id="status" name="status" class="browser-default">
                                     <option value="Present">Present</option>
                                     <option value="Tardy">Tardy</option>
                                     <option value="Absent">Absent</option>
                                 </select>
-                                <!--<form>-->
 
                                 <input type="text" name="date" id="datepicker" placeholder="choose date"/>
-                                <!--<input type="hidden" th:field="" th:value="${student.id}"/>-->
-                                <!--</form>-->
                                 <input type="submit"/>
                             </form>
 

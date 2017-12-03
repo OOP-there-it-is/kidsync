@@ -130,9 +130,9 @@
                                     <tr th:each="student : ${students}">
                                         <td>
                                             <h5 th:text="${student.f_name}"></h5>
-                                            <h5 th:text="${student.l_name}"></h5>
-                                        </td>
-                                        <td><a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+                                            <!--<h5 th:text="${student.l_name}"></h5>-->
+
+                                        <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
                                             <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
                                             <a class="waves-effect waves-light btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
                                             <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
