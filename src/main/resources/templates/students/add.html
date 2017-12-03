@@ -145,12 +145,14 @@
                                 <label for="special_needs">Special needs</label>
                                 <input id="special_needs" th:field="*{special_needs}"/>
 
-                                <label for="classroom">Class Room</label>
-                                <input id="classroom" th:field="*{classroom}"/>
-                                <select>
-                                    <option  th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
-                                    </option>
-                                </select>
+                                <!--<label for="classroom">Class Room</label>-->
+                                <!--<input id="classroom" th:field="*{classroom}"/>-->
+
+                                <!--<select class="browser-default">-->
+                                    <!--&lt;!&ndash;<option id="classroom" th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</option>&ndash;&gt;-->
+                                <!--</select>-->
+
 
                                 <input type="submit"/>
 
