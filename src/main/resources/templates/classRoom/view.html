@@ -130,7 +130,7 @@
                                     <tr th:each="student : ${students}">
                                         <td>
                                             <h5 th:text="${student.f_name}"></h5>
-                                            <!--<h5 th:text="${student.l_name}"></h5>-->
+                                            <h5 th:text="${student.l_name}"></h5>
 
                                         <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
                                             <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
@@ -139,8 +139,17 @@
                                             <a class="waves-effect waves-light btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
                                             <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a></td>
                                     </tr>
+                                    <tr>
+                                        <th>
+                                            <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
+                                        </th>
+                                    </tr>
                                     </tbody>
                                 </table>
+                                <form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
+                                    <input type="hidden" name="classId" th:value="${classroom.id}"/>
+                                    <button id="drop" class="waves-effect waves-light btn" type="submit">drop class</button>
+                                </form>
                                 </div>
                             </div>
                             <!--****here****-->
@@ -150,12 +159,6 @@
         </section>
     </div>
 </main>
-<button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
-<form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
-    <input type="hidden" name="classId" th:value="${classroom.id}"/>
-    <label for="drop">Drop Classroom</label>
-    <input id="drop" type="submit"/>
-</form>
 <footer class="page-footer">
     <div class="container">
         <div class="row">
