@@ -14,7 +14,7 @@
 }
 
 .signup {
-    background-image: url('../img/class-03.jpg');
+    /*background-image: url('../img/class-03.jpg');*/
     background-color: pink;
     /*opacity: 0.6;*/
     background-color: rgba(0,0,255,0.5);
@@ -23,9 +23,9 @@
 .signUp {
     position: relative;
     z-index: 1;
-    height:800px;
+    height:10%;
     display: block;
-    position: relative;
+    text-align: center;
 }
 
 .signUp:before {
@@ -36,8 +36,15 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: url('../img/class-03.jpg') no-repeat;
+    background: url('../img/class-03-lg.jpg') no-repeat;
+    height:100vh;
+    /*width:19000px;*/
     opacity: .4;
+}
+
+.signUp img{
+    width:80vh;
+    position: relative;
 }
 
 h5.signupTitle{
@@ -85,6 +92,6 @@ h5.signupTitle{
     left: 0;
     right: 0;
     /*background-image: url('../img/class-03.jpg') no-repeat;*/
-    background-color: #51A39A;
+    background-color: #7aa399;
     opacity: .6;
 }
