@@ -94,12 +94,11 @@
                                     <option id="classroom" th:each="classroom : ${classrooms}" th:value="${classroom.id}" th:text="${classroom.className}">
                                     </option>
                                 </select>
+                                <br/>
                                 <input class="btn btn-primary" type="submit"/>
-
                             </form>
                             <br/>
                             <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
-
                         </div>
                     </div>
                 </div>
