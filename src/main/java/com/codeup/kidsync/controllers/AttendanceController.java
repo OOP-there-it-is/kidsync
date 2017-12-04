@@ -64,8 +64,11 @@ public class AttendanceController {
     }
 
     @GetMapping("/attendance/view/{id}")
-    public String viewAttendance(@PathVariable long id, Model vModel) {
+    public String viewAttendance(@PathVariable long id, Model vModel, HttpServletRequest request) {
 
+        User user = (User)request.getSession().getAttribute("user");
+
+        vModel.addAttribute("user", user);
         vModel.addAttribute("student", studentsSvc.findOne(id));
         vModel.addAttribute("attendances", attendanceSvc.getAttendanceByStudent(id));
         return "attendance/view";

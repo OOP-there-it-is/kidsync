@@ -69,6 +69,7 @@ public class GradesController {
     public String ViewAll(Model vModel, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        vModel.addAttribute("user", user );
         vModel.addAttribute("grades", gradesSvc.getGradesByStudent(id));
         vModel.addAttribute("student", studentsSvc.findOne(id));
 

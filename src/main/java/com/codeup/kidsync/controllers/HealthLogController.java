@@ -61,6 +61,10 @@ public class HealthLogController {
         Student student = studentsSvc.findOne(id);
         request.getSession().setAttribute("student", student);
 
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        vModel.addAttribute("user", user );
         vModel.addAttribute("student", student);
         vModel.addAttribute("healthLog", healthLogSvc.getHealthLogByStudent(student.getId()));
         return "healthLog/view";
