@@ -28,6 +28,18 @@
     <link th:href="@{/css/pages/dashboard.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'
+
+            }).val();
+        });
+    </script>
+
 </head>
 
 <body>
@@ -99,8 +111,9 @@
 
                              <input id="symptoms" name="symptoms"/>
 
-                                <label for="date">Date</label>
-                                <input id="date" type="text" name="date" placeholder="yyy-mm-dd"/>health_log
+                                <!--<label for="date">Date</label>-->
+                                <!--<input id="date" type="text" name="date" placeholder="yyy-mm-dd"/>health_log-->
+                                <input type="text" name="date" id="datepicker" placeholder="choose date"/>
 
 
 
