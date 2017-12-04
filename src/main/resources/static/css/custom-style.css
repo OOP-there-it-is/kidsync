@@ -13,17 +13,15 @@
     color: #fff;
 }
 
-.signup {
-    background-image: url('../img/class-03.jpg');
-    background-color: pink;
+.signUp {
+    background-image: url('../img/class-03-lg.jpg');
     /*opacity: 0.6;*/
-    background-color: rgba(0,0,255,0.5);
 }
 
 .signUp {
     position: relative;
     z-index: 1;
-    height:800px;
+    height:100vh;
     display: block;
     position: relative;
 }
@@ -36,9 +34,34 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: url('../img/class-03.jpg') no-repeat;
-    opacity: .4;
+    /*background-image: url('../img/class-03.jpg') no-repeat;*/
+    background-color: #a2c7bb;
+    opacity: .6;
 }
+
+
+
+/*.signUp {*/
+    /*position: relative;*/
+    /*z-index: 1;*/
+    /*height:10%;*/
+    /*display: block;*/
+    /*text-align: center;*/
+/*}*/
+
+/*.signUp:before {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*z-index: -1;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*background: url('../img/class-03-lg.jpg') no-repeat;*/
+    /*height:100vh;*/
+    /*!*width:19000px;*!*/
+    /*opacity: .4;*/
+/*}*/
 
 h5.signupTitle{
     font-size: large;
@@ -62,16 +85,14 @@ h5.signupTitle{
 }
 
 .about {
-    background-image: url('../img/class-03.jpg');
-    background-color: pink;
+    background-image: url('../img/class-03-lg.jpg');
     /*opacity: 0.6;*/
-    background-color: rgba(0,0,255,0.5);
 }
 
 .about {
     position: relative;
     z-index: 1;
-    height:1000px;
+    height:100vh;
     display: block;
     position: relative;
 }
@@ -85,6 +106,28 @@ h5.signupTitle{
     left: 0;
     right: 0;
     /*background-image: url('../img/class-03.jpg') no-repeat;*/
-    background-color: #51A39A;
+    background-color: #a2c7bb;
     opacity: .6;
 }
+
+/*.about {*/
+    /*position: relative;*/
+    /*z-index: 1;*/
+    /*height:1000px;*/
+    /*display: block;*/
+    /*position: relative;*/
+/*}*/
+
+/*.about:before {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*z-index: -1;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*background-image: url('../img/class-03-lg.jpg') no-repeat;*/
+    /*height:100vh;*/
+    /*background-color: #7aa399;*/
+    /*opacity: .4;*/
+/*}*/
