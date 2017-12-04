@@ -5,7 +5,6 @@ import com.codeup.kidsync.models.Student;
 import com.codeup.kidsync.models.User;
 import com.codeup.kidsync.repositories.ClassRepository;
 import com.codeup.kidsync.services.*;
-import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
