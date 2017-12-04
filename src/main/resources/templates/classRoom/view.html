@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col s12 m4">
-                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
+                    <div id="boxNewsletterSignups" class="panel panel-stats ">
                         <div class="panel-header">
                             <div class="title center-align">
                                 Attendance Log
@@ -132,23 +132,26 @@
                                             <h5 th:text="${student.f_name}"></h5>
                                             <h5 th:text="${student.l_name}"></h5>
 
-                                        <a class="waves-effect waves-light btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
-                                            <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
-                                            <a class="waves-effect waves-light btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
-                                            <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
-                                            <a class="waves-effect waves-light btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
-                                            <a class="waves-effect waves-light btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a></td>
+                                            <a class="teal darken-1 btn" th:href="@{'/grades/add/' + ${student.id}}">Add Grade</a>
+                                            <a class="teal darken-1 btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
+                                            <a class="teal darken-1 btn" th:href="@{'/attendance/add/' + ${student.id}}">add attendance</a>
+                                            <a class="teal darken-1 btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
+                                            <a class="teal darken-1 btn" th:href="@{'/healthLog/add/' + ${student.id}}">add Health Log</a>
+                                            <a class="teal darken-1 btn" th:href="@{'/healthLog/view/' + ${student.id}}">View Health Log</a>
+                                           <br/>
+                                            <br/><a class="waves-effect waves-light btn" th:href="@{'mailto:' + ${student.user.email} }">Email Parent</a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
+                                            <button class="teal darken-1 btn" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
                                         </th>
                                     </tr>
                                     </tbody>
                                 </table>
                                 <form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
                                     <input type="hidden" name="classId" th:value="${classroom.id}"/>
-                                    <button id="drop" class="waves-effect waves-light btn" type="submit">drop class</button>
+                                    <button id="drop" class="teal darken-1 btn" type="submit">drop class</button>
                                 </form>
                                 </div>
                             </div>
