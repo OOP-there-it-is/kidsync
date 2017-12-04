@@ -60,7 +60,7 @@ public class AttendanceController {
 
         attendanceSvc.save(attendance);
 
-        return "redirect:/teacher-dash";
+        return "redirect:/attendance/view/" + student.getId();
     }
 
     @GetMapping("/attendance/view/{id}")
