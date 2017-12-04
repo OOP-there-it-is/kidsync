@@ -162,7 +162,11 @@
                                 </tbody>
                             </table>
 
-                            <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
+                            <div th:switch="${user.role}">
+                                <p th:case="'1'"><a class="btn btn-primary" th:href="@{'/classRoom/view/' + ${student.classroom.id}}">Back to Class</a></p>
+                                <p th:case="'2'"><button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button></p>
+                                <p th:case="*">User is some other thing</p>
+                            </div>
                         </div>
                     </div>
                 </div>
