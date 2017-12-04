@@ -39,7 +39,6 @@
             <div class="nav-wrapper"> <a href="#!" class="brand-logo"><img src="img/kidsync-04.png"/></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
-                    <li><a href="homePage.html">Home</a></li>
                     <li>
                         <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
                     </li>
@@ -73,25 +72,25 @@
     </ul>
 </header>
 <main>
-
-    PARENT DASHBOARD!!!
-
-
     <div class="main-content no-gutter">
         <section id="dashboard">
+            <div>
+                <img class="banner-img responsive-img" src="img/banner-three.jpg"/>
+                <h4>Dashboard</h4>
+            </div>
             <div class="row">
-                <div class="col s12 m4">
-                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Class Info
-                            </div>
-                            <div class="subtitle">
-                                <p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Ashley's Class</a></p>
+                <!--<div class="col s12 m4">-->
+                    <!--<div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">-->
+                        <!--<div class="panel-header">-->
+                            <!--<div class="title center-align">-->
+                                <!--Class Info-->
+                            <!--</div>-->
+                            <!--<div class="subtitle">-->
+                                <!--<p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Ashley's Class</a></p>-->
 
-                                <p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Cathy's Class</a></p>
-                            </div>
-                        </div>
+                                <!--<p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Cathy's Class</a></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
                         <!--<div class="panel-body" style="padding-top:0px;">-->
                             <!--<div id="chartSalesperDay" class="chart-wrapper">-->
                                 <!--<ul>-->
@@ -102,51 +101,51 @@
                                 <!--</ul>-->
                             <!--</div>-->
                         <!--</div>-->
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxCustomersPerDay" class="panel panel-stats indigo accent-2 z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Events
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> December Events
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartCustomersPerDay" class="chart-wrapper">
-                                &nbsp;
-                                <ul>
-                                    <li>Dec. 4 - Potluck</li>
-                                    <li>Dec. 8th - Fire Truck Party</li>
-                                    <li>Dec. 12th - Portrait Day</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Messaging
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col s12 m4">-->
+                    <!--<div id="boxCustomersPerDay" class="panel panel-stats indigo accent-2 z-depth-1">-->
+                        <!--<div class="panel-header">-->
+                            <!--<div class="title center-align">-->
+                                <!--Events-->
+                            <!--</div>-->
+                            <!--<div class="subtitle">-->
+                                <!--<i class="material-icons">schedule</i> December Events-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body" style="padding-top:0px;">-->
+                            <!--<div id="chartCustomersPerDay" class="chart-wrapper">-->
+                                <!--&nbsp;-->
+                                <!--<ul>-->
+                                    <!--<li>Dec. 4 - Potluck</li>-->
+                                    <!--<li>Dec. 8th - Fire Truck Party</li>-->
+                                    <!--<li>Dec. 12th - Portrait Day</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col s12 m4">-->
+                    <!--<div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">-->
+                        <!--<div class="panel-header">-->
+                            <!--<div class="title center-align">-->
+                                <!--Messaging-->
+                            <!--</div>-->
+                            <!--<div class="subtitle">-->
+                                <!--<i class="material-icons">schedule</i> Ms. Ashely's Parents-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body" style="padding-top:0px;">-->
+                            <!--<ul id="chartNewsletterSignups" class="chart-wrapper">-->
+                                <!--<li>Mari Coindreau</li>-->
+                                <!--<li>Elvin Terrell</li>-->
+                                <!--<li>Art Valdez</li>-->
+                                <!--<li>Tomas Hippo</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
                 <div class="row">
                     <!--**********  Students  **********-->
@@ -159,8 +158,8 @@
                             </div>
                             <div class="panel-body">
                                 <div id="myStudents" class="col-md-6">
-                                    <div th:each="student : ${students}">
-                                        <strong><p th:text="${student.f_name} + ' ' + ${student.l_name}"></p></strong>
+                                    <div class="collection" th:each="student : ${students}">
+                                        <strong><p  th:text="${student.f_name} + ' ' + ${student.l_name}"></p></strong>
                                         <p th:text="${student.classroom.className} + '\'s Class'"></p>
                                         <a class="waves-effect waves-light btn" th:href="@{'/grades/view/' + ${student.id}}">View Grades</a>
                                         <a class="waves-effect waves-light btn" th:href="@{'/attendance/view/' + ${student.id}}">View attendance</a>
@@ -169,7 +168,6 @@
                                         <!--<p th:text="${student.grades.rating}">-->
 
                                         <!--</p>-->
-                                        <hr/>
                                     </div>
                                         <a class="blue darken-3 btn"  th:href="${'/students/add'}">Add Student</a>
 
@@ -247,6 +245,7 @@
                 </div>
 
 
+            </div>
             </div>
         </section>
     </div>

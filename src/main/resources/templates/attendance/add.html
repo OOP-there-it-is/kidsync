@@ -54,71 +54,11 @@
 <main>
     <div class="main-content no-gutter">
         <section id="dashboard">
-            <div class="row">
-                <div class="col s12 m4">
-                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                My Grade Book
-                            </div>
-                            <div class="subtitle">
-                                <a th:href="${'/grades/viewAll'}">Add Grade</a>
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul th:each="room : ${classrooms}">
-                                    <li th:text="*{room.className}"></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Events
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> December Events
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartCustomersPerDay" class="chart-wrapper">
-                                &nbsp;
-                                <ul>
-                                    <li>Dec. 4 - Potluck</li>
-                                    <li>Dec. 8th - Fire Truck Party</li>
-                                    <li>Dec. 12th - Portrait Day</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Attendance Log
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <img class="banner-img responsive-img" src="/img/banner-seven.jpg"/>
             </div>
             <div class="row">
-                <div class="col s12 m12 yellow darken-1">
+                <div class="pad s12 m12 yellow darken-1">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header yellow lighten-5">
                             <div class="title">
@@ -138,9 +78,9 @@
                                 </select>
 
                                 <input type="text" name="date" id="datepicker" placeholder="choose date"/>
-                                <input type="submit"/>
+                                <input class="btn btn-primary" type="submit"/>
                             </form>
-
+<br/>
                             <button class="btn btn-primary" id="back" action="action" type="button" onclick="history.go(-1);">Back</button>
                             <!--****here****-->
                     </div>
