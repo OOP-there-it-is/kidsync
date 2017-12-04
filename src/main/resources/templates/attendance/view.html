@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -83,62 +84,11 @@
 <main>
     <div class="main-content no-gutter">
         <section id="dashboard">
-            <div class="row">
-                <div class="col s12 m4">
-                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                <a th:href="@{'/classRoom/view/' + ${student.classroom.id}}">Back to Class</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxCustomersPerDay" class="panel panel-stats indigo accent-2 z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Events
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> December Events
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartCustomersPerDay" class="chart-wrapper">
-                                &nbsp;
-                                <ul>
-                                    <li>Dec. 4 - Potluck</li>
-                                    <li>Dec. 8th - Fire Truck Party</li>
-                                    <li>Dec. 12th - Portrait Day</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Messaging
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <img class="banner-img responsive-img" src="/img/banner-three.jpg"/>
             </div>
             <div class="row">
-
-                <div class="m6 teal">
+                <div class="pad m6 teal">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
@@ -155,7 +105,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="attendance : ${attendances}">
+                                <tr class="collection" th:each="attendance : ${attendances}">
                                     <td th:text="${attendance.date}"></td>
                                     <td th:text="${attendance.status}"></td>
                                 </tr>

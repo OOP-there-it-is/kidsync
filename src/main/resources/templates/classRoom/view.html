@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -38,79 +39,59 @@
         })(document);
     </script>
 </head>
+<header>
+<div class="navbar-fixed">
+    <nav th:fragment="parentNavbar" role="navigation">
+        <div class="nav-wrapper"> <a href="index.html" class="brand-logo"><img src="img/kidsync-04.png"/></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
+                <li><a href="/../home">Home</a></li>
+                <li>
+                    <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
+                </li>
+                <li>
+                    <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" th:method="post">
+                        Logged in as <span th:text="${#authentication.principal.f_name}"> &nbsp;</span>
+                        <button class="waves-effect waves-light btn center-align" type="submit" style="margin-left:10px;padding-left:10px;padding-right:10px;">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- Move the sidenav outside of .navbar-fixed -->
+<ul class="side-nav" id="mobile-demo">
+    <li><a href="/../home">Home</a></li>
+
+    <li>
+        <span sec:authorize="!isAuthenticated()"><a href="/signUp">Register</a></span>
+    </li>
+    <li>
+        <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
+    </li>
+    <li sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" th:method="post">
+            <input class="waves-effect waves-light center-align" type="submit" value="Logout" style="margin-left:15px;padding-left:10px;padding-right:10px;position:relative;font-size:0.95rem;font-weight:500;color:rgba(0,0,0,0.87)"/>
+        </form>
+    </li>
+</ul>
+</header>
 <body>
-<nav th:include="fragments/navbar :: mainNavbar"></nav>
+
 
 <div class="col-md-6">
 </div>
 <main>
     <div class="main-content no-gutter">
         <section id="dashboard">
-            <div class="row">
-                <div class="col s12 m4">
-                    <div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                My Grade Book
-                            </div>
-                            <div class="subtitle">
-                                <a th:href="${'/grades/viewAll'}"> Add Grade</a>
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartSalesperDay" class="chart-wrapper">
-                                <ul th:each="room : ${classrooms}">
-                                    <li th:text="*{room.className}"></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxCustomersPerDay" class="panel panel-stats deep-orange darken-1 z-depth-1">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Events
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> December Events
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <div id="chartCustomersPerDay" class="chart-wrapper">
-                                &nbsp;
-                                <ul>
-                                    <li>Dec. 4 - Potluck</li>
-                                    <li>Dec. 8th - Fire Truck Party</li>
-                                    <li>Dec. 12th - Portrait Day</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="boxNewsletterSignups" class="panel panel-stats ">
-                        <div class="panel-header">
-                            <div class="title center-align">
-                                Attendance Log
-                            </div>
-                            <div class="subtitle">
-                                <i class="material-icons">schedule</i> Ms. Ashely's Parents
-                            </div>
-                        </div>
-                        <div class="panel-body" style="padding-top:0px;">
-                            <ul id="chartNewsletterSignups" class="chart-wrapper">
-                                <li>Mari Coindreau</li>
-                                <li>Elvin Terrell</li>
-                                <li>Art Valdez</li>
-                                <li>Tomas Hippo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <img class="banner-img responsive-img" src="/img/banner-four.jpg"/>
             </div>
             <div class="row">
-                <div class="col s12 m12 yellow darken-1">
+                <div class="pad s12 m12 yellow darken-1">
                     <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                         <div class="panel-header yellow lighten-5">
                             <div class="title">
@@ -127,7 +108,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="student : ${students}">
+                                    <tr class="collection" th:each="student : ${students}">
                                         <td>
                                             <h5 th:text="${student.f_name}"></h5>
                                             <h5 th:text="${student.l_name}"></h5>
@@ -149,7 +130,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
+                               <form th:action="@{/classRoom/view}" method="post" th:object="${classroom}">
                                     <input type="hidden" name="classId" th:value="${classroom.id}"/>
                                     <button id="drop" class="teal darken-1 btn" type="submit">drop class</button>
                                 </form>
@@ -167,7 +148,7 @@
         <div class="row">
             <div class="col l3 s12">
                 <div class="brand-logo">
-                    <img src="img/logo.png" />
+                    <img src="/img/logo.png" />
                     <h5 class="valign">KidSYNC</h5>
                 </div>
                 <p>Making things a bit easier</p>
