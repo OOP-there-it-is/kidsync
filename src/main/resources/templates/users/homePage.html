@@ -47,7 +47,7 @@
                     </li>
                     <li sec:authorize="isAuthenticated()">
                         <form th:action="@{/logout}" th:method="post">
-                            Logged in as <span th:text="${#authentication.principal.f_name}"> &nbsp;</span>
+                            Welcome, <span th:text="${#authentication.principal.f_name}"> &nbsp;</span>
                             <button class="waves-effect waves-light btn center-align" type="submit" style="margin-left:10px;padding-left:10px;padding-right:10px;">Logout</button>
                         </form>
                     </li>
@@ -75,81 +75,12 @@
     <div class="main-content no-gutter">
         <section id="dashboard">
             <div>
-                <img class="banner-img responsive-img" src="img/banner-three.jpg"/>
-                <h4>Dashboard</h4>
+                <img class="banner-img responsive-img" src="img/Education.ks.jpg"/>
             </div>
             <div class="row">
-                <!--<div class="col s12 m4">-->
-                    <!--<div id="boxSalesPerDay" class="panel panel-stats z-depth-1 teal darken-2">-->
-                        <!--<div class="panel-header">-->
-                            <!--<div class="title center-align">-->
-                                <!--Class Info-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--<p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Ashley's Class</a></p>-->
-
-                                <!--<p><i class="material-icons">schedule</i> <a href="" style="color: #fff;">Miss Cathy's Class</a></p>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body" style="padding-top:0px;">-->
-                            <!--<div id="chartSalesperDay" class="chart-wrapper">-->
-                                <!--<ul>-->
-                                    <!--<li><a href="">Class</a></li>-->
-                                    <!--<li><a href="">Grades</a></li>-->
-                                    <!--<li><a href="">Attendance</a></li>-->
-                                    <!--<li><a href="">Gallery</a></li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col s12 m4">-->
-                    <!--<div id="boxCustomersPerDay" class="panel panel-stats indigo accent-2 z-depth-1">-->
-                        <!--<div class="panel-header">-->
-                            <!--<div class="title center-align">-->
-                                <!--Events-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--<i class="material-icons">schedule</i> December Events-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body" style="padding-top:0px;">-->
-                            <!--<div id="chartCustomersPerDay" class="chart-wrapper">-->
-                                <!--&nbsp;-->
-                                <!--<ul>-->
-                                    <!--<li>Dec. 4 - Potluck</li>-->
-                                    <!--<li>Dec. 8th - Fire Truck Party</li>-->
-                                    <!--<li>Dec. 12th - Portrait Day</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col s12 m4">-->
-                    <!--<div id="boxNewsletterSignups" class="panel panel-stats cyan darken-2 white-text z-depth-1">-->
-                        <!--<div class="panel-header">-->
-                            <!--<div class="title center-align">-->
-                                <!--Messaging-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--<i class="material-icons">schedule</i> Ms. Ashely's Parents-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body" style="padding-top:0px;">-->
-                            <!--<ul id="chartNewsletterSignups" class="chart-wrapper">-->
-                                <!--<li>Mari Coindreau</li>-->
-                                <!--<li>Elvin Terrell</li>-->
-                                <!--<li>Art Valdez</li>-->
-                                <!--<li>Tomas Hippo</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
                 <div class="row">
                     <!--**********  Students  **********-->
-                    <div class="col s12 teal">
+                    <div class="pad s12 teal">
                         <div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">
                             <div class="panel-header teal lighten-5">
                                 <div class="title">
@@ -178,7 +109,7 @@
 
                 </div>
                 <div class="row">
-                <div class="col s12 m12 teal accent-2">
+                <div class="pad s12 m12 teal accent-2">
                     <div id="boxTotalSales" class="panel panel-bordered panel-dashboard panel-bar-chart z-depth-1">
                         <div class="panel-header teal lighten-5">
                             <div class="title">
@@ -205,29 +136,8 @@
             </div>
                 </div>
             <div class="row">
-
-                <!--<div class="col s12 m6 cyan">-->
-                    <!--<div id="boxRecentOrders" class="panel panel-bordered panel-dashboard panel-table z-depth-1">-->
-                        <!--<div class="panel-header cyan lighten-5">-->
-                            <!--<div class="title">-->
-                                <!--Mason's Options-->
-                            <!--</div>-->
-                            <!--<div class="subtitle">-->
-                                <!--Activity for last 14 days-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;Email Teacher: <a th:href="@{'mailto:' + ${users.email} }"><span th:text="${users.f_name}"></span></a>&ndash;&gt;-->
-                        <!--</div>-->
-                        <!--<div class="panel-body">-->
-                            <!--<div id="chartTotalSales" class="chart-wrapper">-->
-
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <div class=" m6 indigo darken-2">
+                <div class="pad m6 indigo darken-2">
                     <div id="boxChat" class="panel  panel-bordered panel-dashboard panel-chat z-depth-1">
-
                         <div class="panel-header indigo lighten-5">
                             <div class="title">
                                 Chat
