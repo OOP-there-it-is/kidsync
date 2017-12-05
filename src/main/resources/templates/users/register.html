@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--Must user header fragment or will break-->
-<head th:replace="fragments/header :: main-header('Register')"/>
+<head th:include="fragments/header :: main-header('Register')">
+    <link rel="shortcut icon" href="/../img/favicon/favicon.ico" type="image/x-icon"/>
+</head>
 
 <body class="cyan">
 <!-- Start Page Loading -->
