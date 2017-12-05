@@ -13,6 +13,10 @@
     color: #fff;
 }
 
+.calendarFrame {
+    background-color: #97a4db;
+}
+
 .signUp {
     background-image: url('../img/class-03-lg.jpg');
     /*opacity: 0.6;*/
