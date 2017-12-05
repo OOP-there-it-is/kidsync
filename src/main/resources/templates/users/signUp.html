@@ -8,10 +8,10 @@
 <header>
     <div class="navbar-fixed">
         <nav th:fragment="parentNavbar" role="navigation">
-            <div class="nav-wrapper"> <a href="index.html" class="brand-logo"><img src="img/kidsync-04.png"/></a>
+            <div class="nav-wrapper"> <a href="/" class="brand-logo"><img src="img/kidsync-04.png"/></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
-                    <li><a href="/../home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li>
                         <span sec:authorize="!isAuthenticated()"><a href="/login">Login</a></span>
                     </li>
