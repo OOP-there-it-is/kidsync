@@ -46,10 +46,15 @@ public class HealthLogController {
 
     @PostMapping("/healthLog/add")
     public String AddLog(@ModelAttribute HealthLog log, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
-        log.setStudent(student);
-        healthLogSvc.save(log);
-        return "redirect:/healthLog/view/" + student.getId();
+        User user = (User) request.getSession().getAttribute("user");
+        if(user.getRole() != 1){
+            return "errors/unauthorized";
+        } else {
+            Student student = (Student) request.getSession().getAttribute("student");
+            log.setStudent(student);
+            healthLogSvc.save(log);
+            return "redirect:/healthLog/view/" + student.getId();
+        }
 
     }
 
